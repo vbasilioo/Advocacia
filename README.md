@@ -19,7 +19,8 @@ Se você tem uma atualização para subir para o repositório, você deve ser os
 >2. Digite: git add . (O 'git add .' serve para adicionar todos os arquivos atualizados para o repositório. Caso você queira adicionar um específico, digite 'git add .nome')
 >3. Digite: git commit -m "comentario" (Substitua o "comentário" com um pequeno resumo da atualização que foi subida para o repositório através do seu código)
 >4. Digite: git push --set-upstream origin master (Caso você queira subir para a master. Caso queira subir para a staging, substitua master por staging)
->Pronto, aguarde a autorização dos administradores para aceitar as suas atualizações.
+
+>Pronto, aguarde o seu projeto ser enviado para o repositório acompanhando pela tela do GIT. Após finalizar, um administrador aceitará seu pull request e os arquivos do repositório serão atualizados.
 
 ### Como unir os códigos (do staging para master)?
 
