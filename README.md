@@ -19,6 +19,11 @@ Se você tem uma atualização para subir para o repositório, você deve ser os
 >2. Digite: git add . (O 'git add .' serve para adicionar todos os arquivos atualizados para o repositório. Caso você queira adicionar um específico, digite 'git add .nome')
 >3. Digite: git commit -m "comentario" (Substitua o "comentário" com um pequeno resumo da atualização que foi subida para o repositório através do seu código)
 >4. Digite: git push --set-upstream origin master (Caso você queira subir para a master. Caso queira subir para a staging, substitua master por staging)
+>5. Atualize o repositório do projeto no GitHub. Irá aparecer pra você uma 'recente atualização' com o nome da sua brunch. Clique em 'Compare & Pull Request'
+>6. A seguinte imagem irá aparecer pra você ( https://www.upload.ee/image/14581339/aaa.png )
+>7. A brancha da direita, no exemplo 'Sistema de Login' irá redirecionar os arquivos atualizados para a 'Master'
+>8. No campo de baixo ( https://www.upload.ee/image/14581341/bbb.png ) coloque o título da atualização, e nos comentários, o que foi atualizado
+>9. Clique em 'Create pull request'
 
 >Pronto, aguarde o seu projeto ser enviado para o repositório acompanhando pela tela do GIT. Após finalizar, um administrador aceitará seu pull request e os arquivos do repositório serão atualizados.
 
