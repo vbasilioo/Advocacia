@@ -44,11 +44,12 @@ Se você tem uma atualização para subir para o repositório, você deve ser os
 >6. Atualize o repositório e veja se há alterações recentes. Se sim, as alterações foram um sucesso!
 
 >Pronto, aguarde o seu projeto ser enviado para o repositório acompanhando pela tela do GIT. Após finalizar, um administrador aceitará seu pull request e os arquivos do repositório serão atualizados.
+> Lembrando que este código será enviado para o seu repositório 'Fork'. Logo abaixo, estará o processo para enviar para o repositório original.
 
-### 3. Como unir os códigos (do staging para master)?
-
->1. Com o Git Bash aberto, você deve entrar na 'branch' que irá receber a atualização, no caso a master, com o comando: git checkout master
->2. Digite: git pull (Você estará verificando se há atualizações de outros membros que não foram incluidas no seu código, caso apareça [ Already up to date ] é porque está tudo certo)
->3. Depois, você deve unir os códigos com o comando: git merge staging     (Você quer passar da staging para master, por isso escolhemos a staging)
->4. Depois digite: git push
->E o seu código já irá ser redirecionado da staging para a master!
+### 3. Como fazer um pull request?
+>1. Vá até o seu repositório 'Fork'. O seu commit irá aparecer logo acima dos arquivos do seu código (caso o upload tenha dado certo)
+>2. Na linha em que fala que o seu commit foi adicionado na master (ou staging), clique em 'Pull request'
+>3. Depois disso, você irá escolher de qual dos seus repositórios ( Fork Advocacia ) e de qual branch ( Master ou Staging ) sairá o que você quer mandar para o repositório original
+>4. Você tem que saber para qual repositório os novos arquivos vão ( Advocacia ) e de qual branch sairá ( Master ou Staging )
+>5. Digite um título do que foi alterado e alguns comentários com as atualizações, remoções e alterações
+>6. Envie o pull request para o repositório original e aguarde ser aprovado
