@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Out-2022 às 15:09
+-- Tempo de geração: 15-Out-2022 às 16:09
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -45,7 +45,7 @@ CREATE TABLE `funcionarios` (
 
 INSERT INTO `funcionarios` (`id_funcionario`, `nome_funcionario`, `telefone_funcionario`, `cpf_funcionario`, `email_funcionario`, `endereco_funcionario`, `sexo_funcionario`, `comentarios_funcionario`, `imagem_funcionario`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin', 'admin', 'Masculino', 'admin', ''),
-(2, 'Maria Clara Rocha', '190', '99999999999', 'email@email', 'minha casa', 'Feminino', 'ela é mt gata amo mt', '');
+(3, 'teste', 'teste', 'teste', 'teste', 'teste', 'Masculino', 'teste', '');
 
 -- --------------------------------------------------------
 
@@ -120,7 +120,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `id_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `processos`
