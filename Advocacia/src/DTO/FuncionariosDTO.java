@@ -1,6 +1,6 @@
 package DTO;
 
-public class CadastrarFuncionariosDTO{
+public class FuncionariosDTO{
     
     private int id_funcionario;
     private String nome_funcionario, telefone_funcionario, cpf_funcionario, email_funcionario, endereco_funcionario, sexo_funcionario, comentarios_funcionario, imagem_funcionario;

@@ -64,6 +64,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alterar Funcion&#xe1;rios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crudAlterarFuncionariosActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -74,10 +77,18 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="crudListaFuncionarios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lista de Funcion&#xe1;rios"/>
+                <Property name="text" type="java.lang.String" value="Consultar Funcion&#xe1;rios"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crudListaFuncionariosActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="crudListagemProcessos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listagem de Processos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crudListagemProcessosActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

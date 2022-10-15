@@ -1,5 +1,5 @@
 package DAO;
-import DTO.CadastrarFuncionariosDTO;
+import DTO.FuncionariosDTO;
 import java.awt.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,13 +10,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class CadastrarFuncionariosDAO{
+public class FuncionariosDAO{
     
     Connection conn;
     PreparedStatement pstm;
     ResultSet rs;
+    ArrayList<FuncionariosDTO> tabela = new ArrayList<>();
     
-    public void cadastrarFuncionario(CadastrarFuncionariosDTO funcdto){
+    public void cadastrarFuncionario(FuncionariosDTO funcdto){
         String sql = "INSERT INTO funcionarios(id_funcionario, nome_funcionario, telefone_funcionario, cpf_funcionario, email_funcionario, endereco_funcionario, sexo_funcionario, comentarios_funcionario, imagem_funcionario) values(?,?,?,?,?,?,?,?,?)";
         
         conn = new ConexaoDAO().conectaDB();
@@ -40,40 +41,66 @@ public class CadastrarFuncionariosDAO{
         }
     }
     
-    public ArrayList<CadastrarFuncionariosDTO> pesquisarFuncionario(){
-        ArrayList <CadastrarFuncionariosDTO> funcionarios = new ArrayList<>();
+    public ArrayList<FuncionariosDTO> pesquisarFuncionario(){
+        String sql = "SELECT * FROM funcionarios";
+        conn = new ConexaoDAO().conectaDB();
         
         try{
-
-            pstm = conn.prepareStatement("SELECT * FROM funcionarios");
-            rs = pstm.executeQuery();
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();   
             
             while(rs.next()){
-                CadastrarFuncionariosDTO funcdto = new CadastrarFuncionariosDTO();
+                FuncionariosDTO funcdto = new FuncionariosDTO();
                 funcdto.setId_funcionario(rs.getInt("id_funcionario"));
                 funcdto.setNome_funcionario(rs.getString("nome_funcionario"));
                 funcdto.setTelefone_funcionario(rs.getString("telefone_funcionario"));
                 funcdto.setCpf_funcionario(rs.getString("cpf_funcionario"));
                 funcdto.setEmail_funcionario(rs.getString("email_funcionario"));
                 funcdto.setEndereco_funcionario(rs.getString("endereco_funcionario"));
-                funcdto.setSexo_funcionario(rs.getString("sexo_funcionario"));
                 funcdto.setComentarios_funcionario(rs.getString("comentarios_funcionario"));
-                funcdto.setImagem_funcionario("imagem_funcionario");
-                funcionarios.add(funcdto);
+                funcdto.setImagem_funcionario(rs.getString("imagem_funcionario"));
+                tabela.add(funcdto);
             }
+            
         }catch(SQLException erro){
-            Logger.getLogger(CadastrarFuncionariosDAO.class.getName()).log(Level.SEVERE, null, erro);
+            JOptionPane.showMessageDialog(null, "FuncionariosDAO" + erro);
         }
-        return funcionarios;
+        return tabela;
     }
     
-    public void deletar(CadastrarFuncionariosDTO funcdto){
+    public void editarFuncionario(FuncionariosDTO funcdto){
+        String sql = "UPDATE funcionarios SET nome_funcionario = ?, telefone_funcionario = ?, cpf_funcionario = ?, email_funcionario = ?, endereco_funcionario = ?, comentarios_funcionario = ?, imagem_funcionario = ? WHERE id_funcionario = ?";
+        conn = new ConexaoDAO().conectaDB();
+        
         try{
-            pstm = conn.prepareStatement("DELETE FROM funcionarios WHERE id=?");
-            pstm.setInt(1, funcdto.getId_funcionario());
-            JOptionPane.showMessageDialog(null, "Funcionário(a) deletado(a) com sucesso!");
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, funcdto.getNome_funcionario());
+            pstm.setString(2, funcdto.getTelefone_funcionario());
+            pstm.setString(3, funcdto.getCpf_funcionario());
+            pstm.setString(4, funcdto.getEmail_funcionario());
+            pstm.setString(5, funcdto.getEndereco_funcionario());
+            pstm.setString(6, funcdto.getComentarios_funcionario());
+            pstm.setString(7, funcdto.getImagem_funcionario());
+            pstm.setInt(8, funcdto.getId_funcionario());
+            pstm.execute();
+            pstm.close();
         }catch(SQLException erro){
-            Logger.getLogger(CadastrarFuncionariosDAO.class.getName()).log(Level.SEVERE, null, erro);
+            JOptionPane.showMessageDialog(null, "Editar Funcionario" + erro);
         }
     }
+    
+    public void excluirFuncionario(FuncionariosDTO funcdto){
+        String sql = "DELETE FROM funcionarios WHERE id_funcionario = ?";
+        conn = new ConexaoDAO().conectaDB();
+        
+        try{
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, funcdto.getId_funcionario());
+            pstm.execute();
+            pstm.close();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Excluir Funcionario" + erro);
+        }
+    }
+    
 }

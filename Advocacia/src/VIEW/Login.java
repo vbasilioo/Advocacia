@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.lang.Thread;
 
 public class Login extends javax.swing.JFrame {
 
@@ -63,7 +64,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(27, 187, 125));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,7 +198,7 @@ public class Login extends javax.swing.JFrame {
             public void run(){
                 try{
                     Logar();
-                    for(int i=0;i<3;i++){   
+                    for(int i=0;i<5;i++){   
                         Login.setLocation(p.x - 10, p.y);
                         sleep(30);
                         Login.setLocation(p.x + 10, p.y);
@@ -286,6 +287,8 @@ public class Login extends javax.swing.JFrame {
 
 private void Logar(){
     try{
+        int contador=0;
+        
         String nome_usuario, senha_usuario;
         nome_usuario = campoUsuario.getText();
         senha_usuario = campoSenha.getText();
@@ -297,11 +300,16 @@ private void Logar(){
         UsuariosDAO usuariosdao = new UsuariosDAO();
         ResultSet rsusuariosdao = usuariosdao.autenticarUsuario(usuariosdto);
 
-        if(rsusuariosdao.next()){
-            CRUD Crud = new CRUD();
-            Crud.setVisible(true);
-            dispose();
-        }
+        //do{
+            if(rsusuariosdao.next()){
+                CRUD Crud = new CRUD();
+                Crud.setVisible(true);
+                dispose();
+            }
+           /*contador+=1;
+        }while(contador>3);
+        /rsusuariosdao.wait();
+        Thread.sleep(1000);*/
     }catch(SQLException erro){
         JOptionPane.showMessageDialog(null, "LOGAR" + erro);
     }
