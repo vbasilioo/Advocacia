@@ -1,5 +1,5 @@
 package VIEW;
-package DAO;
+import DAO.ConexaoDAO;
 
 public class CRUD extends javax.swing.JFrame {
 

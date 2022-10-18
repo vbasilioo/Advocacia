@@ -1,5 +1,5 @@
 package VIEW;
-package DAO;
+import DAO.ConexaoDAO;
 import DTO.FuncionariosDTO;
 import DAO.FuncionariosDAO;
 import UTILS.GerenteDeImagens;
