@@ -17,6 +17,25 @@ public class FuncionariosDAO{
     ResultSet rs;
     ArrayList<FuncionariosDTO> tabela = new ArrayList<>();
     
+    public ResultSet autenticarFuncionario(FuncionariosDTO usuariosdto){
+        conn = new ConexaoDAO().conectaDB();
+        
+        try{
+            String sql = "SELECT * FROM usuarios WHERE nome_usuario = ? AND senha_usuario = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, funcodto.getNome_usuario());
+            pstm.setString(2, funcdto.getSenha_usuario());
+            
+            ResultSet rs = pstm.executeQuery();
+            return rs;
+            
+        }catch (SQLException erro){
+            JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
+            return null;
+        }
+        
+    }
+    
     public void cadastrarFuncionario(FuncionariosDTO funcdto){
         String sql = "INSERT INTO funcionarios(id_funcionario, nome_funcionario, telefone_funcionario, cpf_funcionario, email_funcionario, endereco_funcionario, sexo_funcionario, comentarios_funcionario, imagem_funcionario) values(?,?,?,?,?,?,?,?,?)";
         

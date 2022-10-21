@@ -1,7 +1,7 @@
 package VIEW;
 import DAO.ConexaoDAO;
-import DAO.UsuariosDAO;
-import DTO.UsuariosDTO;
+import DTO.FuncionariosDTO;
+import DAO.FuncionariosDAO;
 import java.awt.Color;
 import java.awt.Point;
 import java.sql.ResultSet;
@@ -34,6 +34,7 @@ public class Login extends javax.swing.JFrame {
         campoSenha = new javax.swing.JPasswordField();
         botaoEntrar = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
+        campoEsqueci = new javax.swing.JToggleButton();
 
         jMenu1.setText("jMenu1");
 
@@ -97,7 +98,7 @@ public class Login extends javax.swing.JFrame {
         botaoEntrar.setForeground(new java.awt.Color(255, 255, 255));
         botaoEntrar.setText("Entrar");
         botaoEntrar.setBorderPainted(false);
-        botaoEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botaoEntrar.setFocusPainted(false);
         botaoEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -118,7 +119,7 @@ public class Login extends javax.swing.JFrame {
         botaoSair.setForeground(new java.awt.Color(255, 255, 255));
         botaoSair.setText("Sair");
         botaoSair.setBorderPainted(false);
-        botaoSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botaoSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botaoSair.setFocusPainted(false);
         botaoSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -131,6 +132,16 @@ public class Login extends javax.swing.JFrame {
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSairActionPerformed(evt);
+            }
+        });
+
+        campoEsqueci.setBackground(new java.awt.Color(153, 153, 153));
+        campoEsqueci.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        campoEsqueci.setForeground(new java.awt.Color(255, 255, 255));
+        campoEsqueci.setText("Esqueci minha senha");
+        campoEsqueci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoEsqueciActionPerformed(evt);
             }
         });
 
@@ -148,8 +159,9 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,7 +172,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,6 +259,10 @@ public class Login extends javax.swing.JFrame {
         this.setLocation(p.x + evt.getX() - point.x, p.y + evt.getY() - point.y);
     }//GEN-LAST:event_formMouseDragged
 
+    private void campoEsqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEsqueciActionPerformed
+        
+    }//GEN-LAST:event_campoEsqueciActionPerformed
+
     public static void main(String args[]) {
         try {
             
@@ -275,6 +293,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel Login;
     private javax.swing.JButton botaoEntrar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.JToggleButton campoEsqueci;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel jLabel1;
@@ -287,18 +306,18 @@ public class Login extends javax.swing.JFrame {
 
 private void Logar(){
     try{
-        int contador=0;
+        //int contador=0;
         
         String nome_usuario, senha_usuario;
         nome_usuario = campoUsuario.getText();
         senha_usuario = campoSenha.getText();
 
-        UsuariosDTO usuariosdto = new UsuariosDTO();
-        usuariosdto.setNome_usuario(nome_usuario);
-        usuariosdto.setSenha_usuario(senha_usuario);
+        FuncionariosDTO funcdto = new FuncionariosDTO();
+        funcdto.setNome_usuario(nome_usuario);
+        funcdto.setSenha_usuario(senha_usuario);
 
-        UsuariosDAO usuariosdao = new UsuariosDAO();
-        ResultSet rsusuariosdao = usuariosdao.autenticarUsuario(usuariosdto);
+        FuncionariosDAO funcdao = new FuncionariosDAO();
+        ResultSet rsusuariosdao = funcdao.autenticarFuncionario(funcdto);
 
         //do{
             if(rsusuariosdao.next()){

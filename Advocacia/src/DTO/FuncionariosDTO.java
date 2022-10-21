@@ -2,79 +2,49 @@ package DTO;
 
 public class FuncionariosDTO{
     
-    private int id_funcionario;
-    private String nome_funcionario, telefone_funcionario, cpf_funcionario, email_funcionario, endereco_funcionario, sexo_funcionario, comentarios_funcionario, imagem_funcionario;
+    private int id_usuario;
+    private String id_processo_associado;
+    private String cargo_usuario;
+    private String nome_usuario, senha_usuario;
 
-    public int getId_funcionario() {
-        return id_funcionario;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId_funcionario(int id_funcionario) {
-        this.id_funcionario = id_funcionario;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
-    public String getNome_funcionario() {
-        return nome_funcionario;
+    public String getId_processo_associado() {
+        return id_processo_associado;
     }
 
-    public void setNome_funcionario(String nome_funcionario) {
-        this.nome_funcionario = nome_funcionario;
+    public void setId_processo_associado(String id_processo_associado) {
+        this.id_processo_associado = id_processo_associado;
     }
 
-    public String getTelefone_funcionario() {
-        return telefone_funcionario;
+    public String getCargo_usuario() {
+        return cargo_usuario;
     }
 
-    public void setTelefone_funcionario(String telefone_funcionario) {
-        this.telefone_funcionario = telefone_funcionario;
+    public void setCargo_usuario(String cargo_usuario) {
+        this.cargo_usuario = cargo_usuario;
     }
 
-    public String getCpf_funcionario() {
-        return cpf_funcionario;
+    public String getNome_usuario() {
+        return nome_usuario;
     }
 
-    public void setCpf_funcionario(String cpf_funcionario) {
-        this.cpf_funcionario = cpf_funcionario;
+    public void setNome_usuario(String nome_usuario) {
+        this.nome_usuario = nome_usuario;
     }
 
-    public String getEmail_funcionario() {
-        return email_funcionario;
+    public String getSenha_usuario() {
+        return senha_usuario;
     }
 
-    public void setEmail_funcionario(String email_funcionario) {
-        this.email_funcionario = email_funcionario;
-    }
-
-    public String getEndereco_funcionario() {
-        return endereco_funcionario;
-    }
-
-    public void setEndereco_funcionario(String endereco_funcionario) {
-        this.endereco_funcionario = endereco_funcionario;
-    }
-
-    public String getSexo_funcionario() {
-        return sexo_funcionario;
-    }
-
-    public void setSexo_funcionario(String sexo_funcionario) {
-        this.sexo_funcionario = sexo_funcionario;
-    }
-
-    public String getComentarios_funcionario() {
-        return comentarios_funcionario;
-    }
-
-    public void setComentarios_funcionario(String comentarios_funcionario) {
-        this.comentarios_funcionario = comentarios_funcionario;
-    }
-
-    public String getImagem_funcionario() {
-        return imagem_funcionario;
-    }
-
-    public void setImagem_funcionario(String imagem_funcionario) {
-        this.imagem_funcionario = imagem_funcionario;
+    public void setSenha_usuario(String senha_usuario) {
+        this.senha_usuario = senha_usuario;
     }
     
 }
