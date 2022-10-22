@@ -71,8 +71,7 @@ public class CRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_crudCadastrarActionPerformed
     
     private void crudCadastrarFuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crudCadastrarFuncionariosActionPerformed
-        new CadastrarFuncionarios().setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_crudCadastrarFuncionariosActionPerformed
 
 

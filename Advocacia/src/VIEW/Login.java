@@ -1,7 +1,7 @@
 package VIEW;
 import DAO.ConexaoDAO;
-import DTO.FuncionariosDTO;
-import DAO.FuncionariosDAO;
+import DTO.UsuariosDTO;
+import DAO.UsuariosDAO;
 import java.awt.Color;
 import java.awt.Point;
 import java.sql.ResultSet;
@@ -10,8 +10,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.lang.Thread;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 public class Login extends javax.swing.JFrame {
+    
+    Connection conn;
+    PreparedStatement pstm;
+    ResultSet rs;
 
     private Point point = new Point();
     
@@ -149,26 +155,28 @@ public class Login extends javax.swing.JFrame {
         Login.setLayout(LoginLayout);
         LoginLayout.setHorizontalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(LoginLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(LoginLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 33, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(33, 33, 33)
                 .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +268,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void campoEsqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEsqueciActionPerformed
-        
+        new ConstatarAdministrador().setVisible(true);
     }//GEN-LAST:event_campoEsqueciActionPerformed
 
     public static void main(String args[]) {
@@ -306,29 +314,23 @@ public class Login extends javax.swing.JFrame {
 
 private void Logar(){
     try{
-        //int contador=0;
         
         String nome_usuario, senha_usuario;
         nome_usuario = campoUsuario.getText();
         senha_usuario = campoSenha.getText();
 
-        FuncionariosDTO funcdto = new FuncionariosDTO();
+        UsuariosDTO funcdto = new UsuariosDTO();
         funcdto.setNome_usuario(nome_usuario);
         funcdto.setSenha_usuario(senha_usuario);
 
-        FuncionariosDAO funcdao = new FuncionariosDAO();
+        UsuariosDAO funcdao = new UsuariosDAO();
         ResultSet rsusuariosdao = funcdao.autenticarFuncionario(funcdto);
 
-        //do{
-            if(rsusuariosdao.next()){
-                CRUD Crud = new CRUD();
-                Crud.setVisible(true);
-                dispose();
-            }
-           /*contador+=1;
-        }while(contador>3);
-        /rsusuariosdao.wait();
-        Thread.sleep(1000);*/
+        if(rsusuariosdao.next()){
+            CRUD Crud = new CRUD();
+            Crud.setVisible(true);
+            dispose();
+        }
     }catch(SQLException erro){
         JOptionPane.showMessageDialog(null, "LOGAR" + erro);
     }

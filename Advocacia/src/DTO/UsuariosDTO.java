@@ -1,6 +1,6 @@
 package DTO;
 
-public class FuncionariosDTO{
+public class UsuariosDTO{
     
     private int id_usuario;
     private String id_processo_associado;
