@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.lang.Thread;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -315,22 +314,31 @@ public class Login extends javax.swing.JFrame {
 private void Logar(){
     try{
         
-        String nome_usuario, senha_usuario;
+        String nome_usuario, senha_usuario, cargo_usuario;
         nome_usuario = campoUsuario.getText();
         senha_usuario = campoSenha.getText();
 
         UsuariosDTO funcdto = new UsuariosDTO();
         funcdto.setNome_usuario(nome_usuario);
         funcdto.setSenha_usuario(senha_usuario);
+        funcdto.getCargo_usuario();
 
         UsuariosDAO funcdao = new UsuariosDAO();
         ResultSet rsusuariosdao = funcdao.autenticarFuncionario(funcdto);
-
+        rsusuariosdao = funcdao.verificarFuncionario(funcdto);
+      
         if(rsusuariosdao.next()){
-            CRUD Crud = new CRUD();
-            Crud.setVisible(true);
-            dispose();
+           if(rsusuariosdao.equals('1')){
+               Logar();
+           }
         }
+        /*if(cargo.equals('0')){
+            if(rsusuariosdao.next()){
+                CRUD Crud = new CRUD();
+                Crud.setVisible(true);
+                dispose();
+            }
+        }*/
     }catch(SQLException erro){
         JOptionPane.showMessageDialog(null, "LOGAR" + erro);
     }

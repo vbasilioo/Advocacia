@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import VIEW.Login;
+import java.awt.Point;
+import static java.lang.Thread.sleep;
 
 public class UsuariosDAO{
     
@@ -25,15 +28,29 @@ public class UsuariosDAO{
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, usuariosdto.getNome_usuario());
             pstm.setString(2, usuariosdto.getSenha_usuario());
-            
             rs = pstm.executeQuery();
             return rs;
             
         }catch (SQLException erro){
-            JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
+            JOptionPane.showMessageDialog(null, "UsuarioDAO AUTENTICAR: " + erro);
             return null;
         }
         
+    }
+    
+    public ResultSet verificarFuncionario(UsuariosDTO usuariosdto){
+        conn = new ConexaoDAO().conectaDB();
+        
+        try{
+            String cargo = "SELECT * FROM usuarios WHERE nome_usuario = "+autenticarFuncionario(usuariosdto)+" AND cargo_usuario = ?";
+            pstm = conn.prepareStatement(cargo);
+            usuariosdto.getCargo_usuario();
+            rs = pstm.executeQuery();
+            return rs;
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "UsuarioDAO VERIFICAR" + erro);
+            return null;
+        }
     }
     
     public void cadastrarFuncionario(UsuariosDTO funcdto){
