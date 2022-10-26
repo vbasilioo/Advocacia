@@ -4,7 +4,7 @@ public class UsuariosDTO{
     
     private int id_usuario;
     private String id_processo_associado;
-    private String cargo_usuario;
+    private String email_usuario, cargo_usuario;
     private String nome_usuario, senha_usuario;
 
     public int getId_usuario() {
@@ -45,6 +45,14 @@ public class UsuariosDTO{
 
     public void setSenha_usuario(String senha_usuario) {
         this.senha_usuario = senha_usuario;
+    }
+
+    public String getEmail_usuario() {
+        return email_usuario;
+    }
+
+    public void setEmail_usuario(String email_usuario) {
+        this.email_usuario = email_usuario;
     }
     
 }

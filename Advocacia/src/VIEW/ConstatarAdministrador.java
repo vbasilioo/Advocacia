@@ -17,6 +17,7 @@ public class ConstatarAdministrador extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Contatar Administrador");
 
         campoEnviar.setText("Enviar");
         campoEnviar.addActionListener(new java.awt.event.ActionListener() {

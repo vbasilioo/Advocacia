@@ -1,17 +1,11 @@
 package DAO;
 import DTO.UsuariosDTO;
-import java.awt.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import VIEW.Login;
-import java.awt.Point;
-import static java.lang.Thread.sleep;
 
 public class UsuariosDAO{
     
@@ -20,7 +14,7 @@ public class UsuariosDAO{
     ResultSet rs;
     ArrayList<UsuariosDTO> tabela = new ArrayList<>();
     
-    public ResultSet autenticarFuncionario(UsuariosDTO usuariosdto){
+    public ResultSet autenticarUsuario(UsuariosDTO usuariosdto){
         conn = new ConexaoDAO().conectaDB();
         
         try{
@@ -38,24 +32,9 @@ public class UsuariosDAO{
         
     }
     
-    public ResultSet verificarFuncionario(UsuariosDTO usuariosdto){
-        conn = new ConexaoDAO().conectaDB();
-        
-        try{
-            String cargo = "SELECT * FROM usuarios WHERE nome_usuario = "+autenticarFuncionario(usuariosdto)+" AND cargo_usuario = ?";
-            pstm = conn.prepareStatement(cargo);
-            usuariosdto.getCargo_usuario();
-            rs = pstm.executeQuery();
-            return rs;
-        }catch(SQLException erro){
-            JOptionPane.showMessageDialog(null, "UsuarioDAO VERIFICAR" + erro);
-            return null;
-        }
-    }
-    
-    public void cadastrarFuncionario(UsuariosDTO funcdto){
-        String sql = "INSERT INTO usuarios(id_usuario, nome_usuario, senha_usuario, cargo_usuario, id_processo.associado)"
-                + "values (?,?,?,?,?)";
+    public void cadastrarUsuario(UsuariosDTO funcdto){
+        String sql = "INSERT INTO usuarios(id_usuario, nome_usuario, senha_usuario, email_usuario, cargo_usuario, id_processo_associado)"
+                + "values (?,?,?,?,?,?)";
         
         conn = new ConexaoDAO().conectaDB();
         
@@ -64,8 +43,9 @@ public class UsuariosDAO{
             pstm.setInt(1, funcdto.getId_usuario());
             pstm.setString(2, funcdto.getNome_usuario());
             pstm.setString(3, funcdto.getSenha_usuario());
-            pstm.setString(4, funcdto.getCargo_usuario());
-            pstm.setString(5, funcdto.getId_processo_associado());
+            pstm.setString(4, funcdto.getEmail_usuario());
+            pstm.setString(5, funcdto.getCargo_usuario());
+            pstm.setString(6, funcdto.getId_processo_associado());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
             pstm.close();
@@ -74,7 +54,7 @@ public class UsuariosDAO{
         }
     }
     
-    public ArrayList<UsuariosDTO> pesquisarFuncionario(){
+    public ArrayList<UsuariosDTO> pesquisarUsuario(){
         String sql = "SELECT * FROM usuarios";
         conn = new ConexaoDAO().conectaDB();
         
@@ -84,11 +64,10 @@ public class UsuariosDAO{
             
             while(rs.next()){
                 UsuariosDTO funcdto = new UsuariosDTO();
-                funcdto.setId_usuario(rs.getInt("id_usuario"));
                 funcdto.setNome_usuario(rs.getString("nome_usuario"));
-                funcdto.setSenha_usuario(rs.getString("senha_usuario"));
+                funcdto.setEmail_usuario(rs.getString("email_usuario"));
                 funcdto.setCargo_usuario(rs.getString("cargo_usuario"));
-                funcdto.setId_processo_associado(rs.getString("id_processo.associado"));
+                funcdto.setId_processo_associado(rs.getString("id_processo_associado"));
                 tabela.add(funcdto);
             }
             
@@ -98,7 +77,7 @@ public class UsuariosDAO{
         return tabela;
     }
     
-    public void editarFuncionario(UsuariosDTO funcdto){
+    public void editarUsuario(UsuariosDTO funcdto){
         String sql = "UPDATE usuarios SET nome_usuario = ?, senha_usuario = ?, cargo_usuario = ?, id_processo.associado = ?"
                 + "WHERE id_usuario = ?";
         conn = new ConexaoDAO().conectaDB();
@@ -108,8 +87,9 @@ public class UsuariosDAO{
             pstm.setInt(1, funcdto.getId_usuario());
             pstm.setString(2, funcdto.getNome_usuario());
             pstm.setString(3, funcdto.getSenha_usuario());
-            pstm.setString(4, funcdto.getCargo_usuario());
-            pstm.setString(5, funcdto.getId_processo_associado());
+            pstm.setString(4, funcdto.getEmail_usuario());
+            pstm.setString(5, funcdto.getCargo_usuario());
+            pstm.setString(6, funcdto.getId_processo_associado());
             pstm.execute();
             pstm.close();
         }catch(SQLException erro){
@@ -117,7 +97,7 @@ public class UsuariosDAO{
         }
     }
     
-    public void excluirFuncionario(UsuariosDTO funcdto){
+    /*public void excluirFuncionario(UsuariosDTO funcdto){
         String sql = "DELETE FROM usuarios WHERE id_usuario = ?";
         conn = new ConexaoDAO().conectaDB();
         
@@ -128,6 +108,19 @@ public class UsuariosDAO{
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Excluir Usuário" + erro);
+        }
+    }*/
+    
+    public ResultSet listarUsuarios(){
+        conn = new ConexaoDAO().conectaDB();
+        String sql = "SELECT * FROM usuarios ORDER BY id_usuario";
+        
+        try{
+            pstm = conn.prepareStatement(sql);
+            return pstm.executeQuery();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro em Listar Usuários!" + erro);
+            return null;
         }
     }
     

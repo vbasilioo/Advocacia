@@ -31,6 +31,9 @@ public class Login extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPasswordField1 = new javax.swing.JPasswordField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
@@ -160,14 +163,14 @@ public class Login extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(LoginLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(87, 87, 87)
                         .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 33, Short.MAX_VALUE)))
+                        .addGap(0, 68, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         LoginLayout.setVerticalGroup(
@@ -179,13 +182,13 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(60, 60, 60)
                 .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -219,6 +222,7 @@ public class Login extends javax.swing.JFrame {
             public void run(){
                 try{
                     Logar();
+                    
                     for(int i=0;i<5;i++){   
                         Login.setLocation(p.x - 10, p.y);
                         sleep(30);
@@ -300,6 +304,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel Login;
     private javax.swing.JButton botaoEntrar;
     private javax.swing.JButton botaoSair;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JToggleButton campoEsqueci;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JTextField campoUsuario;
@@ -314,31 +321,30 @@ public class Login extends javax.swing.JFrame {
 private void Logar(){
     try{
         
-        String nome_usuario, senha_usuario, cargo_usuario;
+        String nome_usuario, senha_usuario;
         nome_usuario = campoUsuario.getText();
         senha_usuario = campoSenha.getText();
 
         UsuariosDTO funcdto = new UsuariosDTO();
         funcdto.setNome_usuario(nome_usuario);
         funcdto.setSenha_usuario(senha_usuario);
-        funcdto.getCargo_usuario();
 
         UsuariosDAO funcdao = new UsuariosDAO();
-        ResultSet rsusuariosdao = funcdao.autenticarFuncionario(funcdto);
-        rsusuariosdao = funcdao.verificarFuncionario(funcdto);
+        ResultSet rsusuariosdao = funcdao.autenticarUsuario(funcdto);
       
         if(rsusuariosdao.next()){
-           if(rsusuariosdao.equals('1')){
-               Logar();
-           }
-        }
-        /*if(cargo.equals('0')){
-            if(rsusuariosdao.next()){
-                CRUD Crud = new CRUD();
-                Crud.setVisible(true);
+            if(campoUsuario.getText().equals("admin")&&campoSenha.getText().equals("admin")){
+                TelaAdministrador tadm = new TelaAdministrador();
+                tadm.setVisible(true);
                 dispose();
             }
-        }*/
+            else{
+                TelaUsuario tusu = new TelaUsuario();
+                tusu.setVisible(true);
+                dispose();
+            }
+        }
+        
     }catch(SQLException erro){
         JOptionPane.showMessageDialog(null, "LOGAR" + erro);
     }
