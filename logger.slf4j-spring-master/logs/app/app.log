@@ -1,0 +1,25 @@
+06-12-2020 10:16:17.099 | 307  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+06-12-2020 10:16:17.799 | 1007 | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 92332 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+06-12-2020 10:16:17.800 | 1008 | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+06-12-2020 10:16:23.024 | 6232 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.784 seconds (JVM running for 6.567)
+06-12-2020 10:16:23.027 | 6235 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+06-12-2020 10:16:37.996 | 21204 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:19:25.821 | 189029 | [http-nio-8080-exec-3] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:21:55.057 | 351  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+06-12-2020 10:21:55.700 | 994  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 74844 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+06-12-2020 10:21:55.703 | 997  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+06-12-2020 10:22:01.004 | 6298 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.82 seconds (JVM running for 6.704)
+06-12-2020 10:22:01.007 | 6301 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+06-12-2020 10:22:24.487 | 29781 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:24:54.586 | 179880 | [http-nio-8080-exec-3] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:31:02.039 | 547333 | [http-nio-8080-exec-5] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:31:33.358 | 288  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+06-12-2020 10:31:34.000 | 930  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 44432 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+06-12-2020 10:31:34.002 | 932  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+06-12-2020 10:31:39.177 | 6107 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.701 seconds (JVM running for 6.439)
+06-12-2020 10:31:39.179 | 6109 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+06-12-2020 10:31:54.366 | 21296 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:32:09.077 | 36007 | [http-nio-8080-exec-2] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:32:59.762 | 86692 | [http-nio-8080-exec-3] | INFO  | b.c.a.services.FuncionarioService - Funcionario Geo salvo com sucesso!
+06-12-2020 10:33:04.359 | 91289 | [http-nio-8080-exec-4] | INFO  | b.c.a.services.FuncionarioService - Retorno funcionario com sucesso!
+06-12-2020 10:33:05.307 | 92237 | [http-nio-8080-exec-5] | INFO  | b.c.a.services.FuncionarioService - Retorno funcionario com sucesso!

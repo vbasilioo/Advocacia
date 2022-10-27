@@ -20,6 +20,11 @@ public class TelaAdministrador extends javax.swing.JFrame {
         setTitle("Janela Principal ADM");
 
         campoCaixaEntrada.setText("Caixa de Entrada");
+        campoCaixaEntrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCaixaEntradaActionPerformed(evt);
+            }
+        });
 
         campoSair.setText("Sair");
         campoSair.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +104,12 @@ public class TelaAdministrador extends javax.swing.JFrame {
         listar.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoConsultarActionPerformed
+
+    private void campoCaixaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCaixaEntradaActionPerformed
+        CaixaEntradaAdministrador cea = new CaixaEntradaAdministrador();
+        cea.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_campoCaixaEntradaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

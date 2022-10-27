@@ -1,0 +1,130 @@
+10:20:01.598 | 243  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:20:02.156 | 801  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 5820 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:20:02.158 | 803  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:20:06.521 | 5166 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 4.804 seconds (JVM running for 5.426)
+10:20:06.523 | 5168 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:21:35.616 | 267  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:21:35.616 | 267  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:21:36.129 | 780  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 98360 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:21:36.129 | 780  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 98360 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:21:36.130 | 781  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:21:36.130 | 781  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:21:40.016 | 4667 | [main] | WARN  | o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10:21:40.722 | 5373 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.0 seconds (JVM running for 5.651)
+10:21:40.722 | 5373 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.0 seconds (JVM running for 5.651)
+10:21:40.724 | 5375 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:21:40.724 | 5375 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:24:38.532 | 267  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:24:39.074 | 809  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 95284 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:24:39.075 | 810  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:24:43.718 | 5453 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.083 seconds (JVM running for 5.732)
+10:24:43.721 | 5456 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:27:55.372 | 239  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:27:55.920 | 787  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 98724 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:27:55.921 | 788  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:28:00.732 | 5599 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.252 seconds (JVM running for 5.897)
+10:28:00.735 | 5602 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:28:03.853 | 8720 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+10:29:35.372 | 251  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:29:35.943 | 822  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 90396 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:29:35.944 | 823  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:29:40.370 | 5249 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 4.902 seconds (JVM running for 5.538)
+10:29:40.372 | 5251 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:29:55.405 | 20284 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+10:30:06.819 | 248  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:30:07.343 | 772  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 96112 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:30:07.344 | 773  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:30:11.932 | 5361 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.021 seconds (JVM running for 5.65)
+10:30:11.933 | 5362 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:30:40.539 | 261  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:30:41.058 | 780  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 99288 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:30:41.059 | 781  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:30:45.531 | 5253 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 4.891 seconds (JVM running for 5.53)
+10:30:45.534 | 5256 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:30:54.562 | 14284 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+10:38:57.553 | 267  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:38:58.079 | 793  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 63648 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:38:58.080 | 794  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:39:02.988 | 5702 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.332 seconds (JVM running for 5.956)
+10:39:02.990 | 5704 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:40:05.843 | 241  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:43:18.488 | 240  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:43:19.009 | 761  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 32608 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:43:19.010 | 762  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:43:23.563 | 5315 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 4.971 seconds (JVM running for 5.583)
+10:43:23.564 | 5316 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:45:10.445 | 246  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:45:11.017 | 818  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 88136 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:45:11.018 | 819  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:45:15.508 | 5309 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 4.942 seconds (JVM running for 5.568)
+10:45:15.510 | 5311 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+10:45:23.130 | 12931 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+10:46:03.239 | 53040 | [http-nio-8080-exec-10] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+10:46:25.968 | 243  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+10:46:26.447 | 722  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 77608 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+10:46:26.449 | 724  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+10:46:30.874 | 5149 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 4.809 seconds (JVM running for 5.404)
+10:46:30.876 | 5151 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+12:45:02.618 | 249  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+12:45:03.207 | 838  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 20900 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+12:45:03.209 | 840  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+12:45:07.938 | 5569 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.206 seconds (JVM running for 5.85)
+12:45:07.939 | 5570 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+12:47:08.624 | 126255 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:48:18.610 | 261  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+12:48:19.165 | 816  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 28876 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+12:48:19.166 | 817  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+12:48:23.817 | 5468 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.106 seconds (JVM running for 5.733)
+12:48:23.820 | 5471 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+12:51:40.498 | 202149 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:08.736 | 230387 | [http-nio-8080-exec-2] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:09.199 | 230850 | [http-nio-8080-exec-3] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:09.640 | 231291 | [http-nio-8080-exec-4] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:10.057 | 231708 | [http-nio-8080-exec-5] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:10.248 | 231899 | [http-nio-8080-exec-6] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:10.432 | 232083 | [http-nio-8080-exec-7] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:10.640 | 232291 | [http-nio-8080-exec-8] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:10.818 | 232469 | [http-nio-8080-exec-9] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:10.998 | 232649 | [http-nio-8080-exec-10] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:11.180 | 232831 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:11.349 | 233000 | [http-nio-8080-exec-2] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:11.519 | 233170 | [http-nio-8080-exec-3] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:11.694 | 233345 | [http-nio-8080-exec-4] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:11.860 | 233511 | [http-nio-8080-exec-5] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:12.042 | 233693 | [http-nio-8080-exec-6] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:12.226 | 233877 | [http-nio-8080-exec-7] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:12.409 | 234060 | [http-nio-8080-exec-8] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:12.579 | 234230 | [http-nio-8080-exec-9] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:12.782 | 234433 | [http-nio-8080-exec-10] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:12.938 | 234589 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:13.122 | 234773 | [http-nio-8080-exec-2] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:13.307 | 234958 | [http-nio-8080-exec-3] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:13.472 | 235123 | [http-nio-8080-exec-4] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:13.645 | 235296 | [http-nio-8080-exec-5] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:13.843 | 235494 | [http-nio-8080-exec-6] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:14.024 | 235675 | [http-nio-8080-exec-7] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:14.188 | 235839 | [http-nio-8080-exec-8] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:14.363 | 236014 | [http-nio-8080-exec-9] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:14.539 | 236190 | [http-nio-8080-exec-10] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:14.719 | 236370 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:14.910 | 236561 | [http-nio-8080-exec-2] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:15.088 | 236739 | [http-nio-8080-exec-3] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:15.264 | 236915 | [http-nio-8080-exec-4] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:15.438 | 237089 | [http-nio-8080-exec-5] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:15.628 | 237279 | [http-nio-8080-exec-6] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:20.714 | 242365 | [http-nio-8080-exec-7] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:21.140 | 242791 | [http-nio-8080-exec-8] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:21.318 | 242969 | [http-nio-8080-exec-9] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:21.524 | 243175 | [http-nio-8080-exec-10] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:52:21.740 | 243391 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:53:10.290 | 244  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+12:53:10.873 | 827  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 75360 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+12:53:10.874 | 828  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+12:53:15.740 | 5694 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.341 seconds (JVM running for 5.967)
+12:53:15.741 | 5695 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!
+12:53:17.458 | 7412 | [http-nio-8080-exec-1] | INFO  | b.c.a.services.FuncionarioService - Funcionario salvo com sucesso!
+12:54:09.516 | 246  | [main] | INFO  | b.c.a.ApiExemploApplication - Iniciando a api de cadastro!
+12:54:10.090 | 820  | [main] | INFO  | b.c.a.ApiExemploApplication - Starting ApiExemploApplication on DESKTOP-VIHBB8T with PID 70580 (C:\Users\salan\Documents\Projects in Java\ApiExemplo\target\classes started by salan in C:\Users\salan\Documents\Projects in Java\ApiExemplo)
+12:54:10.092 | 822  | [main] | INFO  | b.c.a.ApiExemploApplication - No active profile set, falling back to default profiles: default
+12:54:14.873 | 5603 | [main] | INFO  | b.c.a.ApiExemploApplication - Started ApiExemploApplication in 5.253 seconds (JVM running for 5.881)
+12:54:14.875 | 5605 | [main] | INFO  | b.c.a.ApiExemploApplication - API de cadastro iniciada e pronta para receber requisições!

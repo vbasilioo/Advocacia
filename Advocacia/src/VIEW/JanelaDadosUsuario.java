@@ -32,6 +32,8 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
         campoCancelar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsuarios = new javax.swing.JTable();
+        campoLimpar = new javax.swing.JButton();
+        campoCarregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,17 +66,31 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
         tabelaUsuarios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tabelaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nome", "E-mail", "Cargo", "Processos"
+                "Nome", "Senha", "E-mail", "Cargo", "Processos"
             }
         ));
         tabelaUsuarios.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tabelaUsuarios);
+
+        campoLimpar.setText("Limpar Campos");
+        campoLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoLimparActionPerformed(evt);
+            }
+        });
+
+        campoCarregar.setText("Carregar Informações");
+        campoCarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCarregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,34 +100,37 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(campoEmail)
-                                .addComponent(campoSenha)
-                                .addComponent(campoSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(campoProcessos)
-                                .addComponent(campoNome)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4)
-                                .addComponent(campoCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(campoCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addComponent(campoEmail)
+                            .addComponent(campoSenha)
+                            .addComponent(campoSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2)
+                            .addComponent(campoProcessos)
+                            .addComponent(campoNome)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(campoCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(campoCarregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(campoLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,11 +150,15 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoProcessos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoCarregar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(campoLimpar)
+                .addGap(18, 18, 18)
                 .addComponent(campoSalvar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoCancelar)
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -143,7 +166,9 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSalvarActionPerformed
-
+        editarUsuario();
+        listarUsuarios();
+        limparCampos();
     }//GEN-LAST:event_campoSalvarActionPerformed
 
     private void campoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCancelarActionPerformed
@@ -151,6 +176,14 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
         telaadm.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCancelarActionPerformed
+
+    private void campoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLimparActionPerformed
+        limparCampos();
+    }//GEN-LAST:event_campoLimparActionPerformed
+
+    private void campoCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCarregarActionPerformed
+        carregarCampos();
+    }//GEN-LAST:event_campoCarregarActionPerformed
 
     private void listarUsuarios(){
         try{
@@ -162,6 +195,7 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
             for(int i=0;i<lista.size();i++){
                 model.addRow(new Object[]{
                    lista.get(i).getNome_usuario(),
+                   lista.get(i).getSenha_usuario(),
                    lista.get(i).getEmail_usuario(),
                    lista.get(i).getCargo_usuario(),
                    lista.get(i).getId_processo_associado()
@@ -171,11 +205,52 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Listar Usuarios" + erro);
         }
     }
+    
+    private void limparCampos(){
+        campoNome.setText("");
+        campoSenha.setText("");
+        campoEmail.setText("");
+        campoCargo.setText("");
+        campoProcessos.setText("");
+    }
+    
+    private void editarUsuario(){
+        int id_usuario;
+        String nome_usuario, senha_usuario, email_usuario, cargo_usuario, id_processo_associado;
+        
+        nome_usuario = campoNome.getText();
+        senha_usuario = campoSenha.getText();
+        email_usuario = campoEmail.getText();
+        cargo_usuario = campoCargo.getText();
+        id_processo_associado = campoProcessos.getText();
+        
+        UsuariosDTO usudto = new UsuariosDTO();
+        usudto.setNome_usuario(nome_usuario);
+        usudto.setSenha_usuario(senha_usuario);
+        usudto.setEmail_usuario(email_usuario);
+        usudto.setCargo_usuario(cargo_usuario);
+        usudto.setId_processo_associado(id_processo_associado);
+        
+        UsuariosDAO usudao = new UsuariosDAO();
+        usudao.editarUsuario(usudto);
+    }
+    
+    private void carregarCampos(){
+        int setar = tabelaUsuarios.getSelectedRow();
+        
+        campoNome.setText(tabelaUsuarios.getModel().getValueAt(setar, 0).toString());
+        campoSenha.setText(tabelaUsuarios.getModel().getValueAt(setar, 1).toString());
+        campoEmail.setText(tabelaUsuarios.getModel().getValueAt(setar, 2).toString());
+        campoCargo.setText(tabelaUsuarios.getModel().getValueAt(setar, 3).toString());
+        campoProcessos.setText(tabelaUsuarios.getModel().getValueAt(setar, 4).toString());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton campoCancelar;
     private javax.swing.JTextField campoCargo;
+    private javax.swing.JButton campoCarregar;
     private javax.swing.JTextField campoEmail;
+    private javax.swing.JButton campoLimpar;
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoProcessos;
     private javax.swing.JButton campoSalvar;

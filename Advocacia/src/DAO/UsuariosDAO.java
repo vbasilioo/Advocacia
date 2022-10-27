@@ -65,6 +65,7 @@ public class UsuariosDAO{
             while(rs.next()){
                 UsuariosDTO funcdto = new UsuariosDTO();
                 funcdto.setNome_usuario(rs.getString("nome_usuario"));
+                funcdto.setSenha_usuario(rs.getString("senha_usuario"));
                 funcdto.setEmail_usuario(rs.getString("email_usuario"));
                 funcdto.setCargo_usuario(rs.getString("cargo_usuario"));
                 funcdto.setId_processo_associado(rs.getString("id_processo_associado"));

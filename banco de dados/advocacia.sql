@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Out-2022 às 17:32
+-- Tempo de geração: 27-Out-2022 às 13:54
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -43,6 +43,26 @@ INSERT INTO `cargos` (`id_cargo`, `descricao_cargo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `mensagens`
+--
+
+CREATE TABLE `mensagens` (
+  `id_mensagem` int(11) NOT NULL,
+  `email_usuario` varchar(80) NOT NULL,
+  `mensagem_usuario` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `mensagens`
+--
+
+INSERT INTO `mensagens` (`id_mensagem`, `email_usuario`, `mensagem_usuario`) VALUES
+(4, 'mensagem1@teste.com', 'mensagem de teste 1 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'),
+(5, 'mensagem2@teste.com', 'mensagem teste 2');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuarios`
 --
 
@@ -74,6 +94,12 @@ ALTER TABLE `cargos`
   ADD PRIMARY KEY (`id_cargo`);
 
 --
+-- Índices para tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  ADD PRIMARY KEY (`id_mensagem`);
+
+--
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -88,6 +114,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `cargos`
   MODIFY `id_cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  MODIFY `id_mensagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
