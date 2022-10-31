@@ -222,7 +222,6 @@ public class Login extends javax.swing.JFrame {
             public void run(){
                 try{
                     Logar();
-                    
                     for(int i=0;i<5;i++){   
                         Login.setLocation(p.x - 10, p.y);
                         sleep(30);

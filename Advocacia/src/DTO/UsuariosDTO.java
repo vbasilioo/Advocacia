@@ -23,6 +23,14 @@ public class UsuariosDTO{
         this.id_processo_associado = id_processo_associado;
     }
 
+    public String getEmail_usuario() {
+        return email_usuario;
+    }
+
+    public void setEmail_usuario(String email_usuario) {
+        this.email_usuario = email_usuario;
+    }
+
     public String getCargo_usuario() {
         return cargo_usuario;
     }
@@ -47,12 +55,6 @@ public class UsuariosDTO{
         this.senha_usuario = senha_usuario;
     }
 
-    public String getEmail_usuario() {
-        return email_usuario;
-    }
-
-    public void setEmail_usuario(String email_usuario) {
-        this.email_usuario = email_usuario;
-    }
+   
     
 }

@@ -26,7 +26,6 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         campoTexto = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
-        campoCarregar = new javax.swing.JButton();
         campoLimpar = new javax.swing.JButton();
         campoID = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -51,6 +50,13 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
             }
         ));
         tabelaMensagem.setGridColor(new java.awt.Color(255, 255, 255));
+        tabelaMensagem.getTableHeader().setResizingAllowed(false);
+        tabelaMensagem.getTableHeader().setReorderingAllowed(false);
+        tabelaMensagem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMensagemMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaMensagem);
 
         jLabel1.setText("E-mail");
@@ -58,13 +64,6 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
         jScrollPane2.setViewportView(campoTexto);
 
         jLabel2.setText("Comentario");
-
-        campoCarregar.setText("Carregar Informações");
-        campoCarregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoCarregarActionPerformed(evt);
-            }
-        });
 
         campoLimpar.setText("Limpar Informações");
         campoLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -113,13 +112,8 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(campoCarregar)
-                                .addGap(126, 126, 126))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(campoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(107, 107, 107))))))
+                        .addComponent(campoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(107, 107, 107))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -146,11 +140,9 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(campoCarregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(37, 37, 37)
                 .addComponent(campoLimpar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoResolvido)
                     .addComponent(campoRetornar))
@@ -160,10 +152,6 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void campoCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCarregarActionPerformed
-        carregarCampos();
-    }//GEN-LAST:event_campoCarregarActionPerformed
 
     private void campoResolvidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoResolvidoActionPerformed
         excluirMensagem();
@@ -180,9 +168,12 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
         limparCampos();
     }//GEN-LAST:event_campoLimparActionPerformed
 
+    private void tabelaMensagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMensagemMouseClicked
+        carregarCampos();
+    }//GEN-LAST:event_tabelaMensagemMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton campoCarregar;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoID;
     private javax.swing.JButton campoLimpar;
