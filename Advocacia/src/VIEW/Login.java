@@ -37,12 +37,13 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Login = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         campoUsuario = new javax.swing.JTextField();
         campoSenha = new javax.swing.JPasswordField();
         botaoEntrar = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
         campoEsqueci = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -73,9 +74,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(70, 130, 180));
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tela de Acesso");
@@ -96,12 +97,15 @@ public class Login extends javax.swing.JFrame {
 
         Login.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(91, 95, 99));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Entre com seu USUÁRIO e sua SENHA de acesso!");
+        campoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                campoUsuarioMouseClicked(evt);
+            }
+        });
 
-        botaoEntrar.setBackground(new java.awt.Color(58, 65, 84));
+        campoSenha.setToolTipText("");
+
+        botaoEntrar.setBackground(new java.awt.Color(70, 130, 180));
         botaoEntrar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         botaoEntrar.setForeground(new java.awt.Color(255, 255, 255));
         botaoEntrar.setText("Entrar");
@@ -122,7 +126,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        botaoSair.setBackground(new java.awt.Color(217, 81, 51));
+        botaoSair.setBackground(new java.awt.Color(102, 102, 102));
         botaoSair.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         botaoSair.setForeground(new java.awt.Color(255, 255, 255));
         botaoSair.setText("Sair");
@@ -143,52 +147,60 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        campoEsqueci.setBackground(new java.awt.Color(153, 153, 153));
+        campoEsqueci.setBackground(new java.awt.Color(255, 255, 255));
         campoEsqueci.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        campoEsqueci.setForeground(new java.awt.Color(255, 255, 255));
+        campoEsqueci.setForeground(new java.awt.Color(102, 102, 102));
         campoEsqueci.setText("Esqueci minha senha");
+        campoEsqueci.setBorder(null);
         campoEsqueci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEsqueciActionPerformed(evt);
             }
         });
 
+        jLabel3.setText("Usuário");
+
+        jLabel4.setText("Senha");
+
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
         LoginLayout.setHorizontalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(LoginLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 68, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(LoginLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel4))))
+                    .addComponent(jLabel3))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoginLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(36, 36, 36)
+                .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -202,8 +214,8 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -236,23 +248,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     private void botaoEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseEntered
-        botaoEntrar.setBackground(new Color(235,235,235));
-        botaoEntrar.setForeground(new Color(58,65,84));
+        botaoEntrar.setBackground(new Color(70,136,178));
     }//GEN-LAST:event_botaoEntrarMouseEntered
 
     private void botaoSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseEntered
-        botaoSair.setBackground(new Color(235,235,235));
-        botaoSair.setForeground(new Color(217,81,51));
+
     }//GEN-LAST:event_botaoSairMouseEntered
 
     private void botaoEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseExited
-        botaoEntrar.setBackground(new Color(58,65,84));
-        botaoEntrar.setForeground(Color.WHITE);
+        botaoEntrar.setBackground(new Color(70,130,180));
     }//GEN-LAST:event_botaoEntrarMouseExited
 
     private void botaoSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseExited
-        botaoSair.setBackground(new Color(217,81,51));
-        botaoSair.setForeground(Color.WHITE);
+
     }//GEN-LAST:event_botaoSairMouseExited
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -272,6 +280,10 @@ public class Login extends javax.swing.JFrame {
     private void campoEsqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEsqueciActionPerformed
         new ConstatarAdministrador().setVisible(true);
     }//GEN-LAST:event_campoEsqueciActionPerformed
+
+    private void campoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoUsuarioMouseClicked
+        campoUsuario.setText("");
+    }//GEN-LAST:event_campoUsuarioMouseClicked
 
     public static void main(String args[]) {
         try {
@@ -310,7 +322,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JPanel jPanel1;
