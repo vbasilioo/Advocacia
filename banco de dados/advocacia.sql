@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Out-2022 às 13:54
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 03-Nov-2022 às 15:34
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -71,7 +71,7 @@ CREATE TABLE `usuarios` (
   `nome_usuario` varchar(50) NOT NULL,
   `senha_usuario` varchar(30) NOT NULL,
   `email_usuario` varchar(50) NOT NULL,
-  `cargo_usuario` varchar(25) NOT NULL,
+  `cargo_usuario` int(25) NOT NULL,
   `id_processo_associado` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -80,8 +80,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nome_usuario`, `senha_usuario`, `email_usuario`, `cargo_usuario`, `id_processo_associado`) VALUES
-(1, 'admin', 'admin', 'admin@admin.com', 'Administrador', '0'),
-(2, 'vinicius', '1234', 'vinicius@usuario.com', 'Advogado', '123');
+(1, 'admin', 'admin', 'admin@admin.com', 0, '0'),
+(2, 'vinicius', '1234', 'vinicius@usuario.com', 1, '1,2,3,');
 
 --
 -- Índices para tabelas despejadas

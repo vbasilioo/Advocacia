@@ -1,5 +1,6 @@
 package VIEW;
 import DAO.ConexaoDAO;
+import DAO.CredencialDAO;
 import DTO.UsuariosDTO;
 import DAO.UsuariosDAO;
 import java.awt.Color;
@@ -387,12 +388,14 @@ private void Logar(){
         ResultSet rsusuariosdao = funcdao.autenticarUsuario(funcdto);
       
         if(rsusuariosdao.next()){
-            if(campoUsuario.getText().equals("admin")&&campoSenha.getText().equals("admin")){
+            CredencialDAO cred = new CredencialDAO();
+            cred.Credencial(campoUsuario.getText());
+            if(cred.cargo==0){
                 TelaAdministrador tadm = new TelaAdministrador();
                 tadm.setVisible(true);
                 dispose();
             }
-            else{
+            else if (cred.cargo==1){
                 TelaUsuario tusu = new TelaUsuario();
                 tusu.setVisible(true);
                 dispose();
