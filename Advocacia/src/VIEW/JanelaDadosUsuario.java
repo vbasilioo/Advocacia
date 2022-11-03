@@ -215,13 +215,13 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
     }
     
     private void editarUsuario(){
-        int id_usuario;
-        String nome_usuario, senha_usuario, email_usuario, cargo_usuario, id_processo_associado;
+        int id_usuario, cargo_usuario;
+        String nome_usuario, senha_usuario, email_usuario, id_processo_associado;
         
         nome_usuario = campoNome.getText();
         senha_usuario = campoSenha.getText();
         email_usuario = campoEmail.getText();
-        cargo_usuario = campoCargo.getText();
+        cargo_usuario = Integer.parseInt(campoCargo.getText());
         id_processo_associado = campoProcessos.getText();
         
         UsuariosDTO usudto = new UsuariosDTO();

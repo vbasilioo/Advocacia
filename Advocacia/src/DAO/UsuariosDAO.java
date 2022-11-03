@@ -44,7 +44,7 @@ public class UsuariosDAO{
             pstm.setString(2, funcdto.getNome_usuario());
             pstm.setString(3, funcdto.getSenha_usuario());
             pstm.setString(4, funcdto.getEmail_usuario());
-            pstm.setString(5, funcdto.getCargo_usuario());
+            pstm.setInt(5, funcdto.getCargo_usuario());
             pstm.setString(6, funcdto.getId_processo_associado());
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
@@ -67,7 +67,7 @@ public class UsuariosDAO{
                 funcdto.setNome_usuario(rs.getString("nome_usuario"));
                 funcdto.setSenha_usuario(rs.getString("senha_usuario"));
                 funcdto.setEmail_usuario(rs.getString("email_usuario"));
-                funcdto.setCargo_usuario(rs.getString("cargo_usuario"));
+                funcdto.setCargo_usuario(rs.getInt("cargo_usuario"));
                 funcdto.setId_processo_associado(rs.getString("id_processo_associado"));
                 tabela.add(funcdto);
             }
@@ -89,7 +89,7 @@ public class UsuariosDAO{
             pstm.setString(2, funcdto.getNome_usuario());
             pstm.setString(3, funcdto.getSenha_usuario());
             pstm.setString(4, funcdto.getEmail_usuario());
-            pstm.setString(5, funcdto.getCargo_usuario());
+            pstm.setInt(5, funcdto.getCargo_usuario());
             pstm.setString(6, funcdto.getId_processo_associado());
             pstm.execute();
             pstm.close();
