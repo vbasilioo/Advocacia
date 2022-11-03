@@ -94,7 +94,7 @@ public class Login extends javax.swing.JFrame {
         campoSenha.setToolTipText("");
 
         botaoEntrar.setBackground(new java.awt.Color(0, 0, 0));
-        botaoEntrar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        botaoEntrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botaoEntrar.setForeground(new java.awt.Color(255, 255, 255));
         botaoEntrar.setText("Entrar");
         botaoEntrar.setBorderPainted(false);
@@ -115,7 +115,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         botaoSair.setBackground(new java.awt.Color(204, 204, 204));
-        botaoSair.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        botaoSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         botaoSair.setForeground(new java.awt.Color(255, 255, 255));
         botaoSair.setText("Sair");
         botaoSair.setBorderPainted(false);

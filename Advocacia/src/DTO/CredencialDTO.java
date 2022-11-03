@@ -12,8 +12,8 @@ public class CredencialDTO{
     //Dados do Banco de Dados//
     private final String nomeBD = "advocacia"; //Nome do banco de dados
     private final String nomeTabela = "usuarios"; //Nome da tabela
-    private final String unameBD = "advoc"; //Nome do usuario do banco de dados
-    private final String senhaBD = "1234"; //Senha do banco de dados
+    private final String unameBD = "advocacia"; //Nome do usuario do banco de dados
+    private final String senhaBD = "12345"; //Senha do banco de dados
     private final String colunaIDusuario = "id_usuario"; //nome da coluna com o id do usuario
     private final String colunaNOMEusuario = "nome_usuario"; //nome da coluna com o nome do usuario
     private final String colunaCARGOusuario = "cargo_usuario"; //nome da coluna com o cargo do usuario
