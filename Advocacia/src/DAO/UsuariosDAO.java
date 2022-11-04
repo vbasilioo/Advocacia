@@ -79,7 +79,7 @@ public class UsuariosDAO{
     }
     
     public void editarUsuario(UsuariosDTO funcdto){
-        String sql = "UPDATE usuarios SET nome_usuario = ?, senha_usuario = ?, cargo_usuario = ?, id_processo.associado = ?"
+        String sql = "UPDATE usuarios SET nome_usuario = ?, senha_usuario = ?, cargo_usuario = ?, id_processo_associado = ?"
                 + "WHERE id_usuario = ?";
         conn = new ConexaoDAO().conectaDB();
         
@@ -88,9 +88,8 @@ public class UsuariosDAO{
             pstm.setInt(1, funcdto.getId_usuario());
             pstm.setString(2, funcdto.getNome_usuario());
             pstm.setString(3, funcdto.getSenha_usuario());
-            pstm.setString(4, funcdto.getEmail_usuario());
-            pstm.setString(5, funcdto.getCargo_usuario());
-            pstm.setString(6, funcdto.getId_processo_associado());
+            pstm.setString(4, funcdto.getCargo_usuario());
+            pstm.setString(5, funcdto.getId_processo_associado());
             pstm.execute();
             pstm.close();
         }catch(SQLException erro){

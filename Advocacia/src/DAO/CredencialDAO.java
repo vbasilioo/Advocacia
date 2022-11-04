@@ -3,15 +3,15 @@ import DTO.CredencialDTO;
 
 public class CredencialDAO{
     
-    public int id;
-    public String nome;
-    public int cargo;
-    private String idProcessos;
-    private int tamString;
-    public int qProcessos;
-    public int processos[];
+    public static int id;
+    public static String nome;
+    public static int cargo;
+    private static String idProcessos;
+    private static int tamString;
+    public static int qProcessos;
+    public static int processos[];
     
-    public void Credencial(String NOME) //Método Principal
+    public void Gerar(String NOME) //Método Principal
     {
         nome = NOME;
         qProcessos = 1;
@@ -36,9 +36,16 @@ public class CredencialDAO{
             
     }
     
-    public void atCredenciais() //Atualizar dados
+    public void Atualizar() //Atualizar dados
     {
-        Credencial(nome);
+        Gerar(nome);
+    }
+    public void Reset()
+    {
+        id = cargo = qProcessos = 0;
+        nome = idProcessos = "";
+        processos = new int[0];
+        
     }
         
     private int nProcs()//Retorna o número de ids de processos contidos na String
@@ -69,19 +76,5 @@ public class CredencialDAO{
         }
         return ids;         
     }
-    
-    
-    // Exemplo (Eliminar /* para testar
-    /*public static void main(String args[])
-    {
-        CredencialDAO obj = new CredencialDAO();  
-        obj.Credencial("vinicius"); //Método principal
-    
-        System.out.println("nome_usuario: " +obj.nome); //Atributos
-        System.out.println("id_usuario: " +obj.id);
-        System.out.println("cargo_usuario: " +obj.cargo);
-        System.out.println("nº de processos: " +obj.qProcessos);    
-        for(int i=0; i< obj.qProcessos; i++) System.out.println("processo " +(i+1) +": " +obj.processos[i]); //Maneira de acessar processos
-    }*/
     
 }

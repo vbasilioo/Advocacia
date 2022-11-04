@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Nov-2022 às 15:34
+-- Tempo de geração: 04-Nov-2022 às 14:30
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -63,6 +63,27 @@ INSERT INTO `mensagens` (`id_mensagem`, `email_usuario`, `mensagem_usuario`) VAL
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `processos`
+--
+
+CREATE TABLE `processos` (
+  `id_processo` int(11) NOT NULL,
+  `cliente` varchar(100) NOT NULL,
+  `usuario_associado` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `processos`
+--
+
+INSERT INTO `processos` (`id_processo`, `cliente`, `usuario_associado`) VALUES
+(1, 'fulano', '1,'),
+(2, 'ciclano', '1,2,'),
+(3, 'beltrano', '2,');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuarios`
 --
 
@@ -80,8 +101,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nome_usuario`, `senha_usuario`, `email_usuario`, `cargo_usuario`, `id_processo_associado`) VALUES
-(1, 'admin', 'admin', 'admin@admin.com', 0, '0'),
-(2, 'vinicius', '1234', 'vinicius@usuario.com', 1, '1,2,3,');
+(1, 'admin', 'admin', 'admin@usuario.com', 0, '0'),
+(2, 'vinicius', '1234', 'vinicius@usuario.com', 1, '1,2,'),
+(3, 'maria', '1234', 'maria@usuario.com', 1, '2,3,'),
+(4, 'samuel', '1234', 'samuel@usuario.com', 1, '0');
 
 --
 -- Índices para tabelas despejadas
@@ -98,6 +121,12 @@ ALTER TABLE `cargos`
 --
 ALTER TABLE `mensagens`
   ADD PRIMARY KEY (`id_mensagem`);
+
+--
+-- Índices para tabela `processos`
+--
+ALTER TABLE `processos`
+  ADD PRIMARY KEY (`id_processo`);
 
 --
 -- Índices para tabela `usuarios`
@@ -122,10 +151,16 @@ ALTER TABLE `mensagens`
   MODIFY `id_mensagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de tabela `processos`
+--
+ALTER TABLE `processos`
+  MODIFY `id_processo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

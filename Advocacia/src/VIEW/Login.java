@@ -373,6 +373,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 
+        
 private void Logar(){
     try{
         
@@ -388,14 +389,14 @@ private void Logar(){
         ResultSet rsusuariosdao = funcdao.autenticarUsuario(funcdto);
       
         if(rsusuariosdao.next()){
-            CredencialDAO cred = new CredencialDAO();
-            cred.Credencial(campoUsuario.getText());
-            if(cred.cargo==0){
+            CredencialDAO credencial = new CredencialDAO();
+            credencial.Gerar(campoUsuario.getText());
+            if(credencial.cargo==0){
                 TelaAdministrador tadm = new TelaAdministrador();
                 tadm.setVisible(true);
                 dispose();
             }
-            else if (cred.cargo==1){
+            else if (credencial.cargo==1){
                 TelaUsuario tusu = new TelaUsuario();
                 tusu.setVisible(true);
                 dispose();

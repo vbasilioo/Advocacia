@@ -14,6 +14,7 @@ public class ProcessosDAO{
     PreparedStatement pstm;
     ResultSet rs;
     ArrayList<ProcessosDTO> tabela = new ArrayList<>();
+    private int[] processos;
     
     public ResultSet listarProcessos(){
         conn = new ConexaoDAO().conectaDB();
@@ -34,14 +35,23 @@ public class ProcessosDAO{
         
         try{
             pstm = conn.prepareStatement(sql);
-            rs = pstm.executeQuery();   
+            rs = pstm.executeQuery();
             
             while(rs.next()){
-                ProcessosDTO prodto = new ProcessosDTO();
-                prodto.setId_processo(rs.getInt("id_processo"));
-                prodto.setCliente(rs.getString("cliente"));
-                prodto.setUsuario_associado(rs.getString("usuario_associado"));
-                tabela.add(prodto);
+                
+                for(int i=0;i< CredencialDAO.qProcessos; i++)
+                {
+                    if(CredencialDAO.processos[i] == rs.getInt("id_processo"))
+                    {                        
+                        ProcessosDTO prodto = new ProcessosDTO();
+                        prodto.setId_processo(rs.getInt("id_processo"));
+                        prodto.setCliente(rs.getString("cliente"));
+                        prodto.setUsuario_associado(rs.getString("usuario_associado"));
+                        tabela.add(prodto);
+                        break;
+                    }
+                    
+                }
             }
             
         }catch(SQLException erro){
