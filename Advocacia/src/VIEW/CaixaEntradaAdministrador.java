@@ -52,6 +52,11 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Mensagem nº");
 
+        tabelaMensagem = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaMensagem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -63,6 +68,7 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
                 "Usuário", "ID", "Mensagem"
             }
         ));
+        tabelaMensagem.setCellSelectionEnabled(true);
         tabelaMensagem.setGridColor(new java.awt.Color(255, 255, 255));
         tabelaMensagem.getTableHeader().setResizingAllowed(false);
         tabelaMensagem.getTableHeader().setReorderingAllowed(false);
@@ -131,7 +137,7 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
                             .addComponent(campoRetornar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(campoResolvido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(campoLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,11 +168,11 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -189,7 +195,9 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_campoLimparActionPerformed
 
     private void tabelaMensagemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMensagemMouseClicked
-        carregarCampos();
+        if(evt.getClickCount()==2){
+            carregarCampos();
+        }
     }//GEN-LAST:event_tabelaMensagemMouseClicked
 
 

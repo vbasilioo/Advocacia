@@ -167,6 +167,11 @@ public class Login extends javax.swing.JFrame {
         botaoEscuro.setForeground(new java.awt.Color(255, 255, 255));
         botaoEscuro.setText("Tema Escuro");
         botaoEscuro.setBorderPainted(false);
+        botaoEscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEscuroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -324,6 +329,12 @@ public class Login extends javax.swing.JFrame {
     private void campoUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoUsuarioFocusGained
        
     }//GEN-LAST:event_campoUsuarioFocusGained
+
+    private void botaoEscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEscuroActionPerformed
+        DARKLogin darklog = new DARKLogin();
+        darklog.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoEscuroActionPerformed
 
     public static void main(String args[]) {
         try {

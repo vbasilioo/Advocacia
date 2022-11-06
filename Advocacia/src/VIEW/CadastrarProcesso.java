@@ -30,6 +30,11 @@ public class CadastrarProcesso extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        campoProcessos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         campoProcessos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -41,6 +46,7 @@ public class CadastrarProcesso extends javax.swing.JFrame {
                 "Processo", "Cliente", "Usuários Associados"
             }
         ));
+        campoProcessos.setCellSelectionEnabled(true);
         campoProcessos.setGridColor(new java.awt.Color(255, 255, 255));
         campoProcessos.getTableHeader().setResizingAllowed(false);
         campoProcessos.getTableHeader().setReorderingAllowed(false);

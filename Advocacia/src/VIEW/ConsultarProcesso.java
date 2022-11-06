@@ -29,6 +29,11 @@ public class ConsultarProcesso extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         campoProcessos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        campoProcessos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         campoProcessos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -40,6 +45,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
                 "Processo", "Cliente", "Usuários Associados"
             }
         ));
+        campoProcessos.setCellSelectionEnabled(true);
         campoProcessos.setGridColor(new java.awt.Color(255, 255, 255));
         campoProcessos.getTableHeader().setResizingAllowed(false);
         campoProcessos.getTableHeader().setReorderingAllowed(false);
@@ -88,7 +94,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
                 .addComponent(campoDownload)
                 .addGap(18, 18, 18)
                 .addComponent(campoCarregar)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -99,10 +105,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

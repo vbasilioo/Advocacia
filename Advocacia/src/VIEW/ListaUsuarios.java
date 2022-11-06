@@ -20,7 +20,6 @@ public class ListaUsuarios extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUsuarios = new javax.swing.JTable();
-        campoEditar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -29,6 +28,11 @@ public class ListaUsuarios extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        tabelaUsuarios = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaUsuarios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tabelaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -41,6 +45,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
                 "Nome", "E-mail", "Cargo", "Processos"
             }
         ));
+        tabelaUsuarios.setCellSelectionEnabled(true);
         tabelaUsuarios.setGridColor(new java.awt.Color(255, 255, 255));
         tabelaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -49,33 +54,17 @@ public class ListaUsuarios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaUsuarios);
 
-        campoEditar.setBackground(new java.awt.Color(70, 130, 180));
-        campoEditar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campoEditar.setForeground(new java.awt.Color(255, 255, 255));
-        campoEditar.setText("Editar");
-        campoEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEditarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(campoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(campoEditar)
-                .addGap(30, 30, 30))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,21 +75,19 @@ public class ListaUsuarios extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEditarActionPerformed
-        JanelaDadosUsuario jaldados = new JanelaDadosUsuario();
-        jaldados.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_campoEditarActionPerformed
-
     private void tabelaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaUsuariosMouseClicked
-        // TODO add your handling code here:
+        if(evt.getClickCount()==2){    
+            JanelaDadosUsuario jaldados = new JanelaDadosUsuario();
+            jaldados.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_tabelaUsuariosMouseClicked
 
     private void listarUsuarios(){
@@ -124,7 +111,6 @@ public class ListaUsuarios extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton campoEditar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

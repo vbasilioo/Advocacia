@@ -30,7 +30,6 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
         campoCargo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         campoProcessos = new javax.swing.JTextField();
-        campoCarregar = new javax.swing.JButton();
         campoLimpar = new javax.swing.JButton();
         campoSalvar = new javax.swing.JButton();
         campoCancelar = new javax.swing.JButton();
@@ -40,6 +39,11 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         tabelaUsuarios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tabelaUsuarios = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tabelaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -51,7 +55,13 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
                 "Nome", "Senha", "E-mail", "Cargo", "Processos"
             }
         ));
+        tabelaUsuarios.setCellSelectionEnabled(true);
         tabelaUsuarios.setGridColor(new java.awt.Color(255, 255, 255));
+        tabelaUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaUsuariosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaUsuarios);
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -68,16 +78,6 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Processos");
-
-        campoCarregar.setBackground(new java.awt.Color(70, 130, 180));
-        campoCarregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campoCarregar.setForeground(new java.awt.Color(255, 255, 255));
-        campoCarregar.setText("Carregar Informações");
-        campoCarregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoCarregarActionPerformed(evt);
-            }
-        });
 
         campoLimpar.setBackground(new java.awt.Color(70, 130, 180));
         campoLimpar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -129,8 +129,7 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(campoCargo)
-                    .addComponent(campoCarregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(campoLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(campoLimpar, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
                 .addGap(98, 98, 98))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,9 +156,7 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoProcessos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(campoCarregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(42, 42, 42)
                 .addComponent(campoLimpar)
                 .addGap(18, 18, 18)
                 .addComponent(campoSalvar)
@@ -199,9 +196,11 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
         limparCampos();
     }//GEN-LAST:event_campoLimparActionPerformed
 
-    private void campoCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCarregarActionPerformed
-        carregarCampos();
-    }//GEN-LAST:event_campoCarregarActionPerformed
+    private void tabelaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaUsuariosMouseClicked
+        if(evt.getClickCount()==2){
+            carregarCampos();
+        }
+    }//GEN-LAST:event_tabelaUsuariosMouseClicked
 
     private void listarUsuarios(){
         try{
@@ -266,7 +265,6 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton campoCancelar;
     private javax.swing.JTextField campoCargo;
-    private javax.swing.JButton campoCarregar;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JButton campoLimpar;
     private javax.swing.JTextField campoNome;
