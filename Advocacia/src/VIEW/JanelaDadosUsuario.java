@@ -2,6 +2,7 @@ package VIEW;
 
 import DAO.UsuariosDAO;
 import DTO.UsuariosDTO;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -11,6 +12,7 @@ public class JanelaDadosUsuario extends javax.swing.JFrame {
     public JanelaDadosUsuario() {
         initComponents();
         listarUsuarios();
+        setLayout(new FlowLayout());
     }
 
     @SuppressWarnings("unchecked")

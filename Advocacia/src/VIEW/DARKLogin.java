@@ -4,6 +4,7 @@ import DAO.CredencialDAO;
 import DTO.UsuariosDTO;
 import DAO.UsuariosDAO;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Point;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,6 +24,7 @@ public class DARKLogin extends javax.swing.JFrame {
     
     public DARKLogin() {
         initComponents();
+        setLayout(new FlowLayout());
     }
     
     @SuppressWarnings("unchecked")
@@ -162,6 +164,11 @@ public class DARKLogin extends javax.swing.JFrame {
         botaoClaro.setForeground(new java.awt.Color(255, 255, 255));
         botaoClaro.setText("Tema Claro");
         botaoClaro.setBorderPainted(false);
+        botaoClaro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoClaroActionPerformed(evt);
+            }
+        });
 
         botaoEscuro.setBackground(new java.awt.Color(70, 130, 180));
         botaoEscuro.setForeground(new java.awt.Color(255, 255, 255));
@@ -324,6 +331,12 @@ public class DARKLogin extends javax.swing.JFrame {
     private void campoUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoUsuarioFocusGained
        
     }//GEN-LAST:event_campoUsuarioFocusGained
+
+    private void botaoClaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoClaroActionPerformed
+        Login log = new Login();
+        log.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoClaroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

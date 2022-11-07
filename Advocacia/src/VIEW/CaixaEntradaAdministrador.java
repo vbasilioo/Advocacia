@@ -2,6 +2,7 @@ package VIEW;
 
 import DAO.MensagensDAO;
 import DTO.MensagensDTO;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -11,6 +12,7 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
     public CaixaEntradaAdministrador() {
         initComponents();
         listarMensagens();
+        setLayout(new FlowLayout());
     }
 
     @SuppressWarnings("unchecked")

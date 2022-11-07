@@ -2,6 +2,7 @@ package VIEW;
 
 import DAO.ProcessosDAO;
 import DTO.ProcessosDTO;
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -11,6 +12,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
     public ConsultarProcesso() {
         initComponents();
         listarProcessos();
+        setLayout(new FlowLayout());
     }
 
     @SuppressWarnings("unchecked")

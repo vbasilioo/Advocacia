@@ -1,9 +1,13 @@
 package VIEW;
 
+import java.awt.Color;
+import java.awt.FlowLayout;
+
 public class ConstatarAdministrador extends javax.swing.JFrame {
 
     public ConstatarAdministrador() {
         initComponents();
+        setLayout(new FlowLayout());
     }
 
     @SuppressWarnings("unchecked")
@@ -88,7 +92,28 @@ public class ConstatarAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEnviarActionPerformed
-        // TODO add your handling code here:
+        
+        ERROConstatarAdministrador erroadm = new ERROConstatarAdministrador();
+        
+        if((campoMensagem.getText().isEmpty())&&(campoEmail.getText().isEmpty())){
+            erroadm.setVisible(true);
+            campoMensagem.setBackground(new Color(255,0,0));
+            campoEmail.setBackground(new Color(255,0,0));
+        }
+        else if((campoMensagem.getText().isEmpty())&&(campoEmail.getText().length() > 0)){
+            erroadm.setVisible(true);
+            campoMensagem.setBackground(new Color(255,0,0));
+            campoEmail.setBackground(new Color(248,248,255));
+        }
+        else if((campoEmail.getText().isEmpty())&&(campoMensagem.getText().length() > 0)){
+            erroadm.setVisible(true);
+            campoEmail.setBackground(new Color(255,0,0));
+            campoMensagem.setBackground(new Color(248,248,255));
+        }
+        else{
+            campoMensagem.setBackground(new Color(248,248,255));
+            campoEmail.setBackground(new Color(248,248,255));
+        }
     }//GEN-LAST:event_campoEnviarActionPerformed
 
 

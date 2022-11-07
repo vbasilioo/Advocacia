@@ -15,6 +15,23 @@ public class MensagensDAO{
     ResultSet rs;
     ArrayList<MensagensDTO> tabela = new ArrayList<>();
     
+    public void enviarMensagem(MensagensDTO msgdto){
+        conn = new ConexaoDAO().conectaDB();
+        String sql = "INSERT INTO mensagens (email_usuario, mensagem_usuario) VALUES (?,?)";
+        
+        try{
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, msgdto.getId_mensagem());
+            pstm.setString(2, msgdto.getMensagem_usuario());
+            pstm.setString(3, msgdto.getEmail_usuario());
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Mensagem enviada com sucesso!");
+            pstm.close();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "ERRO: Cadastrar Mensagem!" + erro);
+        }
+    }
+    
     public ResultSet listarMensagens(){
         conn = new ConexaoDAO().conectaDB();
         String sql = "SELECT * FROM mensagens ORDER BY id_mensagem";

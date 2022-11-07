@@ -1,6 +1,7 @@
 package VIEW;
 import DAO.UsuariosDAO;
 import DTO.UsuariosDTO;
+import java.awt.FlowLayout;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
     public ListaUsuarios() {
         initComponents();
         listarUsuarios();
+        setLayout(new FlowLayout());
     }
 
     @SuppressWarnings("unchecked")

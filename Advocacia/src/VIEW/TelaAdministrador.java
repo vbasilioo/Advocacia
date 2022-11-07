@@ -1,9 +1,12 @@
 package VIEW;
 
+import java.awt.FlowLayout;
+
 public class TelaAdministrador extends javax.swing.JFrame {
 
     public TelaAdministrador() {
         initComponents();
+        setLayout(new FlowLayout());
     }
 
     @SuppressWarnings("unchecked")

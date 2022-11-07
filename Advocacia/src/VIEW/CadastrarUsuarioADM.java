@@ -1,11 +1,13 @@
 package VIEW;
 import DTO.UsuariosDTO;
 import DAO.UsuariosDAO;
+import java.awt.FlowLayout;
 
 public class CadastrarUsuarioADM extends javax.swing.JFrame {
 
     public CadastrarUsuarioADM() {
         initComponents();
+        setLayout(new FlowLayout());
     }
 
     @SuppressWarnings("unchecked")
