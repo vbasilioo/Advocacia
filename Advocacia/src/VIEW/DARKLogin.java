@@ -82,7 +82,7 @@ public class DARKLogin extends javax.swing.JFrame {
             }
         });
 
-        Login.setBackground(new java.awt.Color(0, 0, 0));
+        Login.setBackground(new java.awt.Color(102, 102, 102));
 
         campoUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         campoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -166,15 +166,16 @@ public class DARKLogin extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ADVOCACIA");
 
-        botaoClaro.setBackground(new java.awt.Color(204, 204, 204));
+        botaoClaro.setBackground(new java.awt.Color(51, 51, 51));
         botaoClaro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botaoClaro.setForeground(new java.awt.Color(255, 255, 255));
         botaoClaro.setText("TEMA CLARO");
         botaoClaro.setBorderPainted(false);
         botaoClaro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,8 +187,9 @@ public class DARKLogin extends javax.swing.JFrame {
             }
         });
 
-        botaoEscuro.setBackground(new java.awt.Color(204, 204, 204));
+        botaoEscuro.setBackground(new java.awt.Color(51, 51, 51));
         botaoEscuro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botaoEscuro.setForeground(new java.awt.Color(255, 255, 255));
         botaoEscuro.setText("TEMA ESCURO");
         botaoEscuro.setBorderPainted(false);
         botaoEscuro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -489,12 +491,12 @@ private void Logar(){
             CredencialDAO credencial = new CredencialDAO();
             credencial.Gerar(campoUsuario.getText());
                 if(credencial.cargo==0){
-                    TelaAdministrador tadm = new TelaAdministrador();
+                    DARKTelaAdministrador tadm = new DARKTelaAdministrador();
                     tadm.setVisible(true);
                     dispose();
                 }
                 else if(credencial.cargo==1){
-                    TelaUsuario tusu = new TelaUsuario();
+                    DARKTelaUsuario tusu = new DARKTelaUsuario();
                     tusu.setVisible(true);
                     dispose();
                 }else{
