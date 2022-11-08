@@ -1,9 +1,7 @@
 package VIEW;
-import DAO.ConexaoDAO;
 import DAO.CredencialDAO;
 import DTO.UsuariosDTO;
 import DAO.UsuariosDAO;
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Point;
 import java.sql.ResultSet;
@@ -13,6 +11,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.awt.Color;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
 
 public class Login extends javax.swing.JFrame {
     
@@ -48,6 +49,8 @@ public class Login extends javax.swing.JFrame {
         botaoClaro = new javax.swing.JButton();
         botaoEscuro = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -80,7 +83,8 @@ public class Login extends javax.swing.JFrame {
 
         Login.setBackground(new java.awt.Color(255, 255, 255));
 
-        campoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        campoUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        campoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 campoUsuarioFocusGained(evt);
@@ -91,9 +95,15 @@ public class Login extends javax.swing.JFrame {
                 campoUsuarioMouseClicked(evt);
             }
         });
+        campoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoUsuarioActionPerformed(evt);
+            }
+        });
 
+        campoSenha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         campoSenha.setToolTipText("");
-        campoSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         botaoEntrar.setBackground(new java.awt.Color(0, 0, 0));
         botaoEntrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -224,6 +234,12 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setText("Usuário");
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText("Senha");
+
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
         LoginLayout.setHorizontalGroup(
@@ -238,17 +254,23 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(campoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                         .addComponent(campoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                         .addComponent(botaoEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(37, 37, 37)
                 .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,6 +312,28 @@ public class Login extends javax.swing.JFrame {
                         sleep(30);
                         Login.setLocation(p.x + 10, p.y);
                         sleep(30);
+                        
+                        if((campoUsuario.getText().isEmpty())&&(campoSenha.getText().isEmpty())){
+                            Border border = BorderFactory.createLineBorder(Color.RED, 2);
+                            campoUsuario.setBorder(border);
+                            campoSenha.setBorder(border);
+                        }
+                        else if((campoUsuario.getText().isEmpty())&&(campoSenha.getText().length() > 0)){
+                            Border border = BorderFactory.createLineBorder(Color.RED, 2);
+                            Border border2 = BorderFactory.createLineBorder(Color.BLACK, 1);
+                            campoUsuario.setBorder(border);
+                            campoSenha.setBorder(border2);
+                        }
+                        else if((campoSenha.getText().isEmpty())&&(campoUsuario.getText().length() > 0)){
+                            Border border = BorderFactory.createLineBorder(Color.RED, 2);
+                            Border border2 = BorderFactory.createLineBorder(Color.BLACK, 1);
+                            campoUsuario.setBorder(border2);
+                            campoSenha.setBorder(border);
+                        }else if((campoSenha.getText().length() > 0)&&(campoUsuario.getText().length() > 0)){
+                            Border border = BorderFactory.createLineBorder(Color.RED, 2);
+                            campoUsuario.setBorder(border);
+                            campoSenha.setBorder(border);
+                        }
                     }
                 }catch(InterruptedException ex){ 
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -371,6 +415,10 @@ public class Login extends javax.swing.JFrame {
         botaoClaro.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_botaoClaroMouseExited
 
+    private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed
+        
+    }//GEN-LAST:event_campoUsuarioActionPerformed
+
     public static void main(String args[]) {
         try {
             
@@ -410,6 +458,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -435,18 +485,17 @@ private void Logar(){
         if(rsusuariosdao.next()){
             CredencialDAO credencial = new CredencialDAO();
             credencial.Gerar(campoUsuario.getText());
-            if(credencial.cargo==0){
-                TelaAdministrador tadm = new TelaAdministrador();
-                tadm.setVisible(true);
-                dispose();
-            }
-            else if (credencial.cargo==1){
-                TelaUsuario tusu = new TelaUsuario();
-                tusu.setVisible(true);
-                dispose();
-            }
-        }
-        
+                if(credencial.cargo==0){
+                    TelaAdministrador tadm = new TelaAdministrador();
+                    tadm.setVisible(true);
+                    dispose();
+                }
+                else if(credencial.cargo==1){
+                    TelaUsuario tusu = new TelaUsuario();
+                    tusu.setVisible(true);
+                    dispose();
+                }
+            }  
     }catch(SQLException erro){
         JOptionPane.showMessageDialog(null, "LOGAR" + erro);
     }

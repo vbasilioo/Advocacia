@@ -2,9 +2,12 @@ package VIEW;
 
 import DAO.UsuariosDAO;
 import DTO.UsuariosDTO;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 public class JanelaDadosUsuario extends javax.swing.JFrame {
