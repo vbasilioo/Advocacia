@@ -43,8 +43,6 @@ public class Login extends javax.swing.JFrame {
         botaoEntrar = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
         campoEsqueci = new javax.swing.JToggleButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         botaoClaro = new javax.swing.JButton();
@@ -82,6 +80,7 @@ public class Login extends javax.swing.JFrame {
 
         Login.setBackground(new java.awt.Color(255, 255, 255));
 
+        campoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Usuário", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 14))); // NOI18N
         campoUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 campoUsuarioFocusGained(evt);
@@ -94,6 +93,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         campoSenha.setToolTipText("");
+        campoSenha.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Senha", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Arial", 1, 14))); // NOI18N
 
         botaoEntrar.setBackground(new java.awt.Color(0, 0, 0));
         botaoEntrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -118,7 +118,6 @@ public class Login extends javax.swing.JFrame {
 
         botaoSair.setBackground(new java.awt.Color(204, 204, 204));
         botaoSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        botaoSair.setForeground(new java.awt.Color(255, 255, 255));
         botaoSair.setText("Sair");
         botaoSair.setBorderPainted(false);
         botaoSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -142,33 +141,52 @@ public class Login extends javax.swing.JFrame {
         campoEsqueci.setForeground(new java.awt.Color(0, 7, 12));
         campoEsqueci.setText("Esqueci minha senha");
         campoEsqueci.setBorder(null);
+        campoEsqueci.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                campoEsqueciMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                campoEsqueciMouseExited(evt);
+            }
+        });
         campoEsqueci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoEsqueciActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Usuário");
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setText("Senha");
-
         jPanel2.setBackground(new java.awt.Color(70, 130, 180));
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ADVOCACIA");
 
         botaoClaro.setBackground(new java.awt.Color(70, 130, 180));
-        botaoClaro.setForeground(new java.awt.Color(255, 255, 255));
-        botaoClaro.setText("Tema Claro");
+        botaoClaro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botaoClaro.setText("TEMA CLARO");
         botaoClaro.setBorderPainted(false);
+        botaoClaro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botaoClaroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botaoClaroMouseExited(evt);
+            }
+        });
 
         botaoEscuro.setBackground(new java.awt.Color(70, 130, 180));
-        botaoEscuro.setForeground(new java.awt.Color(255, 255, 255));
-        botaoEscuro.setText("Tema Escuro");
+        botaoEscuro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botaoEscuro.setText("TEMA ESCURO");
         botaoEscuro.setBorderPainted(false);
+        botaoEscuro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botaoEscuroMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botaoEscuroMouseExited(evt);
+            }
+        });
         botaoEscuro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEscuroActionPerformed(evt);
@@ -190,7 +208,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jLabel5)))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,42 +229,33 @@ public class Login extends javax.swing.JFrame {
         LoginLayout.setHorizontalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                        .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3)
-                    .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(campoUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(campoSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, LoginLayout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(jLabel4))))
-                .addGap(39, 39, 39))
+                    .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(campoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                        .addComponent(campoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                        .addComponent(botaoEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addComponent(campoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(campoEsqueci, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -290,11 +299,12 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     private void botaoEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseEntered
-        botaoEntrar.setBackground(new Color(70,136,178));
+        botaoEntrar.setBackground(new Color(70,130,170));
     }//GEN-LAST:event_botaoEntrarMouseEntered
 
     private void botaoSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseEntered
-        botaoSair.setBackground(new Color(70,136,178));
+        botaoSair.setForeground(new Color(255, 255, 255));
+        botaoSair.setBackground(new Color(70,130,170));
     }//GEN-LAST:event_botaoSairMouseEntered
 
     private void botaoEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseExited
@@ -337,6 +347,30 @@ public class Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_botaoEscuroActionPerformed
 
+    private void campoEsqueciMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoEsqueciMouseEntered
+        campoEsqueci.setForeground(new Color(250, 0, 0));
+    }//GEN-LAST:event_campoEsqueciMouseEntered
+
+    private void campoEsqueciMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoEsqueciMouseExited
+        campoEsqueci.setForeground(new Color(0,0,0));
+    }//GEN-LAST:event_campoEsqueciMouseExited
+
+    private void botaoEscuroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEscuroMouseEntered
+        botaoEscuro.setForeground(new Color(250, 0, 0));
+    }//GEN-LAST:event_botaoEscuroMouseEntered
+
+    private void botaoEscuroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEscuroMouseExited
+        botaoEscuro.setForeground(new Color(0, 0 ,0));
+    }//GEN-LAST:event_botaoEscuroMouseExited
+
+    private void botaoClaroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoClaroMouseEntered
+        botaoClaro.setForeground(new Color(250, 0, 0));
+    }//GEN-LAST:event_botaoClaroMouseEntered
+
+    private void botaoClaroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoClaroMouseExited
+        botaoClaro.setForeground(new Color(0, 0, 0));
+    }//GEN-LAST:event_botaoClaroMouseExited
+
     public static void main(String args[]) {
         try {
             
@@ -376,8 +410,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JTextField campoUsuario;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
