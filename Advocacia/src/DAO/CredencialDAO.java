@@ -28,9 +28,9 @@ public class CredencialDAO{
         else
         {
             tamString=idProcessos.length();
-            qProcessos = nProcs();
+            qProcessos = nIds(tamString, idProcessos);
             processos = new int[qProcessos];
-            processos = str2arr();
+            processos = str2arr(qProcessos, tamString, idProcessos);
         }
         
             
@@ -48,31 +48,32 @@ public class CredencialDAO{
         
     }
         
-    private int nProcs()//Retorna o número de ids de processos contidos na String
+    public int nIds(int tam, String str)//Retorna o número de ids de processos contidos na String
     {
         int quant=0;
-        for(int i=0; i<tamString; i++)
+        
+        for(int i=0; i<tam; i++)
         {
-            if(idProcessos.charAt(i)==',') quant++;
+            if(str.charAt(i)==',') quant++;
         } 
         return quant;
     }
     
     
-    private int[] str2arr()//Retorna um array de tamanho nProcs com os ids de cada processo contido na String 
+    public int[] str2arr(int q, int tam, String str)//Retorna um array de tamanho nProcs com os ids de cada processo contido na String 
     {
-        int[] ids = new int[qProcessos];
+        int[] ids = new int[q];
         int pos=0;
         ids[pos]=pos;
-        for(int i=0; i<tamString; i++)
+        for(int i=0; i<tam; i++)
         {
-            if(idProcessos.charAt(i)==',')
+            if(str.charAt(i)==',')
             {
                 pos++;
-                if(pos==qProcessos)break;
+                if(pos==q)break;
                 ids[pos]=0;                
             }
-            else ids[pos]=ids[pos]*10 + (idProcessos.charAt(i) - '0');
+            else ids[pos]=ids[pos]*10 + (str.charAt(i) - '0');
         }
         return ids;         
     }
