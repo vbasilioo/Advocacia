@@ -61,7 +61,9 @@ public class AtualizarDTO {
             {
                 if(id == rs.getInt(colunaID))
                 {
-                    ids = rs.getString(colunaIDs);                    
+                    //System.out.println("id: " +id);
+                    ids = rs.getString(colunaIDs);
+                    //System.out.println("str: " +ids);                    
                     break;
                 }
             }
@@ -73,6 +75,37 @@ public class AtualizarDTO {
     
     public void setIds(String db, int id, String str)
     {
+        nomeTabela = db;
+         
+         if(db.equals("usuarios"))
+         {
+             colunaID = "id_usuario";
+             colunaIDs = "id_processo_associado";
+         }
+         else if(db.equals("processos"))
+         {
+             colunaID = "id_processo";
+             colunaIDs = "usuario_associado";
+         }
+         
+        try
+        {
+            String driver = "com.mysql.cj.jdbc.Driver";
+            String url = "jdbc:mysql://localhost:3306/" +nomeBD;
+            Class.forName(driver);
+            
+            String sql = "UPDATE " +db +" SET " +colunaIDs +" = ?" +" WHERE " +colunaID +" = " +id;
+            Connection conn = DriverManager.getConnection(url, unameBD, senhaBD);
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, str);
+            pstm.execute();
+            pstm.close();
+            //ResultSet rs = pstm.executeQuery(sql);
+            //System.out.println("Enviado");
+                                
+            
+            
+        }catch(Exception e){System.out.println(e);}
         
     }
     

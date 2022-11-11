@@ -17,14 +17,18 @@ public class AtualizarDAO {
     public void Excluir(int id, String db, String str)
     {
         CredencialDAO obj = new CredencialDAO();
-        int q = obj.nIds(str.length(), str);
+        //System.out.println("tam: " +str.length());
+        int tam = str.length();
+        int q = obj.nIds(tam, str);
         int ids[];
         ids = new int[q];
-        ids = obj.str2arr(q, str.length(), str);        
+        ids = obj.str2arr(q, tam, str);        
         AtualizarDTO conn = new AtualizarDTO();
         for(int i=0; i<q; i++)
         {
-            conn.setIds(db, ids[i],RemoverID(conn.getIds(db, ids[i]), id));            
+            
+            conn.setIds(db, ids[i],RemoverID(conn.getIds(db, ids[i]), id));
+           // System.out.println("------------------");
         }
         
     }
@@ -46,7 +50,7 @@ public class AtualizarDAO {
                 nstr+= Integer.toString(ids[i]) +",";
             }
         }
-        //System.out.println("new string: " +nstr);
+        //System.out.println("new str: " +nstr);
         return nstr;
     }
     
@@ -54,6 +58,6 @@ public class AtualizarDAO {
     public static void main (String[] args)
     {
         AtualizarDAO obj = new AtualizarDAO();
-        obj.RemoverID("1,11,121,211,112,111,", 1);
+        obj.Excluir( 2, "usuarios", "2,3,");
     }*/
 }
