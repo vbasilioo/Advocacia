@@ -1,7 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+
+/*Tutorial Blob: https://www.mysqltutorial.org/mysql-jdbc-blob
+JfileChooser: https://docs.oracle.com/javase/7/docs/api/javax/swing/JFileChooser.html
+*/
 package DTO;
 
 import DAO.ConexaoDAO;
@@ -18,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.swing.JFileChooser;
 /**
  *
  * @author SaMuK
@@ -45,7 +47,6 @@ public class ArquivosDTO {
             pstm.setInt(1, id);
             pstm.setString(2, nome);
             pstm.setBinaryStream(3, input);
-            
             System.out.println("Reading file " + file.getAbsolutePath());
             System.out.println("Store file in the database.");
             pstm.execute();
@@ -60,7 +61,7 @@ public class ArquivosDTO {
     public void BaixarArquivo(int id, String nome)
     {
         String selectSQL = "SELECT arquivo FROM arquivos WHERE id_processo = ? AND nome = ?";
-        ResultSet rs = null;
+        rs = null;
         
         conn = new ConexaoDAO().conectaDB();
         
@@ -73,8 +74,6 @@ public class ArquivosDTO {
             
             File file = new File(nome);
             FileOutputStream output = new FileOutputStream(file);
-             
-            
             System.out.println("Writing to file " + file.getAbsolutePath());
             while (rs.next()) {
                 InputStream input = rs.getBinaryStream("arquivo");
