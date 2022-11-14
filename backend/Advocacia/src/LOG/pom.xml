@@ -73,18 +73,5 @@
 
         </plugins>
     </build>
-    
-    <appender name="FILE" class="org.apache.log4j.FileAppender"> 
-        <param name="File" value="application.log" /> 
-            <layout class="org.apache.log4j.PatternLayout"> 
-                <param name="ConversionPattern" value="%-5p: %c - %m%n" /> 
-            </layout> 
-    </appender>
-
-    <root>
-        <priority value="info" /> 
-        <appender-ref ref="console" /> 
-        <appender-ref ref="FILE" />
-    </root>
 
 </project>
