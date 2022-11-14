@@ -26,50 +26,50 @@ public class DARKTelaAdministrador extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        campoSair.setBackground(new java.awt.Color(51, 51, 51));
+        campoSair.setBackground(new java.awt.Color(102, 102, 102));
         campoSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campoSair.setForeground(new java.awt.Color(255, 255, 255));
+        campoSair.setForeground(new java.awt.Color(51, 51, 51));
         campoSair.setText("Sair");
-        campoSair.setBorder(null);
+        campoSair.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoSairActionPerformed(evt);
             }
         });
 
-        CampoLOGs.setBackground(new java.awt.Color(51, 51, 51));
+        CampoLOGs.setBackground(new java.awt.Color(102, 102, 102));
         CampoLOGs.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        CampoLOGs.setForeground(new java.awt.Color(255, 255, 255));
+        CampoLOGs.setForeground(new java.awt.Color(51, 51, 51));
         CampoLOGs.setText("Consultar LOGs");
-        CampoLOGs.setBorder(null);
+        CampoLOGs.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        campoConsultar.setBackground(new java.awt.Color(51, 51, 51));
+        campoConsultar.setBackground(new java.awt.Color(102, 102, 102));
         campoConsultar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campoConsultar.setForeground(new java.awt.Color(255, 255, 255));
+        campoConsultar.setForeground(new java.awt.Color(51, 51, 51));
         campoConsultar.setText("Consultar Usuários");
-        campoConsultar.setBorder(null);
+        campoConsultar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoConsultarActionPerformed(evt);
             }
         });
 
-        campoCadastrar.setBackground(new java.awt.Color(51, 51, 51));
+        campoCadastrar.setBackground(new java.awt.Color(102, 102, 102));
         campoCadastrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campoCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        campoCadastrar.setForeground(new java.awt.Color(51, 51, 51));
         campoCadastrar.setText("Cadastrar Usuário");
-        campoCadastrar.setBorder(null);
+        campoCadastrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCadastrarActionPerformed(evt);
             }
         });
 
-        campoCaixaEntrada.setBackground(new java.awt.Color(51, 51, 51));
+        campoCaixaEntrada.setBackground(new java.awt.Color(102, 102, 102));
         campoCaixaEntrada.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campoCaixaEntrada.setForeground(new java.awt.Color(255, 255, 255));
+        campoCaixaEntrada.setForeground(new java.awt.Color(51, 51, 51));
         campoCaixaEntrada.setText("Caixa de Entrada");
-        campoCaixaEntrada.setBorder(null);
+        campoCaixaEntrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoCaixaEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCaixaEntradaActionPerformed(evt);
@@ -122,25 +122,25 @@ public class DARKTelaAdministrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSairActionPerformed
-        Login login = new Login();
+        DARKLogin login = new DARKLogin();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoSairActionPerformed
 
     private void campoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCadastrarActionPerformed
-        CadastrarUsuarioADM cadusu = new CadastrarUsuarioADM();
+        DARKCadastrarUsuarioADM cadusu = new DARKCadastrarUsuarioADM();
         cadusu.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCadastrarActionPerformed
 
     private void campoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoConsultarActionPerformed
-        ListaUsuarios listar = new ListaUsuarios();
+        DARKListaUsuarios listar = new DARKListaUsuarios();
         listar.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoConsultarActionPerformed
 
     private void campoCaixaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCaixaEntradaActionPerformed
-        CaixaEntradaAdministrador cea = new CaixaEntradaAdministrador();
+        DARKCaixaEntradaAdministrador cea = new DARKCaixaEntradaAdministrador();
         cea.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCaixaEntradaActionPerformed

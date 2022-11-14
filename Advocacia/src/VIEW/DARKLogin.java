@@ -106,10 +106,11 @@ public class DARKLogin extends javax.swing.JFrame {
         campoSenha.setToolTipText("");
         campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        botaoEntrar.setBackground(new java.awt.Color(0, 0, 0));
+        botaoEntrar.setBackground(new java.awt.Color(204, 204, 204));
         botaoEntrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        botaoEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        botaoEntrar.setForeground(new java.awt.Color(51, 51, 51));
         botaoEntrar.setText("Entrar");
+        botaoEntrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         botaoEntrar.setBorderPainted(false);
         botaoEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botaoEntrar.setFocusPainted(false);
@@ -129,7 +130,9 @@ public class DARKLogin extends javax.swing.JFrame {
 
         botaoSair.setBackground(new java.awt.Color(204, 204, 204));
         botaoSair.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        botaoSair.setForeground(new java.awt.Color(51, 51, 51));
         botaoSair.setText("Sair");
+        botaoSair.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         botaoSair.setBorderPainted(false);
         botaoSair.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botaoSair.setFocusPainted(false);
@@ -147,9 +150,9 @@ public class DARKLogin extends javax.swing.JFrame {
             }
         });
 
-        campoEsqueci.setBackground(new java.awt.Color(255, 255, 255));
+        campoEsqueci.setBackground(new java.awt.Color(204, 204, 204));
         campoEsqueci.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campoEsqueci.setForeground(new java.awt.Color(0, 7, 12));
+        campoEsqueci.setForeground(new java.awt.Color(51, 51, 51));
         campoEsqueci.setText("Esqueci minha senha");
         campoEsqueci.setBorder(null);
         campoEsqueci.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,12 +173,12 @@ public class DARKLogin extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("ADVOCACIA");
 
         botaoClaro.setBackground(new java.awt.Color(51, 51, 51));
         botaoClaro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        botaoClaro.setForeground(new java.awt.Color(255, 255, 255));
+        botaoClaro.setForeground(new java.awt.Color(153, 153, 153));
         botaoClaro.setText("TEMA CLARO");
         botaoClaro.setBorderPainted(false);
         botaoClaro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -186,10 +189,15 @@ public class DARKLogin extends javax.swing.JFrame {
                 botaoClaroMouseExited(evt);
             }
         });
+        botaoClaro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoClaroActionPerformed(evt);
+            }
+        });
 
         botaoEscuro.setBackground(new java.awt.Color(51, 51, 51));
         botaoEscuro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        botaoEscuro.setForeground(new java.awt.Color(255, 255, 255));
+        botaoEscuro.setForeground(new java.awt.Color(153, 153, 153));
         botaoEscuro.setText("TEMA ESCURO");
         botaoEscuro.setBorderPainted(false);
         botaoEscuro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -238,11 +246,9 @@ public class DARKLogin extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Usuário");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Senha");
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
@@ -348,20 +354,19 @@ public class DARKLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     private void botaoEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseEntered
-        botaoEntrar.setBackground(new Color(70,130,170));
+        
     }//GEN-LAST:event_botaoEntrarMouseEntered
 
     private void botaoSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseEntered
-        botaoSair.setForeground(new Color(255, 255, 255));
-        botaoSair.setBackground(new Color(70,130,170));
+        
     }//GEN-LAST:event_botaoSairMouseEntered
 
     private void botaoEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseExited
-        botaoEntrar.setBackground(new Color(00,00,00));
+       
     }//GEN-LAST:event_botaoEntrarMouseExited
 
     private void botaoSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseExited
-        botaoSair.setBackground(new Color(204,204,204));
+        
     }//GEN-LAST:event_botaoSairMouseExited
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -379,7 +384,7 @@ public class DARKLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseDragged
 
     private void campoEsqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEsqueciActionPerformed
-        new ConstatarAdministrador().setVisible(true);
+        new DARKConstatarAdministrador().setVisible(true);
     }//GEN-LAST:event_campoEsqueciActionPerformed
 
     private void campoUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoUsuarioMouseClicked
@@ -397,58 +402,39 @@ public class DARKLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEscuroActionPerformed
 
     private void campoEsqueciMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoEsqueciMouseEntered
-        campoEsqueci.setForeground(new Color(250, 0, 0));
+        
     }//GEN-LAST:event_campoEsqueciMouseEntered
 
     private void campoEsqueciMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoEsqueciMouseExited
-        campoEsqueci.setForeground(new Color(0,0,0));
+       
     }//GEN-LAST:event_campoEsqueciMouseExited
 
     private void botaoEscuroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEscuroMouseEntered
-        botaoEscuro.setForeground(new Color(250, 0, 0));
+        
     }//GEN-LAST:event_botaoEscuroMouseEntered
 
     private void botaoEscuroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEscuroMouseExited
-        botaoEscuro.setForeground(new Color(0, 0 ,0));
+        
     }//GEN-LAST:event_botaoEscuroMouseExited
 
     private void botaoClaroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoClaroMouseEntered
-        botaoClaro.setForeground(new Color(250, 0, 0));
+        
     }//GEN-LAST:event_botaoClaroMouseEntered
 
     private void botaoClaroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoClaroMouseExited
-        botaoClaro.setForeground(new Color(0, 0, 0));
+        
     }//GEN-LAST:event_botaoClaroMouseExited
 
     private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed
         
     }//GEN-LAST:event_campoUsuarioActionPerformed
 
-    public static void main(String args[]) {
-        try {
-            
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DARKLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DARKLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DARKLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DARKLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+    private void botaoClaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoClaroActionPerformed
+        Login log = new Login();
+        log.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botaoClaroActionPerformed
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DARKLogin().setVisible(true);
-            }
-        });     
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Login;
