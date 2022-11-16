@@ -44,7 +44,7 @@ public class ArquivosDTO {
                 else break;
             }
             String n2="";
-            for(int i = n.length(); i>=0; i--)
+            for(int i = n.length()-1; i>=0; i--)
             {
                 n2+=n.charAt(i);
             }
