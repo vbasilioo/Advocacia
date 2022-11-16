@@ -489,15 +489,15 @@ private void Logar(){
         ResultSet rsusuariosdao = funcdao.autenticarUsuario(funcdto);
       
         if(rsusuariosdao.next()){
-            CredencialDAO credencial = new CredencialDAO();
-            credencial.Gerar(campoUsuario.getText());
-                if(credencial.cargo==0){
+            
+            CredencialDAO.Gerar(campoUsuario.getText());
+                if(CredencialDAO.cargo==0){
                     TelaAdministrador tadm = new TelaAdministrador();
                     tadm.setVisible(true);
                     dispose();
                     LOGGER.info("O usuário acessou o sistema com o cargo [0].");
                 }
-                else if(credencial.cargo==1){
+                else if(CredencialDAO.cargo==1){
                     TelaUsuario tusu = new TelaUsuario();
                     tusu.setVisible(true);
                     dispose();

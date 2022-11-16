@@ -109,13 +109,14 @@ public class CarregarArquivos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoUploadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoUploadActionPerformed
-        
+        System.out.println(gdi.getUrlImagem());
     }//GEN-LAST:event_botaoUploadActionPerformed
 
     private void uploadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadMouseClicked
         if(evt.getClickCount()==2){
             gdi.escolherImagem(upload);
-            obj.SalvarArquivo(122, "hello.pdf");
+            System.out.println(gdi.getUrlImagem());
+            obj.SalvarArquivo(122, gdi.getUrlImagem());
         }
     }//GEN-LAST:event_uploadMouseClicked
 

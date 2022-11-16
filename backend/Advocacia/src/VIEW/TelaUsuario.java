@@ -1,5 +1,6 @@
 package VIEW;
 import DAO.ProcessosDAO;
+import DAO.CredencialDAO;
 import DTO.ProcessosDTO;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
@@ -146,7 +147,10 @@ public class TelaUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        System.exit(0);
+        Login login = new Login();
+        CredencialDAO.Reset();
+        login.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed

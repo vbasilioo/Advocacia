@@ -16,7 +16,7 @@ public class CredencialDAO{
     
     private static final Logger LOGGER = LoggerFactory.getLogger(Log.class);
     
-    public void Gerar(String NOME) //Método Principal
+    public static void Gerar(String NOME) //Método Principal
     {
         nome = NOME;
         qProcessos = 1;
@@ -40,11 +40,11 @@ public class CredencialDAO{
 
     }
     
-    public void Atualizar() //Atualizar dados
+    public static void Atualizar() //Atualizar dados
     {
         Gerar(nome);
     }
-    public void Reset()
+    public static void Reset()
     {
         id = cargo = qProcessos = 0;
         nome = idProcessos = "";
@@ -52,7 +52,7 @@ public class CredencialDAO{
         
     }
         
-    public int nIds(int tam, String str)//Retorna o número de ids de processos contidos na String
+    public static int nIds(int tam, String str)//Retorna o número de ids de processos contidos na String
     {
         int quant=0;
         
@@ -64,7 +64,7 @@ public class CredencialDAO{
     }
     
     
-    public int[] str2arr(int q, int tam, String str)//Retorna um array de tamanho nProcs com os ids de cada processo contido na String 
+    public static int[] str2arr(int q, int tam, String str)//Retorna um array de tamanho nProcs com os ids de cada processo contido na String 
     {
         int[] ids = new int[q];
         int pos=0;
