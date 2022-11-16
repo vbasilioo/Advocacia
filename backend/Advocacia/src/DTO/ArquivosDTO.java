@@ -33,9 +33,22 @@ public class ArquivosDTO {
             FileInputStream input = new FileInputStream(file);
             pstm = conn.prepareStatement(updateSQL);
             
-            
+            String n="";
             pstm.setInt(1, id);
-            pstm.setString(2, nome);
+            for(int i=nome.length()-1; i>=0; i--)
+            {
+                if(nome.charAt(i)!='\'')
+                {
+                    n+=nome.charAt(i);
+                }
+                else break;
+            }
+            String n2="";
+            for(int i = n.length(); i>=0; i--)
+            {
+                n2+=n.charAt(i);
+            }
+            pstm.setString(2, n2);
             pstm.setBinaryStream(3, input);
             System.out.println("Reading file " + file.getAbsolutePath());
             System.out.println("Store file in the database.");
@@ -48,9 +61,9 @@ public class ArquivosDTO {
         } 
 }
     
-    public void BaixarArquivo(int id, String nome)
+    public void BaixarArquivo(int id)
     {
-        String selectSQL = "SELECT arquivo FROM arquivos WHERE id_processo = ? AND nome = ?";
+        String selectSQL = "SELECT arquivo, nome FROM arquivos WHERE id_arquivo = ?";
         rs = null;
         
         conn = new ConexaoDAO().conectaDB();
@@ -59,10 +72,10 @@ public class ArquivosDTO {
         {
             pstm = conn.prepareStatement(selectSQL);
             pstm.setInt(1, id);
-            pstm.setString(2, nome);
+            //pstm.setString(2, nome);
             rs = pstm.executeQuery();
             
-            File file = new File(nome);
+            File file = new File(rs.getString("nome"));
             FileOutputStream output = new FileOutputStream(file);
             System.out.println("Writing to file " + file.getAbsolutePath());
             while (rs.next()) {
