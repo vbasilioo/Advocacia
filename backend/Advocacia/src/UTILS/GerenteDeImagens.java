@@ -53,12 +53,12 @@ public class GerenteDeImagens {
             @Override
             public boolean accept(File f) {
                 String caminho = f.getAbsolutePath();
-                return caminho.endsWith("png") | caminho.endsWith("jpg") | caminho.endsWith("bmp") | f.isDirectory();
+                return caminho.endsWith("png") | caminho.endsWith("jpg") | caminho.endsWith("bmp") | caminho.endsWith("pdf") | caminho.endsWith("docx") | caminho.endsWith("doc") | caminho.endsWith("pptx") | caminho.endsWith("ppt") | f.isDirectory();
             }
 
             @Override
             public String getDescription() {
-                return "Imagem";
+                return "Documentos";
             }
         });
 
