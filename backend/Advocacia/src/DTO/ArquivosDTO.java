@@ -19,11 +19,11 @@ public class ArquivosDTO {
     Connection conn;
     PreparedStatement pstm;
     ResultSet rs;
-    private String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._";
+   
     
     public void SalvarArquivo(int id, String nome)
     {
-        String updateSQL = "INSERT INTO arquivos (id_processo, nome, arquivo, id_arquivo) " +"values (?,?,?,?) ";
+        String updateSQL = "INSERT INTO arquivos (id_processo, nome, arquivo) " +"values (?,?,?) ";
         
         conn = new ConexaoDAO().conectaDB();
         
@@ -52,7 +52,6 @@ public class ArquivosDTO {
             System.out.println(n);
             pstm.setString(2, n);
             pstm.setBinaryStream(3, input);
-            pstm.setInt(4,1);
             System.out.println("Reading file " + file.getAbsolutePath());
             System.out.println("Store file in the database.");
             pstm.execute();
