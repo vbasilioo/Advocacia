@@ -19,10 +19,11 @@ public class ArquivosDTO {
     Connection conn;
     PreparedStatement pstm;
     ResultSet rs;
+    private String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._";
     
     public void SalvarArquivo(int id, String nome)
     {
-        String updateSQL = "INSERT INTO arquivos (id_processo, nome, arquivo) " +"values (?,?,?) ";
+        String updateSQL = "INSERT INTO arquivos (id_processo, nome, arquivo, id_arquivo) " +"values (?,?,?,?) ";
         
         conn = new ConexaoDAO().conectaDB();
         
@@ -33,23 +34,25 @@ public class ArquivosDTO {
             FileInputStream input = new FileInputStream(file);
             pstm = conn.prepareStatement(updateSQL);
             
-            String n="";
             pstm.setInt(1, id);
-            for(int i=nome.length()-1; i>=0; i--)
+            boolean v=false;
+            int pos=0;
+            for(pos=nome.length()-1; pos>=0; pos--)
             {
-                if(nome.charAt(i)!='\'')
-                {
-                    n+=nome.charAt(i);
-                }
-                else break;
+                if(nome.charAt(pos)=='\\')break;
             }
-            String n2="";
-            for(int i = n.length()-1; i>=0; i--)
+            pos++;
+            String n="";
+            for(int i=pos; i<nome.length(); i++)
             {
-                n2+=n.charAt(i);
+                n+=nome.charAt(i);
             }
-            pstm.setString(2, n2);
+            
+            
+            System.out.println(n);
+            pstm.setString(2, n);
             pstm.setBinaryStream(3, input);
+            pstm.setInt(4,1);
             System.out.println("Reading file " + file.getAbsolutePath());
             System.out.println("Store file in the database.");
             pstm.execute();
