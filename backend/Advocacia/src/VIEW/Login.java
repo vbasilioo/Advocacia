@@ -29,6 +29,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         dark=false;
+        botaoClaro.setForeground(new java.awt.Color(0, 0, 0));
+        botaoEscuro.setForeground(new java.awt.Color(0, 0, 0));
         setLayout(new FlowLayout());
     }
     
