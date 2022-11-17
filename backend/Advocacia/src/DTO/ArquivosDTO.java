@@ -16,6 +16,9 @@ import javax.swing.JFileChooser;
 
 public class ArquivosDTO {
     
+    private int id_arquivo;
+    private String nome;
+    
     Connection conn;
     PreparedStatement pstm;
     ResultSet rs;
@@ -99,7 +102,24 @@ public class ArquivosDTO {
                 System.out.println(e.getMessage());
             }
         }
+        
     }
+    public int getId_arquivo() {
+        return id_arquivo;
+    }
+
+    public void setId_arquivo(int id_arquivo) {
+        this.id_arquivo = id_arquivo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     /*
     public static void main(String[] args) {
         ArquivosDTO obj = new ArquivosDTO();
