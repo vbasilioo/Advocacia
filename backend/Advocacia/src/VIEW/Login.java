@@ -23,11 +23,12 @@ public class Login extends javax.swing.JFrame {
     PreparedStatement pstm;
     ResultSet rs;
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Log.class);
-    
+    public static boolean dark;
     private Point point = new Point();
     
     public Login() {
         initComponents();
+        dark=false;
         setLayout(new FlowLayout());
     }
     
@@ -149,7 +150,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        campoEsqueci.setBackground(new java.awt.Color(255, 255, 255));
         campoEsqueci.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         campoEsqueci.setForeground(new java.awt.Color(0, 7, 12));
         campoEsqueci.setText("Esqueci minha senha");
@@ -185,6 +185,11 @@ public class Login extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botaoClaroMouseExited(evt);
+            }
+        });
+        botaoClaro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoClaroActionPerformed(evt);
             }
         });
 
@@ -298,6 +303,43 @@ public class Login extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    public void atComponents()
+    {
+        
+        if(dark)
+        {
+            Login.setBackground(new java.awt.Color(102, 102, 102));
+            botaoEntrar.setBackground(new java.awt.Color(204, 204, 204));
+            botaoEntrar.setForeground(new java.awt.Color(51, 51, 51));
+            botaoEntrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+            botaoSair.setBackground(new java.awt.Color(204, 204, 204));
+            botaoSair.setForeground(new java.awt.Color(51, 51, 51));
+            botaoSair.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+            campoEsqueci.setBackground(new java.awt.Color(204, 204, 204));
+            campoEsqueci.setForeground(new java.awt.Color(51, 51, 51));
+            jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+            jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+            botaoClaro.setBackground(new java.awt.Color(51, 51, 51));
+            botaoClaro.setForeground(new java.awt.Color(153, 153, 153));
+            botaoEscuro.setBackground(new java.awt.Color(51, 51, 51));
+            botaoEscuro.setForeground(new java.awt.Color(153, 153, 153));
+        }
+        else
+        {
+            Login.setBackground(new java.awt.Color(255, 255, 255));
+            botaoEntrar.setBackground(new java.awt.Color(0, 0, 0));
+            botaoEntrar.setForeground(new java.awt.Color(255, 255, 255));
+            botaoSair.setBackground(new java.awt.Color(204, 204, 204));
+            campoEsqueci.setForeground(new java.awt.Color(0, 7, 12));
+            jPanel2.setBackground(new java.awt.Color(70, 130, 180));
+            jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+            botaoClaro.setForeground(new java.awt.Color(0, 0, 0));
+            botaoEscuro.setBackground(new java.awt.Color(70, 130, 180));
+            botaoEscuro.setForeground(new java.awt.Color(0, 0, 0));
+        }
+        
+    }
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_botaoSairActionPerformed
@@ -349,20 +391,24 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     private void botaoEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseEntered
-        botaoEntrar.setBackground(new Color(70,130,170));
+        if(!dark)botaoEntrar.setBackground(new Color(70,130,170));
     }//GEN-LAST:event_botaoEntrarMouseEntered
 
     private void botaoSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseEntered
-        botaoSair.setForeground(new Color(255, 255, 255));
-        botaoSair.setBackground(new Color(70,130,170));
+        if(!dark)
+        {
+            botaoSair.setForeground(new Color(255, 255, 255));
+            botaoSair.setBackground(new Color(70,130,170));
+        }
+        
     }//GEN-LAST:event_botaoSairMouseEntered
 
     private void botaoEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEntrarMouseExited
-        botaoEntrar.setBackground(new Color(00,00,00));
+        if(!dark)botaoEntrar.setBackground(new Color(00,00,00));
     }//GEN-LAST:event_botaoEntrarMouseExited
 
     private void botaoSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSairMouseExited
-        botaoSair.setBackground(new Color(204,204,204));
+        if(!dark)botaoSair.setBackground(new Color(204,204,204));
     }//GEN-LAST:event_botaoSairMouseExited
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -392,38 +438,46 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_campoUsuarioFocusGained
 
     private void botaoEscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEscuroActionPerformed
-        DARKLogin darklog = new DARKLogin();
-        darklog.setVisible(true);
-        dispose();
+        //DARKLogin darklog = new DARKLogin();
+        //darklog.setVisible(true);
+        //dispose();
+        dark=true;
+        atComponents();
     }//GEN-LAST:event_botaoEscuroActionPerformed
 
     private void campoEsqueciMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoEsqueciMouseEntered
-        campoEsqueci.setForeground(new Color(250, 0, 0));
+        if(!dark)campoEsqueci.setForeground(new Color(250, 0, 0));
     }//GEN-LAST:event_campoEsqueciMouseEntered
 
     private void campoEsqueciMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoEsqueciMouseExited
-        campoEsqueci.setForeground(new Color(0,0,0));
+        if(!dark)campoEsqueci.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_campoEsqueciMouseExited
 
     private void botaoEscuroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEscuroMouseEntered
-        botaoEscuro.setForeground(new Color(250, 0, 0));
+        if(!dark)botaoEscuro.setForeground(new Color(250, 0, 0));
     }//GEN-LAST:event_botaoEscuroMouseEntered
 
     private void botaoEscuroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoEscuroMouseExited
-        botaoEscuro.setForeground(new Color(0, 0 ,0));
+        if(!dark)botaoEscuro.setForeground(new Color(0, 0 ,0));
     }//GEN-LAST:event_botaoEscuroMouseExited
 
     private void botaoClaroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoClaroMouseEntered
-        botaoClaro.setForeground(new Color(250, 0, 0));
+        if(!dark)botaoClaro.setForeground(new Color(250, 0, 0));
     }//GEN-LAST:event_botaoClaroMouseEntered
 
     private void botaoClaroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoClaroMouseExited
-        botaoClaro.setForeground(new Color(0, 0, 0));
+        if(!dark)botaoClaro.setForeground(new Color(0, 0, 0));
     }//GEN-LAST:event_botaoClaroMouseExited
 
     private void campoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoUsuarioActionPerformed
         
     }//GEN-LAST:event_campoUsuarioActionPerformed
+
+    private void botaoClaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoClaroActionPerformed
+        // TODO add your handling code here:
+        dark=false;
+        atComponents();
+    }//GEN-LAST:event_botaoClaroActionPerformed
 
     public static void main(String args[]) {
         try {
