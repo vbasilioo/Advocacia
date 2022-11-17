@@ -9,10 +9,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class TelaUsuario extends javax.swing.JFrame {
     
+    public static int id_processo;
     public TelaUsuario() {
+        id_processo=0;
         initComponents();
         listarProcessos();
         setLayout(new FlowLayout());
+        consultarProcessos.setBackground(new java.awt.Color(204, 204, 204));
+        consultarProcessos.setForeground(new java.awt.Color(255, 255, 255));
     }
 
     @SuppressWarnings("unchecked")
@@ -54,6 +58,11 @@ public class TelaUsuario extends javax.swing.JFrame {
             }
         ));
         tabelaProcessos.setGridColor(new java.awt.Color(255, 255, 255));
+        tabelaProcessos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaProcessosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelaProcessos);
 
         botaoCadastrar.setBackground(new java.awt.Color(70, 130, 180));
@@ -160,10 +169,20 @@ public class TelaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void consultarProcessosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarProcessosActionPerformed
-        ConsultarProcesso cp = new ConsultarProcesso();
-        cp.setVisible(true);
-        dispose();
+        if(id_processo != 0)
+        {
+            ConsultarProcesso cp = new ConsultarProcesso();
+            cp.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_consultarProcessosActionPerformed
+
+    private void tabelaProcessosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaProcessosMouseClicked
+        consultarProcessos.setBackground(new java.awt.Color(70, 130, 180));
+        consultarProcessos.setForeground(new java.awt.Color(255, 255, 255));
+        id_processo=(int)tabelaProcessos.getValueAt(tabelaProcessos.getSelectedRow(), 0);
+        System.out.println("ID: " +id_processo);
+    }//GEN-LAST:event_tabelaProcessosMouseClicked
 
     private void listarProcessos(){
         try{
