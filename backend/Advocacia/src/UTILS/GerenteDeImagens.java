@@ -61,6 +61,7 @@ public class GerenteDeImagens {
                 return "Documentos";
             }
         });
+        
 
         if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             String path = chooser.getSelectedFile().getAbsolutePath();
