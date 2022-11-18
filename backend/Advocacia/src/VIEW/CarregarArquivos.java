@@ -1,6 +1,7 @@
 package VIEW;
 
 import DTO.ArquivosDTO;
+import VIEW.TelaUsuario;
 import UTILS.GerenteDeImagens;
 import java.awt.FlowLayout;
 
@@ -116,7 +117,7 @@ public class CarregarArquivos extends javax.swing.JFrame {
         if(evt.getClickCount()==2){
             gdi.escolherImagem(upload);
             System.out.println(gdi.getUrlImagem());
-            obj.SalvarArquivo(122, gdi.getUrlImagem());
+            obj.SalvarArquivo(TelaUsuario.id_processo, gdi.getUrlImagem());
         }
     }//GEN-LAST:event_uploadMouseClicked
 
