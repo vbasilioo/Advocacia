@@ -40,11 +40,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>Advocacia</title>
+    <title>SIGEA</title>
 </head>
 <body>
     <form action="" method="POST">
-        <h3>ADVOCACIA</h3>
+        <h3>SIGEA</h3>
         <input id="usuario" type="text" name="usuario" placeholder="Digite o seu usuário." />
         <input type="password" name="senha" placeholder="Digite a sua senha." />
         <input type="submit" name="acao" value="Entrar" />
