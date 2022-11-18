@@ -7,7 +7,7 @@
         unset($_SESSION['msg']);
     }
 
-    $result_usuarios = "SELECT  * FROM usuarios";
+    $result_usuarios = "SELECT  * FROM processos";
     $resultad_usuarios = mysqli_query($conn, $result_usuarios);
 
 ?>
@@ -33,13 +33,13 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="painel.php" class="nav-link active" aria-current="page">
+        <a href="painel.php" class="nav-link link-dark">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Usuários
         </a>
       </li>
       <li>
-        <a href="processos.php" class="nav-link link-dark">
+        <a href="processos.php" class="nav-link active" aria-current="page">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
           Processos
         </a>
@@ -69,10 +69,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th scope ="col">Usuários</th>
-                        <th scope ="col">E-mail</th>
-                        <th scope ="col">Cargo</th>
-                        <th scope ="col">Processos</th>
+                        <th scope ="col">ID</th>
+                        <th scope ="col">Cliente</th>
+                        <th scope="col">Usuários Associados</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Excluir</th>
                     </tr>
@@ -81,10 +80,9 @@
                     <?php
                         while($row_usuario = mysqli_fetch_assoc($resultad_usuarios)){
                             echo "<tr>";
-                            echo "<td>" . $row_usuario['nome_usuario'] . "</td>";
-                            echo "<td>" . $row_usuario['email_usuario'] . "</td>";
-                            echo "<td>" . $row_usuario['cargo_usuario'] . "</td>";
-                            echo "<td>" . $row_usuario['id_processo_associado'] . "</td>";
+                            echo "<td>" . $row_usuario['id_processo'] . "</td>";
+                            echo "<td>" . $row_usuario['cliente'] . "</td>";
+                            echo "<td>" . $row_usuario['usuario_associado'] . "</td>";
                             echo "<td>
                                     <a href='editar.php'>
                                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-info-circle-fill' viewBox='0 0 16 16'>

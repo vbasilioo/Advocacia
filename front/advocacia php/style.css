@@ -21,7 +21,6 @@
   .container {
     width: 90%;
     height: 80%;
-    border-radius: 10px;
     background: white;
   }
   
@@ -57,7 +56,7 @@
   
   .divTable::-webkit-scrollbar {
     width: 12px;
-    background-color: whitesmoke; 
+    background-color: white; 
   }
   
   .divTable::-webkit-scrollbar-thumb {
@@ -73,7 +72,7 @@
   }
   
   thead {
-    background-color: whitesmoke;
+    background-color: white;
   }
   
   tr {
