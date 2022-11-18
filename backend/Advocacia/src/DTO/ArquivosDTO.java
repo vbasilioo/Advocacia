@@ -66,7 +66,7 @@ public class ArquivosDTO {
         } 
 }
     
-    public void BaixarArquivo(int id)
+    public void BaixarArquivo(int id, String local)
     {
         String selectSQL = "SELECT arquivo, nome FROM arquivos WHERE id_arquivo = ?";
         rs = null;
@@ -80,7 +80,7 @@ public class ArquivosDTO {
             //pstm.setString(2, nome);
             rs = pstm.executeQuery();
             
-            File file = new File(rs.getString("nome"));
+            File file = new File(local);
             FileOutputStream output = new FileOutputStream(file);
             System.out.println("Writing to file " + file.getAbsolutePath());
             while (rs.next()) {
@@ -103,6 +103,26 @@ public class ArquivosDTO {
             }
         }
         
+    }
+    
+    public void ExcluirArquivo(int id)
+    {
+        String selectSQL = "DELETE FROM arquivos WHERE id_arquivo = ?";
+        rs = null;
+        
+        conn = new ConexaoDAO().conectaDB();
+        
+        try 
+        {
+            pstm = conn.prepareStatement(selectSQL);
+            pstm.setInt(1, id);
+            //pstm.setString(2, nome);
+            pstm.execute();
+           
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
     public int getId_arquivo() {
         return id_arquivo;
