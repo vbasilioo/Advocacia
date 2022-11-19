@@ -2,6 +2,7 @@ package DAO;
 
 import DTO.ProcessosDTO;
 import LOG.Log;
+import DAO.UsuariosDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,8 @@ public class ProcessosDAO{
     ArrayList<ProcessosDTO> tabela = new ArrayList<>();
     private int[] processos;
     private static final Logger LOGGER = LoggerFactory.getLogger(Log.class);
+    public String cliente;
+    public String usuarios;
     
     public ResultSet listarProcessos(){
         conn = new ConexaoDAO().conectaDB();
@@ -52,7 +55,7 @@ public class ProcessosDAO{
                         ProcessosDTO prodto = new ProcessosDTO();
                         prodto.setId_processo(rs.getInt("id_processo"));
                         prodto.setCliente(rs.getString("cliente"));
-                        prodto.setUsuario_associado(rs.getString("usuario_associado"));
+                        prodto.setUsuario_associado(UsuariosDAO.ids2nomes(rs.getString("usuario_associado")));
                         tabela.add(prodto);
                         break;
                     }
@@ -84,6 +87,26 @@ public class ProcessosDAO{
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "CadastrarProcessosDAO: " + erro);
             LOGGER.error("O processo não foi cadastrado.");
+        }
+    }
+    
+    public void consultarProcessos(int id)
+    {
+        String selectSQL = "SELECT usuario_associado, cliente FROM processos WHERE id_processo = "+id;
+        rs = null;
+        
+        conn = new ConexaoDAO().conectaDB();
+        try
+        {
+            pstm = conn.prepareStatement(selectSQL);
+            rs = pstm.executeQuery();
+            System.out.println(rs);
+            rs.next();
+            cliente=rs.getString("cliente");
+            usuarios=rs.getString("usuario_associado");
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
         }
     }
     

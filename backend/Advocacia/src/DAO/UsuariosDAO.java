@@ -138,4 +138,43 @@ public class UsuariosDAO{
         }
     }
     
+    public static String consultarNome(int id)
+    {
+        String nome="";
+        String selectSQL = "SELECT nome_usuario FROM usuarios WHERE id_usuario = "+id;
+        ResultSet result = null;
+        PreparedStatement ps;
+        Connection c = new ConexaoDAO().conectaDB();
+        try
+        {
+            ps = c.prepareStatement(selectSQL);
+            result = ps.executeQuery();
+            System.out.println(result);
+            result.next();
+            nome=result.getString("nome_usuario");
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
+        }
+        
+       return nome; 
+    }
+    
+    
+    public static String ids2nomes(String ids)
+    {
+        String nome = "";
+        int qUsuarios;
+        qUsuarios = CredencialDAO.nIds(ids.length(), ids);
+        int[] us = new int[qUsuarios];
+        us=CredencialDAO.str2arr(qUsuarios, ids.length(), ids);    
+        for(int i=0; i<qUsuarios; i++)
+        {
+            nome+=" " +consultarNome(us[i]);
+            if((i<qUsuarios-2)&&(qUsuarios>2))nome+=",";
+            else if((i==qUsuarios-2)&&(qUsuarios>1))nome+=" e";
+        }
+        return nome;
+    }
+    
 }
