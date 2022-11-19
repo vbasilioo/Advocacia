@@ -1,6 +1,6 @@
 package VIEW;
 
-import UTILS.GerenteDeImagens;
+import DAO.GerenteDeImagens;
 import DTO.ArquivosDTO; 
 import java.awt.FlowLayout;
 

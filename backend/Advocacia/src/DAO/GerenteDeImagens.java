@@ -1,6 +1,6 @@
-package UTILS;
+package DAO;
 
-import UTILS.GerenciadorIO;
+import DAO.GerenciadorIO;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;

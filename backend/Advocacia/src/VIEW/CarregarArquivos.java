@@ -2,7 +2,7 @@ package VIEW;
 
 import DTO.ArquivosDTO;
 import VIEW.TelaUsuario;
-import UTILS.GerenteDeImagens;
+import DAO.GerenteDeImagens;
 import java.awt.FlowLayout;
 
 public class CarregarArquivos extends javax.swing.JFrame {

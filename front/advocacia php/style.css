@@ -59,7 +59,7 @@
   }
   
   .divTable::-webkit-scrollbar-thumb {
-    background-color: darkgray; 
+    background-color: darkgraywh; 
   }
   
   table {
