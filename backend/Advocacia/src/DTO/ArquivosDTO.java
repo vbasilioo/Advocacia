@@ -68,17 +68,21 @@ public class ArquivosDTO {
     
     public void BaixarArquivo(int id, String local)
     {
-        String selectSQL = "SELECT arquivo, nome FROM arquivos WHERE id_arquivo = ?";
+        String selectSQL = "SELECT arquivo FROM arquivos WHERE id_arquivo = ?";
         rs = null;
         
         conn = new ConexaoDAO().conectaDB();
         
-        try 
+        try
         {
             pstm = conn.prepareStatement(selectSQL);
             pstm.setInt(1, id);
             //pstm.setString(2, nome);
             rs = pstm.executeQuery();
+            System.out.println(rs);
+            System.out.println("id: "+id);
+            //System.out.println("nome: "+rs.getString("nome"));
+            System.out.println("---");
             
             File file = new File(local);
             FileOutputStream output = new FileOutputStream(file);
