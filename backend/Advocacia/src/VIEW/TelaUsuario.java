@@ -4,6 +4,7 @@ import DAO.CredencialDAO;
 import DTO.ProcessosDTO;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -172,8 +173,9 @@ public class TelaUsuario extends javax.swing.JFrame {
         if(id_processo != 0)
         {
             ConsultarProcesso cp = new ConsultarProcesso();
+            cp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             cp.setVisible(true);
-            dispose();
+            //dispose();
         }
     }//GEN-LAST:event_consultarProcessosActionPerformed
 
@@ -203,6 +205,11 @@ public class TelaUsuario extends javax.swing.JFrame {
         }
     }
 
+    
+    public void fechar()
+    {
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoSair;

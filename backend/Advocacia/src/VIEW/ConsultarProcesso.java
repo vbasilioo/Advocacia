@@ -24,9 +24,11 @@ public class ConsultarProcesso extends javax.swing.JFrame {
 
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Log.class);
     private int id_arquivo;
+    public static String cliente;
+    public static String usuarios;
     
     public ConsultarProcesso() {
-        id_arquivo=0;
+        id_arquivo=0;        
         initComponents();
         listarArquivos();
         setLayout(new FlowLayout());
@@ -41,8 +43,8 @@ public class ConsultarProcesso extends javax.swing.JFrame {
         
         labelID.setText("Processo nº"+TelaUsuario.id_processo);
         labelNome.setText("Cliente "+consultar.cliente);
-        
-        String usuarios = consultar.usuarios;
+        cliente = consultar.cliente;
+        usuarios = consultar.usuarios;
         int qUsuarios;
         qUsuarios = CredencialDAO.nIds(usuarios.length(), usuarios);
         String texto;
@@ -70,7 +72,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
         campoExcluir = new javax.swing.JButton();
         campoVoltar = new javax.swing.JButton();
         labelAdvs = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buttonEditar = new javax.swing.JButton();
         labelNome = new javax.swing.JLabel();
         labelID = new javax.swing.JLabel();
 
@@ -167,10 +169,10 @@ public class ConsultarProcesso extends javax.swing.JFrame {
 
         labelAdvs.setText("Advogados ");
 
-        jButton1.setText("Editar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonEditar.setText("Editar");
+        buttonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonEditarActionPerformed(evt);
             }
         });
 
@@ -211,7 +213,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
                                 .addComponent(campoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(159, 159, 159))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(buttonEditar)
                         .addGap(70, 70, 70))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -223,7 +225,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelAdvs)
                 .addGap(1, 1, 1)
-                .addComponent(jButton1)
+                .addComponent(buttonEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -340,9 +342,12 @@ salv.BaixarArquivo(id_arquivo,caminho);
         dispose();
     }//GEN-LAST:event_campoVoltarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        EditarProcesso ep = new EditarProcesso();
+        ep.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonEditarActionPerformed
 
     private void listarArquivos(){
         try{
@@ -366,12 +371,12 @@ salv.BaixarArquivo(id_arquivo,caminho);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonEditar;
     private javax.swing.JTable campoArquivos;
     private javax.swing.JButton campoCarregar;
     private javax.swing.JButton campoDownload;
     private javax.swing.JButton campoExcluir;
     private javax.swing.JButton campoVoltar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
