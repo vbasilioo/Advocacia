@@ -113,7 +113,7 @@ public class DARKJanelaDadosUsuario extends javax.swing.JFrame {
         campoCancelar.setBackground(new java.awt.Color(102, 102, 102));
         campoCancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         campoCancelar.setForeground(new java.awt.Color(51, 51, 51));
-        campoCancelar.setText("Cancelar");
+        campoCancelar.setText("Retornar");
         campoCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

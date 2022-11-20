@@ -46,6 +46,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         campoExcluir = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         jLabel2.setText("jLabel2");
 
@@ -109,7 +110,7 @@ public class ConsultarProcesso extends javax.swing.JFrame {
         campoCarregar.setBackground(new java.awt.Color(70, 130, 180));
         campoCarregar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         campoCarregar.setForeground(new java.awt.Color(255, 255, 255));
-        campoCarregar.setText("Carregar Documento");
+        campoCarregar.setText("Carregar documento");
         campoCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCarregarActionPerformed(evt);
@@ -125,6 +126,16 @@ public class ConsultarProcesso extends javax.swing.JFrame {
         campoExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoExcluirActionPerformed(evt);
+            }
+        });
+
+        jToggleButton1.setBackground(new java.awt.Color(70, 130, 180));
+        jToggleButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton1.setText("Retornar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
             }
         });
 
@@ -148,8 +159,10 @@ public class ConsultarProcesso extends javax.swing.JFrame {
                                 .addComponent(campoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(campoCarregar, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campoDownload, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(campoDownload, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(campoCarregar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)))
                         .addGap(14, 14, 14))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,7 +180,9 @@ public class ConsultarProcesso extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(campoCarregar)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToggleButton1)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,6 +271,12 @@ salv.BaixarArquivo(id_processo,caminho);
         }
     }//GEN-LAST:event_campoExcluirActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        TelaUsuario tu = new TelaUsuario();
+        tu.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     private void listarArquivos(){
         try{
             ArquivosDAO arq = new ArquivosDAO();
@@ -287,5 +308,6 @@ salv.BaixarArquivo(id_processo,caminho);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
