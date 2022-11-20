@@ -2,6 +2,7 @@ package DAO;
 
 import DTO.ProcessosDTO;
 import LOG.Log;
+import DAO.UsuariosDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,8 @@ public class ProcessosDAO{
     ArrayList<ProcessosDTO> tabela = new ArrayList<>();
     private int[] processos;
     private static final Logger LOGGER = LoggerFactory.getLogger(Log.class);
+    public String cliente;
+    public String usuarios;
     
     public ResultSet listarProcessos(){
         conn = new ConexaoDAO().conectaDB();
@@ -52,7 +55,7 @@ public class ProcessosDAO{
                         ProcessosDTO prodto = new ProcessosDTO();
                         prodto.setId_processo(rs.getInt("id_processo"));
                         prodto.setCliente(rs.getString("cliente"));
-                        prodto.setUsuario_associado(rs.getString("usuario_associado"));
+                        prodto.setUsuario_associado(UsuariosDAO.ids2nomes(rs.getString("usuario_associado")));
                         tabela.add(prodto);
                         break;
                     }
@@ -87,4 +90,65 @@ public class ProcessosDAO{
         }
     }
     
-}
+    public void consultarProcessos(int id)
+    {
+        String selectSQL = "SELECT usuario_associado, cliente FROM processos WHERE id_processo = "+id;
+        rs = null;
+        
+        conn = new ConexaoDAO().conectaDB();
+        try
+        {
+            pstm = conn.prepareStatement(selectSQL);
+            rs = pstm.executeQuery();
+            System.out.println(rs);
+            rs.next();
+            cliente=rs.getString("cliente");
+            usuarios=rs.getString("usuario_associado");
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
+        }
+    }
+    
+    public void editarProcesso(int id, String cliente, String usuarios)
+    {
+            String sql = "UPDATE processos SET cliente = ?, usuario_associado = ?"
+                + "WHERE id_processo = ?";
+        conn = new ConexaoDAO().conectaDB();
+        
+        try{
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, cliente);
+            pstm.setString(2, usuarios);
+            pstm.setInt(3, id);
+            
+            pstm.execute();
+            LOGGER.info("Os dados do processo foram atualizados");
+            pstm.close();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Editar Processo" + erro);
+            LOGGER.error("Não foi possível atualizar os dados do processo");
+        }
+    }
+    
+    public void excluirProcesso(int id)
+    {
+        String selectSQL = "DELETE FROM Processos WHERE id_processo = ?";
+        rs = null;
+        
+        conn = new ConexaoDAO().conectaDB();
+        
+        try 
+        {
+            pstm = conn.prepareStatement(selectSQL);
+            pstm.setInt(1, id);
+            //pstm.setString(2, nome);
+            pstm.execute();
+           
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    }
+

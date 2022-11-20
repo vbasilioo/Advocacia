@@ -138,4 +138,145 @@ public class UsuariosDAO{
         }
     }
     
+    public static String consultarNome(int id)
+    {
+        String nome="";
+        String selectSQL = "SELECT nome_usuario FROM usuarios WHERE id_usuario = "+id;
+        ResultSet result = null;
+        PreparedStatement ps;
+        Connection c = new ConexaoDAO().conectaDB();
+        try
+        {
+            ps = c.prepareStatement(selectSQL);
+            result = ps.executeQuery();
+            System.out.println(result);
+            result.next();
+            nome=result.getString("nome_usuario");
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
+        }
+        
+       return nome; 
+    }
+    
+    
+    public static String ids2nomes(String ids)
+    {
+        String nome = "";
+        int qUsuarios;
+        qUsuarios = CredencialDAO.nIds(ids.length(), ids);
+        int[] us = new int[qUsuarios];
+        us=CredencialDAO.str2arr(qUsuarios, ids.length(), ids);    
+        for(int i=0; i<qUsuarios; i++)
+        {
+            nome+=" " +consultarNome(us[i]);
+            if((i<qUsuarios-2)&&(qUsuarios>2))nome+=",";
+            else if((i==qUsuarios-2)&&(qUsuarios>1))nome+=" e";
+        }
+        return nome;
+    }
+    public static void addProcesso(int id_usuario, int id_processo)
+    {
+        int qProcessos;
+        String processos = consultarUsuarios(id_usuario);
+        System.out.println("processos: " +processos);
+       qProcessos = (CredencialDAO.nIds(processos.length(), processos));
+       System.out.println("qProcessos: " +qProcessos);
+        if(qProcessos>0)
+        {
+            
+            int[] us = new int[qProcessos];
+        us=CredencialDAO.str2arr(qProcessos, processos.length(), processos);
+        boolean x=true;
+        for(int i=0; i<qProcessos; i++)
+        {
+            if(us[i]==id_processo)
+            {
+                x=false;
+            }
+        }
+        if(x)
+        {
+            processos+=id_processo +",";
+            System.out.println("users: " +processos);
+            atUsuario(id_usuario, processos);
+            System.out.println("users: " +consultarUsuarios(id_usuario));
+        }
+            
+        }
+        else
+        {
+            processos=id_processo +",";
+            atUsuario(id_usuario, processos);
+        }
+        
+        
+        
+    }
+    public static void remProcesso(int id_usuario, int id_processo)
+    {
+        int qProcessos;
+        String processos = consultarUsuarios(id_usuario);
+        qProcessos = (CredencialDAO.nIds(processos.length(), processos));
+        int[] us = new int[qProcessos];
+        us=CredencialDAO.str2arr(qProcessos, processos.length(), processos);
+        processos="";
+        for(int i=0; i<qProcessos; i++)
+        {
+            if(us[i]!=id_processo)
+            {
+                processos+=us[i] +",";
+            }
+        }
+        System.out.println("processos: " +processos);
+        atUsuario(id_usuario, processos);
+        
+    }
+    private static void atUsuario(int id_usuario, String processos)
+    {
+         String sql = "UPDATE usuarios SET id_processo_associado = ?"
+                + "WHERE id_usuario = ?";
+         Connection con;
+         PreparedStatement ps;
+         con = new ConexaoDAO().conectaDB();
+        
+        try{
+            System.out.println("*");
+            ps = con.prepareStatement(sql);
+            ps.setString(1, processos);
+            ps.setInt(2, id_usuario);
+            System.out.println("**");
+            ps.execute();
+            System.out.println("***");
+            LOGGER.info("Os dados do usuario foram atualizados");
+            ps.close();
+            System.out.println("****");
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Editar usuario" + erro);
+            LOGGER.error("Não foi possível atualizar os dados do usuario");
+        }
+    }
+    public static String consultarUsuarios(int id)
+    {
+        String usuarios="";
+        String selectSQL = "SELECT id_processo_associado FROM usuarios WHERE id_usuario = "+id;
+        ResultSet result = null;
+        PreparedStatement ps;
+        Connection c = new ConexaoDAO().conectaDB();
+        try
+        {
+            ps = c.prepareStatement(selectSQL);
+            result = ps.executeQuery();
+            System.out.println(result);
+            result.next();
+            usuarios=result.getString("id_processo_associado");
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
+        }
+        
+       return usuarios; 
+    }
+    
 }

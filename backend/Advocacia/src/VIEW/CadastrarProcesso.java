@@ -31,7 +31,7 @@ public class CadastrarProcesso extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         campoCadastrar = new javax.swing.JButton();
-        retornar = new javax.swing.JToggleButton();
+        campoCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +66,7 @@ public class CadastrarProcesso extends javax.swing.JFrame {
         jLabel2.setText("Usuários Associados");
 
         campoCadastrar.setBackground(new java.awt.Color(70, 130, 180));
-        campoCadastrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        campoCadastrar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campoCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         campoCadastrar.setText("Cadastrar");
         campoCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,13 +75,13 @@ public class CadastrarProcesso extends javax.swing.JFrame {
             }
         });
 
-        retornar.setBackground(new java.awt.Color(70, 130, 180));
-        retornar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        retornar.setForeground(new java.awt.Color(255, 255, 255));
-        retornar.setText("Retornar");
-        retornar.addActionListener(new java.awt.event.ActionListener() {
+        campoCancelar.setBackground(new java.awt.Color(70, 130, 180));
+        campoCancelar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        campoCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        campoCancelar.setText("Cancelar");
+        campoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                retornarActionPerformed(evt);
+                campoCancelarActionPerformed(evt);
             }
         });
 
@@ -105,9 +105,9 @@ public class CadastrarProcesso extends javax.swing.JFrame {
                             .addComponent(campoUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(166, 166, 166)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoCadastrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(retornar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campoCancelar)
+                            .addComponent(campoCadastrar))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,11 +122,11 @@ public class CadastrarProcesso extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(campoCadastrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(retornar)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(campoCancelar)
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,7 +141,6 @@ public class CadastrarProcesso extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCadastrarActionPerformed
@@ -161,11 +160,12 @@ public class CadastrarProcesso extends javax.swing.JFrame {
         LOGGER.info("Um processo foi cadastrado.");
     }//GEN-LAST:event_campoCadastrarActionPerformed
 
-    private void retornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retornarActionPerformed
+    private void campoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCancelarActionPerformed
+        // TODO add your handling code here:
         TelaUsuario tu = new TelaUsuario();
         tu.setVisible(true);
         dispose();
-    }//GEN-LAST:event_retornarActionPerformed
+    }//GEN-LAST:event_campoCancelarActionPerformed
 
     private void listarProcessos(){
         try{
@@ -190,6 +190,7 @@ public class CadastrarProcesso extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton campoCadastrar;
+    private javax.swing.JButton campoCancelar;
     private javax.swing.JTextField campoCliente;
     private javax.swing.JTable campoProcessos;
     private javax.swing.JTextField campoUsuarios;
@@ -197,6 +198,5 @@ public class CadastrarProcesso extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton retornar;
     // End of variables declaration//GEN-END:variables
 }
