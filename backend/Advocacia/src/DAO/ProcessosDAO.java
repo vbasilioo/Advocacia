@@ -110,4 +110,25 @@ public class ProcessosDAO{
         }
     }
     
-}
+    public void editarProcesso(int id, String cliente, String usuarios)
+    {
+            String sql = "UPDATE processos SET cliente = ?, usuario_associado = ?"
+                + "WHERE id_processo = ?";
+        conn = new ConexaoDAO().conectaDB();
+        
+        try{
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, cliente);
+            pstm.setString(2, usuarios);
+            pstm.setInt(3, id);
+            
+            pstm.execute();
+            LOGGER.info("Os dados do processo foram atualizados");
+            pstm.close();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Editar Processo" + erro);
+            LOGGER.error("Não foi possível atualizar os dados do processo");
+        }
+    }
+    }
+

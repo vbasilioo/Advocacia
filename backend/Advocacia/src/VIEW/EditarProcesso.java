@@ -4,7 +4,13 @@
  */
 package VIEW;
 
+import DAO.CredencialDAO;
+import DAO.ProcessosDAO;
+import DAO.UsuariosDAO;
+import static DAO.UsuariosDAO.consultarNome;
+import java.util.Vector;
 import javax.swing.JFrame;
+import javax.swing.ListSelectionModel;
 
 /**
  *
@@ -15,10 +21,56 @@ public class EditarProcesso extends javax.swing.JFrame {
     /**
      * Creates new form EditarProcesso
      */
+    public static String[] nomes;
+    public static int[] us;
+    public static int id;
+    public static int selec;
+    private String text; 
+    public static Vector<String> vecNomes = new Vector<>();
+    public static Vector<Integer> vecIds = new Vector<>();
+    public static Vector<String> proc = new Vector<>();
+    public static Vector<Integer> users = new Vector<>();
+    
     public EditarProcesso() {
+        text=ConsultarProcesso.usuarios;
+        if(SelecionarUsuarios.adicionar)
+        {
+            text+=SelecionarUsuarios.id +",";
+            System.out.println("id: " +text);
+            SelecionarUsuarios.addUsuarios(false);
+            proc.add("add");
+            users.add(SelecionarUsuarios.id);
+        }
         initComponents();
+        id=0;
+        selec = -1;
+        proc.clear();
+        users.clear();
         labelID.setText("Processo nº" +TelaUsuario.id_processo);
         fieldNome.setText(ConsultarProcesso.cliente);
+        lista(text);
+        
+        
+        
+    }
+    private void lista(String ids)
+    {        
+        int qUsuarios;
+        qUsuarios = CredencialDAO.nIds(ids.length(), ids);
+        us = new int[qUsuarios];
+        us=CredencialDAO.str2arr(qUsuarios, ids.length(), ids);
+        listAdvogados.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        nomes = new String[qUsuarios];
+        vecIds.clear();
+        vecNomes.clear();
+        for(int i=0; i<qUsuarios; i++)
+        {
+            vecIds.add(i, us[i]);
+            vecNomes.add(i, (String)consultarNome(vecIds.elementAt(i)));
+            nomes[i]= consultarNome(us[i]);
+                        
+        }
+        listAdvogados.setListData(nomes);
     }
 
     /**
@@ -61,11 +113,26 @@ public class EditarProcesso extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        listAdvogados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listAdvogadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(listAdvogados);
 
         buttonAdicionar.setText("Adicionar advogado");
+        buttonAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAdicionarActionPerformed(evt);
+            }
+        });
 
         buttonRemover.setText("Remover selecionado");
+        buttonRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRemoverActionPerformed(evt);
+            }
+        });
 
         buttonSalvar.setText("Salvar");
         buttonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +235,8 @@ public class EditarProcesso extends javax.swing.JFrame {
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
         // TODO add your handling code here:
+        proc.clear();
+        users.clear();
         ConsultarProcesso cp = new ConsultarProcesso();
         cp.setVisible(true);
         dispose();
@@ -175,14 +244,71 @@ public class EditarProcesso extends javax.swing.JFrame {
 
     private void buttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalvarActionPerformed
         // TODO add your handling code here:
+        UsuariosDAO us = new UsuariosDAO();
+        for(int i=0; i<proc.size(); i++)
+        {
+            if(proc.elementAt(i).equals("add"))
+            {
+                UsuariosDAO.addProcesso(users.elementAt(i), TelaUsuario.id_processo);
+            }
+            else
+            {
+                UsuariosDAO.remProcesso(users.elementAt(i), TelaUsuario.id_processo);
+            }
+        }
+        
+        ProcessosDAO p = new ProcessosDAO();
+        p.editarProcesso(TelaUsuario.id_processo, fieldNome.getText(), text);
         ConsultarProcesso cp = new ConsultarProcesso();
         cp.setVisible(true);
+        proc.clear();
+        users.clear();        
         dispose();
     }//GEN-LAST:event_buttonSalvarActionPerformed
+
+    private void listAdvogadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listAdvogadosMouseClicked
+        // TODO add your handling code here:
+        selec = listAdvogados.getSelectedIndex();
+        id=vecIds.elementAt(selec);
+        System.out.println("id: " +id);
+        
+    }//GEN-LAST:event_listAdvogadosMouseClicked
+
+    private void buttonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoverActionPerformed
+        // TODO add your handling code here:
+        if(selec!=-1)
+        {
+        System.out.println("nome: " +vecNomes.elementAt(selec));
+        listAdvogados.removeAll();
+        proc.add("rem");
+        users.add(vecIds.elementAt(selec));
+        vecIds.remove(selec);
+        vecNomes.remove(selec);
+        System.out.println("*");
+        text = "";
+        for(int i=0; i<vecIds.size(); i++) text+=vecIds.elementAt(i) +",";
+        lista(text);
+        System.out.println(text);
+        System.out.println("Id: " +vecIds.elementAt(selec));        
+        id=0;
+        selec=-1;
+        
+        }
+        
+            
+    }//GEN-LAST:event_buttonRemoverActionPerformed
+
+    private void buttonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarActionPerformed
+        // TODO add your handling code here:
+        SelecionarUsuarios su = new SelecionarUsuarios();
+        su.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonAdicionarActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -209,7 +335,7 @@ public class EditarProcesso extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+           public void run() {
                 new EditarProcesso().setVisible(true);
             }
         });

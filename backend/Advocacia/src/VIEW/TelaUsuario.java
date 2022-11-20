@@ -175,7 +175,7 @@ public class TelaUsuario extends javax.swing.JFrame {
             ConsultarProcesso cp = new ConsultarProcesso();
             cp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             cp.setVisible(true);
-            //dispose();
+            dispose();
         }
     }//GEN-LAST:event_consultarProcessosActionPerformed
 

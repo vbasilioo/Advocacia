@@ -176,5 +176,90 @@ public class UsuariosDAO{
         }
         return nome;
     }
+    public static void addProcesso(int id_usuario, int id_processo)
+    {
+        int qUsuarios;
+        String users = consultarUsuarios(id_usuario);
+        qUsuarios = (CredencialDAO.nIds(users.length(), users));
+        int[] us = new int[qUsuarios];
+        us=CredencialDAO.str2arr(qUsuarios, users.length(), users);
+        boolean x=true;
+        for(int i=0; i<qUsuarios; i++)
+        {
+            if(us[i]==id_processo)
+            {
+                x=false;
+            }
+        }
+        if(x)
+        {
+            users+=id_processo +",";
+            System.out.println("users: " +users);
+            atProcesso(id_usuario, users);
+            System.out.println("users: " +consultarUsuarios(id_usuario));
+        }
+        
+        
+    }
+    public static void remProcesso(int id_usuario, int id_processo)
+    {
+        int qUsuarios;
+        String users = consultarUsuarios(id_usuario);
+        qUsuarios = (CredencialDAO.nIds(users.length(), users));
+        int[] us = new int[qUsuarios];
+        us=CredencialDAO.str2arr(qUsuarios, users.length(), users);
+        users="";
+        for(int i=0; i<qUsuarios; i++)
+        {
+            if(us[i]!=id_processo)
+            {
+                users+=us[i] +",";
+            }
+        }
+        atProcesso(id_usuario, users);
+        
+    }
+    private static void atProcesso(int id_usuario, String usuarios)
+    {
+         String sql = "UPDATE processos SET usuario_associado = ?"
+                + "WHERE id_processo = ?";
+         Connection con;
+         PreparedStatement ps;
+         con = new ConexaoDAO().conectaDB();
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuarios);
+            ps.setInt(2, id_usuario);
+            
+            ps.execute();
+            LOGGER.info("Os dados do usuario foram atualizados");
+            ps.close();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Editar usuario" + erro);
+            LOGGER.error("Não foi possível atualizar os dados do usuario");
+        }
+    }
+    public static String consultarUsuarios(int id)
+    {
+        String usuarios="";
+        String selectSQL = "SELECT id_processo_associado FROM usuarios WHERE id_usuario = "+id;
+        ResultSet result = null;
+        PreparedStatement ps;
+        Connection c = new ConexaoDAO().conectaDB();
+        try
+        {
+            ps = c.prepareStatement(selectSQL);
+            result = ps.executeQuery();
+            System.out.println(result);
+            result.next();
+            usuarios=result.getString("id_processo_associado");
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
+        }
+        
+       return usuarios; 
+    }
     
 }
