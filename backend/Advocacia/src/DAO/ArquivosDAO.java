@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import VIEW.DARKTelaUsuario;
 import DTO.ArquivosDTO;
 import VIEW.TelaUsuario;
 import LOG.Log;
@@ -43,8 +44,46 @@ public class ArquivosDAO {
         }
     }
     
+    public ResultSet DARKlistarArquivos(){
+        conn = new ConexaoDAO().conectaDB();
+        String sql = "SELECT * FROM arquivos WHERE id_processo = " +DARKTelaUsuario.id_processo +" ORDER BY id_arquivo";
+        
+        try{
+            pstm = conn.prepareStatement(sql);
+            LOGGER.info("Os arquivos foram carregados com sucesso.");
+            return pstm.executeQuery();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Erro em Listar Arquivos!" + erro);
+            LOGGER.error("Os Arquivos não foram carregados");
+            return null;
+        }
+    }
+    
     public ArrayList<ArquivosDTO> pesquisarArquivos(){
         String sql = "SELECT * FROM arquivos WHERE id_processo = " +TelaUsuario.id_processo +" ORDER BY id_arquivo";
+        conn = new ConexaoDAO().conectaDB();
+        
+        try{
+            pstm = conn.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while(rs.next()){
+                ArquivosDTO arq = new ArquivosDTO();
+                arq.setId_arquivo(rs.getInt("id_arquivo"));
+                arq.setNome(rs.getString("nome"));
+                tabela.add(arq);
+                        
+                   
+            }
+            
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "ProcessosDAO" + erro);
+        }
+        return tabela;
+    }
+    
+    public ArrayList<ArquivosDTO> DARKpesquisarArquivos(){
+        String sql = "SELECT * FROM arquivos WHERE id_processo = " +DARKTelaUsuario.id_processo +" ORDER BY id_arquivo";
         conn = new ConexaoDAO().conectaDB();
         
         try{

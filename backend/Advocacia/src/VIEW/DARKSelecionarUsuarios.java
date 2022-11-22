@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.ListSelectionModel;
 
-public class SelecionarUsuarios extends javax.swing.JFrame {
+public class DARKSelecionarUsuarios extends javax.swing.JFrame {
 
     public static Vector<String> nomes = new Vector<>();
     public static Vector<Integer> ids = new Vector<>();
@@ -17,7 +17,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
     public static String nome;
     public static boolean adicionar;
 
-    public SelecionarUsuarios() {
+    public DARKSelecionarUsuarios() {
         nomes.clear();
         ids.clear();
         text="";
@@ -41,11 +41,11 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        buttonCancelar.setBackground(new java.awt.Color(70, 130, 180));
+        buttonCancelar.setBackground(new java.awt.Color(102, 102, 102));
         buttonCancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCancelar.setForeground(new java.awt.Color(51, 51, 51));
         buttonCancelar.setText("Cancelar");
         buttonCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -54,9 +54,9 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
             }
         });
 
-        buttonAdicionar.setBackground(new java.awt.Color(70, 130, 180));
+        buttonAdicionar.setBackground(new java.awt.Color(102, 102, 102));
         buttonAdicionar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonAdicionar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonAdicionar.setForeground(new java.awt.Color(51, 51, 51));
         buttonAdicionar.setText("Adicionar");
         buttonAdicionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buttonAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -129,8 +129,8 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
         if(id!=0)
         {
             adicionar=true;
-            EditarProcesso ep = new EditarProcesso();
-            ep.setVisible(true);
+            DARKEditarProcesso dep = new DARKEditarProcesso();
+            dep.setVisible(true);
             dispose();
         }
         
@@ -145,7 +145,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
     private void carregarLista()
     {
         listaUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        int tam = EditarProcesso.vecIds.size();
+        int tam = DARKEditarProcesso.vecIds.size();
         String selectSQL = "SELECT nome_usuario, id_usuario, cargo_usuario FROM usuarios";
         ResultSet result = null;
         PreparedStatement ps;
@@ -161,7 +161,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
                 for(int i=0; i<tam; i++)
                 {
                     if(result.getInt("cargo_usuario")==0)break;
-                    if(result.getInt("id_usuario")==EditarProcesso.vecIds.elementAt(i))break;
+                    if(result.getInt("id_usuario")==DARKEditarProcesso.vecIds.elementAt(i))break;
                     if(i==tam-1)b=true;
                 }
                 if(b)
