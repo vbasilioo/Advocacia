@@ -133,11 +133,6 @@
   </div>
 
     <div class="container bg-light">
-        <nav class="navbar bg-light">
-            <div class="container-fluid">
-                <span class="navbar-text">Bem-vindo ao painel, <b><?php echo $_SESSION['nome_usuario']; ?></b>.</span>
-            </div>
-        </nav>
         <div class="divTable bg-light">
             <table>
                 <thead>

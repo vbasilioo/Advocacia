@@ -133,17 +133,12 @@
   </div>
 
     <div class="container bg-light">
-        <nav class="navbar bg-light">
-            <div class="container-fluid">
-                <span class="navbar-text">Bem-vindo ao painel, <b><?php echo $_SESSION['nome_usuario']; ?></b>.</span>
-            </div>
-        </nav>
         <div class="divTable">
             <table>
                 <thead>
                     <tr>
                         <th scope ="col">ID</th>
-                        <th scope ="col">E-mail</th>
+                        <th scope ="col">Processo</th>
                         <th scope ="col">Nome</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Excluir</th>
