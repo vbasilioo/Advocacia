@@ -57,6 +57,11 @@ public class ConstatarAdministrador extends javax.swing.JFrame {
         jToggleButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("Retornar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,6 +149,12 @@ public class ConstatarAdministrador extends javax.swing.JFrame {
             campoMensagem.setBorder(border2);
         }
     }//GEN-LAST:event_campoEnviarActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        Login log = new Login();
+        log.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

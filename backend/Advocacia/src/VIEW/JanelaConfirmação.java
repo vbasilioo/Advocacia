@@ -10,10 +10,6 @@ import DAO.UsuariosDAO;
 import DTO.ArquivosDTO;
 import static VIEW.EditarProcesso.us;
 
-/**
- *
- * @author SaMuK
- */
 
 public class JanelaConfirmação extends javax.swing.JFrame {
 

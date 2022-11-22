@@ -62,6 +62,11 @@ public class DARKConstatarAdministrador extends javax.swing.JFrame {
         retornar.setForeground(new java.awt.Color(51, 51, 51));
         retornar.setText("Retornar");
         retornar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        retornar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retornarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -150,6 +155,12 @@ public class DARKConstatarAdministrador extends javax.swing.JFrame {
             LOGGER.info("A mensagem foi enviada para o administrador com sucesso.");
         }
     }//GEN-LAST:event_campoEnviarActionPerformed
+
+    private void retornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retornarActionPerformed
+        DARKLogin dl = new DARKLogin();
+        dl.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_retornarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
