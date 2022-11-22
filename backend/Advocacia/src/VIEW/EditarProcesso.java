@@ -19,7 +19,7 @@ public class EditarProcesso extends javax.swing.JFrame {
     public static int[] us;
     public static int id;
     public static int selec;
-    private String text; 
+    private static String text; 
     public static Vector<String> vecNomes = new Vector<>();
     public static Vector<Integer> vecIds = new Vector<>();
     public static Vector<String> proc = new Vector<String>();
@@ -30,7 +30,7 @@ public class EditarProcesso extends javax.swing.JFrame {
         
             
         
-        text=ConsultarProcesso.usuarios;
+        
         if(SelecionarUsuarios.adicionar)
         {
             text+=SelecionarUsuarios.id +",";
@@ -40,6 +40,14 @@ public class EditarProcesso extends javax.swing.JFrame {
             System.out.println(" proc: " +proc);
             System.out.println("users:" +users);
             SelecionarUsuarios.addUsuarios(false);
+        }
+        else
+        {
+            if(!SelecionarUsuarios.cancelar)
+            {
+                text=ConsultarProcesso.usuarios;
+                SelecionarUsuarios.setCancelar(false);
+            }
         }
         initComponents();
         id=0;
@@ -265,6 +273,7 @@ public class EditarProcesso extends javax.swing.JFrame {
         // TODO add your handling code here:
         proc.clear();
         users.clear();
+        text="";
         ConsultarProcesso cp = new ConsultarProcesso();
         cp.setVisible(true);
         dispose();
@@ -298,7 +307,8 @@ public class EditarProcesso extends javax.swing.JFrame {
         ConsultarProcesso cp = new ConsultarProcesso();
         cp.setVisible(true);
         proc.clear();
-        users.clear();        
+        users.clear();
+        text="";        
         dispose();
     }//GEN-LAST:event_buttonSalvarActionPerformed
 
