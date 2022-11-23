@@ -150,5 +150,49 @@ public class ProcessosDAO{
             System.out.println(e.getMessage());
         }
     }
+    public static void cadastProcessos(String cliente, String ids){
+        String sql = "INSERT INTO processos(cliente, usuario_associado)"
+                + "values (?,?)";
+        
+        Connection con = new ConexaoDAO().conectaDB();
+        
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cliente);
+            ps.setString(2, ids);
+            ps.execute();
+            JOptionPane.showMessageDialog(null, "Processo cadastrado com sucesso!");
+            LOGGER.info("Um processo foi cadastrado com sucesso.");
+            ps.close();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "CadastrarProcessosDAO: " + erro);
+            LOGGER.error("O processo não foi cadastrado.");
+        }
+    }
+    
+    public static int ultId()
+    {
+        int id=0;
+        
+        String selectSQL = "SELECT id_processo FROM processos";
+        ResultSet rs = null;
+        
+        Connection conn = new ConexaoDAO().conectaDB();
+        try
+        {
+            PreparedStatement pstm = conn.prepareStatement(selectSQL);
+            rs = pstm.executeQuery();
+            System.out.println(rs);
+            while(rs.next())
+            {
+              if(rs.getInt("id_processo")>id) id=rs.getInt("id_processo");
+            }
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
+        }
+        return id;
+    }
+    
     }
 

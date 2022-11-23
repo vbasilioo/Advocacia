@@ -11,6 +11,7 @@ public class TelaUsuario extends javax.swing.JFrame {
     
     public static int id_processo;
     public TelaUsuario() {
+        CredencialDAO.Atualizar();
         id_processo=0;
         initComponents();
         listarProcessos();
@@ -163,7 +164,8 @@ public class TelaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-        CadastrarProcesso cp = new CadastrarProcesso();
+        //CadastrarProcesso cp = new CadastrarProcesso();
+        CadastProcesso cp = new CadastProcesso();
         cp.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoCadastrarActionPerformed
