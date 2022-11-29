@@ -24,6 +24,8 @@ public class CredencialDAO{
         conn.getConnection(nome);
         id = conn.id;
         cargo = conn.cargo;
+        if(cargo!=0)
+        {
         idProcessos = conn.idProcessos;
         if (idProcessos.equals("0")) qProcessos=0;
         if(qProcessos == 0)
@@ -36,6 +38,7 @@ public class CredencialDAO{
             qProcessos = nIds(tamString, idProcessos);
             processos = new int[qProcessos];
             processos = str2arr(qProcessos, tamString, idProcessos);
+        }
         }
 
     }
