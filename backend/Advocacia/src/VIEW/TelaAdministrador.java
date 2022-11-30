@@ -176,7 +176,10 @@ int userSelection = fileChooser.showSaveDialog(parentFrame);
     caminho = fileToSave.getAbsolutePath() +".txt";
     System.out.println("Save as file: " + caminho);
 }
-         //CredencialDAO.testeLog("testando testando%testando testando%testando testando %");
+         CredencialDAO.gerarLog("log 1");
+         CredencialDAO.gerarLog("log 2");
+         CredencialDAO.gerarLog("log 3");
+         CredencialDAO.gerarLog("log 4");
          try {
             PrintWriter writer = new PrintWriter(caminho, "UTF-8");
             for(int i=0; i< CredencialDAO.logs.length(); i++)

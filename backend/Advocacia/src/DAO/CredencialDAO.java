@@ -38,7 +38,7 @@ public class CredencialDAO{
         conn.getConnection(nome);
         id = conn.id;
         cargo = conn.cargo;
-        //baixarLog();
+        baixarLog();
         if(cargo!=0)
         {
         idProcessos = conn.idProcessos;
@@ -99,20 +99,49 @@ public class CredencialDAO{
         }
         return ids;         
     }
-    public void gerarLog(int id_log, String log)
+    public static void gerarLog(String log)
     {
         logs+="%" +log;
         salvarLog();
         baixarLog();
     }
     
-    public void salvarLog()
+    public static void salvarLog()
     {
-       
+          String sql = "UPDATE logs SET Logs = ?"
+                + "WHERE Nome = 'Log'";
+        Connection conn = new ConexaoDAO().conectaDB();
+        
+        try{
+            PreparedStatement pstm;
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, logs);
+            
+            pstm.execute();
+            LOGGER.info("Os logs foram atualizados");
+            pstm.close();
+        }catch(SQLException erro){
+            JOptionPane.showMessageDialog(null, "Atualizar log" + erro);
+            LOGGER.error("Não foi possível atualizar os logs");
+        }
     }
-    public void baixarLog()
+    public static void baixarLog()
     {
-        //Salvar logs do banco de dados na variavel logs     
+               String selectSQL = "SELECT Logs FROM logs WHERE Nome = 'Log'";
+        ResultSet rs = null;
+        
+        Connection conn = new ConexaoDAO().conectaDB();
+        try
+        {
+            PreparedStatement pstm = conn.prepareStatement(selectSQL);
+            rs = pstm.executeQuery();
+            System.out.println(rs);
+            rs.next();
+            logs=rs.getString("Logs");
+            
+            }catch(SQLException erro){
+            System.out.println(erro.getMessage());
+        }    
         
     }
     
