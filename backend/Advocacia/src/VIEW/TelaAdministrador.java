@@ -1,7 +1,12 @@
 package VIEW;
 
+import DAO.CredencialDAO;
 import LOG.Log;
 import java.awt.FlowLayout;
+import java.io.File;
+import java.io.PrintWriter;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import org.slf4j.LoggerFactory;
 
 public class TelaAdministrador extends javax.swing.JFrame {
@@ -45,6 +50,11 @@ public class TelaAdministrador extends javax.swing.JFrame {
         CampoLOGs.setForeground(new java.awt.Color(255, 255, 255));
         CampoLOGs.setText("Consultar LOGs");
         CampoLOGs.setBorder(null);
+        CampoLOGs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoLOGsActionPerformed(evt);
+            }
+        });
 
         campoConsultar.setBackground(new java.awt.Color(70, 130, 180));
         campoConsultar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -151,6 +161,34 @@ public class TelaAdministrador extends javax.swing.JFrame {
         cea.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCaixaEntradaActionPerformed
+
+    private void CampoLOGsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoLOGsActionPerformed
+        // TODO add your handling code here:
+        JFrame parentFrame = new JFrame();
+ 
+JFileChooser fileChooser = new JFileChooser();
+fileChooser.setDialogTitle("Salvar arquivo como");   
+ 
+int userSelection = fileChooser.showSaveDialog(parentFrame);
+ String caminho = "";
+         if (userSelection == JFileChooser.APPROVE_OPTION) {
+    File fileToSave = fileChooser.getSelectedFile();
+    caminho = fileToSave.getAbsolutePath() +".txt";
+    System.out.println("Save as file: " + caminho);
+}
+         //CredencialDAO.testeLog("testando testando%testando testando%testando testando %");
+         try {
+            PrintWriter writer = new PrintWriter(caminho, "UTF-8");
+            for(int i=0; i< CredencialDAO.logs.length(); i++)
+            {
+                if(CredencialDAO.logs.charAt(i)!='%') writer.print(CredencialDAO.logs.charAt(i));
+                else writer.println("");
+            }
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("ERRO: " + e);
+        }
+    }//GEN-LAST:event_CampoLOGsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

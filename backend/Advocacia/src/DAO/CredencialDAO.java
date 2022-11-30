@@ -1,10 +1,23 @@
 package DAO;
 import DTO.CredencialDTO;
 import LOG.Log;
+import DTO.LogDTO;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CredencialDAO{
+    
+    private Connection conn;
+    private PreparedStatement pstm;
+    private ResultSet rs;
     
     public static int id;
     public static String nome;
@@ -13,6 +26,7 @@ public class CredencialDAO{
     private static int tamString;
     public static int qProcessos;
     public static int processos[];
+    public static String logs;
     
     private static final Logger LOGGER = LoggerFactory.getLogger(Log.class);
     
@@ -24,6 +38,7 @@ public class CredencialDAO{
         conn.getConnection(nome);
         id = conn.id;
         cargo = conn.cargo;
+        //baixarLog();
         if(cargo!=0)
         {
         idProcessos = conn.idProcessos;
@@ -84,5 +99,26 @@ public class CredencialDAO{
         }
         return ids;         
     }
+    public void gerarLog(int id_log, String log)
+    {
+        logs+="%" +log;
+        salvarLog();
+        baixarLog();
+    }
     
+    public void salvarLog()
+    {
+       
+    }
+    public void baixarLog()
+    {
+        //Salvar logs do banco de dados na variavel logs     
+        
+    }
+    
+    
+    /*public static void testeLog(String log)
+    {
+        logs=log;
+    }*/
 }
