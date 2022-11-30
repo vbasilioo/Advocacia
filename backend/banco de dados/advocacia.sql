@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Nov-2022 às 14:29
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Tempo de geração: 30-Nov-2022 às 23:56
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,10 +56,16 @@ INSERT INTO `arquivos` (`id_arquivo`, `id_processo`, `nome`, `arquivo`) VALUES
 --
 
 CREATE TABLE `logs` (
-  `id_log` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `arquivo_log` longblob NOT NULL
+  `Nome` varchar(20) NOT NULL,
+  `Logs` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `logs`
+--
+
+INSERT INTO `logs` (`Nome`, `Logs`) VALUES
+('Log', '%log 1%log 2%log 3%log 4');
 
 -- --------------------------------------------------------
 
@@ -138,12 +144,6 @@ ALTER TABLE `arquivos`
   ADD PRIMARY KEY (`id_arquivo`);
 
 --
--- Índices para tabela `logs`
---
-ALTER TABLE `logs`
-  ADD PRIMARY KEY (`id_log`);
-
---
 -- Índices para tabela `mensagens`
 --
 ALTER TABLE `mensagens`
@@ -170,12 +170,6 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `arquivos`
   MODIFY `id_arquivo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de tabela `logs`
---
-ALTER TABLE `logs`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `mensagens`
