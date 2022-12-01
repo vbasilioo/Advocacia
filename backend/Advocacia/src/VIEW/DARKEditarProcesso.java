@@ -28,7 +28,7 @@ public class DARKEditarProcesso extends javax.swing.JFrame {
             
         
         text=DARKConsultarProcesso.usuarios;
-        if(DARKSelecionarUsuarios.adicionar)
+        if(DARKSelecionarUsuarios.adicionarDark)
         {
             text+=DARKSelecionarUsuarios.id +",";
             System.out.println("id: " +text);

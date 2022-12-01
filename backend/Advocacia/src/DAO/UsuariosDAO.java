@@ -31,7 +31,8 @@ public class UsuariosDAO{
             
         }catch (SQLException erro){
             JOptionPane.showMessageDialog(null, "UsuarioDAO AUTENTICAR: " + erro);
-            LOGGER.error("Usuário não conseguiu a autenticação.");
+            LOGGER.error("O usuário não conseguiu a autenticação.");
+            CredencialDAO.gerarLog("O usuário não conseguiu a autenticação.");
             return null;
         }
         
@@ -54,10 +55,12 @@ public class UsuariosDAO{
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
             LOGGER.info("O administrador cadastrou um usuário com sucesso.");
+            CredencialDAO.gerarLog("O administrador cadastrou um usuário com sucesso.");
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "CadastrarUsuariosDAO: " + erro);
             LOGGER.error("O administrador não conseguiu cadastrar um usuário.");
+            CredencialDAO.gerarLog("O administrador não conseguiu cadastrar um usuário.");
         }
     }
     
@@ -80,10 +83,12 @@ public class UsuariosDAO{
             }
             
             LOGGER.info("O administrador pesquisou um usuário no banco de dados.");
+            CredencialDAO.gerarLog("O administrador pesquisou um usuário no banco de dados.");
             
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "UsuariosDAO" + erro);
             LOGGER.error("O administrador não conseguiu realizar uma pesquisa no banco de dados.");
+            CredencialDAO.gerarLog("O administrador não conseguiu realizar uma pesquisa no banco de dados.");
         }
         return tabela;
     }
@@ -102,10 +107,12 @@ public class UsuariosDAO{
             pstm.setString(5, funcdto.getId_processo_associado());
             pstm.execute();
             LOGGER.info("O administrador conseguiu editar os dados de um usuário.");
+            CredencialDAO.gerarLog("O administrador conseguiu editar os dados de um usuário.");
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Editar Usuário" + erro);
             LOGGER.error("O administrador não conseguiu editar os dados de um usuário.");
+            CredencialDAO.gerarLog("O administrador não conseguiu editar os dados de um usuário.");
         }
     }
     
@@ -130,10 +137,12 @@ public class UsuariosDAO{
         try{
             pstm = conn.prepareStatement(sql);
             LOGGER.info("O administrador conseguiu listar os usuários cadastrados.");
+            CredencialDAO.gerarLog("O administrador conseguiu listar os usuários cadastrados.");
             return pstm.executeQuery();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro em Listar Usuários!" + erro);
-            LOGGER.error("O administrador não conseguiu listar os usuários cadastrados");
+            LOGGER.error("O administrador não conseguiu listar os usuários cadastrados.");
+            CredencialDAO.gerarLog("O administrador não conseguiu listar os usuários cadastrados.");
             return null;
         }
     }
@@ -249,12 +258,14 @@ public class UsuariosDAO{
             System.out.println("**");
             ps.execute();
             System.out.println("***");
-            LOGGER.info("Os dados do usuario foram atualizados");
+            LOGGER.info("Os dados do usuário foram atualizados.");
+            CredencialDAO.gerarLog("Os dados do usuário foram atualizados.");
             ps.close();
             System.out.println("****");
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Editar usuario" + erro);
-            LOGGER.error("Não foi possível atualizar os dados do usuario");
+            LOGGER.error("Não foi possível atualizar os dados do usuário.");
+            CredencialDAO.gerarLog("Não foi possível atualizar os dados do usuário.");
         }
     }
     public static String consultarUsuarios(int id)

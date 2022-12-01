@@ -1,5 +1,6 @@
 package VIEW;
 
+import DAO.CredencialDAO;
 import LOG.Log;
 import java.awt.FlowLayout;
 import org.slf4j.LoggerFactory;
@@ -88,6 +89,7 @@ public class ERROConstatarAdministrador extends javax.swing.JFrame {
 
     private void campoOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoOKActionPerformed
         LOGGER.info("Um erro ocorreu ao tentar constatar um administrador.");
+        CredencialDAO.gerarLog("Um erro ocorreu ao tentar constatar um administrador.");
         dispose();
     }//GEN-LAST:event_campoOKActionPerformed
 

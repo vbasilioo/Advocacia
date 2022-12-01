@@ -137,13 +137,15 @@ public class TelaAdministrador extends javax.swing.JFrame {
     private void campoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSairActionPerformed
         Login login = new Login();
         LOGGER.info("O administrador saiu da tela de administração.");
+        CredencialDAO.gerarLog("O administrador saiu da tela de administração.");
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoSairActionPerformed
 
     private void campoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCadastrarActionPerformed
         CadastrarUsuarioADM cadusu = new CadastrarUsuarioADM();
-        LOGGER.info("O administrador entrou em 'Cadastrar Usuário'");
+        LOGGER.info("O administrador entrou em 'Cadastrar Usuário'.");
+        CredencialDAO.gerarLog("O administrador entrou em 'Cadastrar Usuário'.");
         cadusu.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCadastrarActionPerformed
@@ -151,6 +153,7 @@ public class TelaAdministrador extends javax.swing.JFrame {
     private void campoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoConsultarActionPerformed
         ListaUsuarios listar = new ListaUsuarios();
         LOGGER.info("O administrador está consultando os usuários cadastrados.");
+        CredencialDAO.gerarLog("O administrador está consultando os usuários cadastrados.");
         listar.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoConsultarActionPerformed
@@ -158,38 +161,33 @@ public class TelaAdministrador extends javax.swing.JFrame {
     private void campoCaixaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCaixaEntradaActionPerformed
         CaixaEntradaAdministrador cea = new CaixaEntradaAdministrador();
         LOGGER.info("O administrador está consultando a sua caixa de entrada.");
+        CredencialDAO.gerarLog("O administrador está consultando a sua caixa de entrada.");
         cea.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCaixaEntradaActionPerformed
 
     private void CampoLOGsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoLOGsActionPerformed
-        // TODO add your handling code here:
         JFrame parentFrame = new JFrame();
- 
-JFileChooser fileChooser = new JFileChooser();
-fileChooser.setDialogTitle("Salvar arquivo como");   
- 
-int userSelection = fileChooser.showSaveDialog(parentFrame);
- String caminho = "";
-         if (userSelection == JFileChooser.APPROVE_OPTION) {
-    File fileToSave = fileChooser.getSelectedFile();
-    caminho = fileToSave.getAbsolutePath() +".txt";
-    System.out.println("Save as file: " + caminho);
-}
-         CredencialDAO.gerarLog("log 1");
-         CredencialDAO.gerarLog("log 2");
-         CredencialDAO.gerarLog("log 3");
-         CredencialDAO.gerarLog("log 4");
-         try {
-            PrintWriter writer = new PrintWriter(caminho, "UTF-8");
-            for(int i=0; i< CredencialDAO.logs.length(); i++)
-            {
-                if(CredencialDAO.logs.charAt(i)!='%') writer.print(CredencialDAO.logs.charAt(i));
-                else writer.println("");
-            }
-            writer.close();
-        } catch (Exception e) {
-            System.out.println("ERRO: " + e);
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Salvar arquivo como");   
+
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+        String caminho = "";
+                if (userSelection == JFileChooser.APPROVE_OPTION) {
+           File fileToSave = fileChooser.getSelectedFile();
+        caminho = fileToSave.getAbsolutePath() +".txt";
+        System.out.println("Save as file: " + caminho);
+        }
+        try {
+           PrintWriter writer = new PrintWriter(caminho, "UTF-8");
+           for(int i=0; i< CredencialDAO.logs.length(); i++)
+           {
+               if(CredencialDAO.logs.charAt(i)!='%') writer.print(CredencialDAO.logs.charAt(i));
+               else writer.println("");
+           }
+           writer.close();
+        }catch (Exception e){
+           System.out.println("ERRO: " + e);
         }
     }//GEN-LAST:event_CampoLOGsActionPerformed
 

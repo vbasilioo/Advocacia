@@ -21,6 +21,7 @@ public class ConsultarDAO{
                 "SELECT nome_funcionario, telefone_funcionario, cpf_funcionario, email_funcionario, endereco_funcionario, sexo_funcionario, comentarios_funcionario, imagem_funcionario FROM funcionarios");
         rs = pstm.executeQuery();
         LOGGER.info("A primeira tabela do consultar foi carregada com sucesso.");
+        CredencialDAO.gerarLog("A primeira tabela do consultar foi carregada com sucesso.");
         return rs;
     }
     
@@ -33,6 +34,7 @@ public class ConsultarDAO{
         pstm = conn.prepareStatement("SELECT nome_funcionario, telefone_funcionario, cpf_funcionario, email_funcionario, endereco_funcionario, sexo_funcionario, comentarios_funcionario, imagem_funcionario FROM funcionarios WHERE"+argumento+"");
         rs = pstm.executeQuery();   
         LOGGER.info("A segunda tabela do consultar foi carregada com sucesso.");
+        CredencialDAO.gerarLog("A segunda tabela do consultar foi carregada com sucesso.");
         return rs;
     }
     

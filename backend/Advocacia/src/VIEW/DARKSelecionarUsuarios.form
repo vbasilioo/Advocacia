@@ -47,9 +47,9 @@
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="buttonAdicionar" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="buttonAdicionarDark" min="-2" pref="89" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonCancelar" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="buttonCancelarDark" min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" min="-2" pref="185" max="-2" attributes="0"/>
                   </Group>
@@ -64,8 +64,8 @@
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="buttonCancelar" pref="27" max="32767" attributes="0"/>
-                      <Component id="buttonAdicionar" max="32767" attributes="0"/>
+                      <Component id="buttonCancelarDark" pref="27" max="32767" attributes="0"/>
+                      <Component id="buttonAdicionarDark" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
@@ -73,7 +73,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="buttonCancelar">
+        <Component class="javax.swing.JButton" name="buttonCancelarDark">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -92,10 +92,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelarDarkActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="buttonAdicionar">
+        <Component class="javax.swing.JButton" name="buttonAdicionarDark">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
@@ -114,7 +114,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAdicionarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAdicionarDarkActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">

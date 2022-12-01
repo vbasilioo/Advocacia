@@ -1,7 +1,12 @@
 package VIEW;
 
+import DAO.CredencialDAO;
 import LOG.Log;
 import java.awt.FlowLayout;
+import java.io.File;
+import java.io.PrintWriter;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import org.slf4j.LoggerFactory;
 
 public class DARKTelaAdministrador extends javax.swing.JFrame {
@@ -46,6 +51,11 @@ public class DARKTelaAdministrador extends javax.swing.JFrame {
         CampoLOGs.setForeground(new java.awt.Color(51, 51, 51));
         CampoLOGs.setText("Consultar LOGs");
         CampoLOGs.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CampoLOGs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoLOGsActionPerformed(evt);
+            }
+        });
 
         campoConsultar.setBackground(new java.awt.Color(102, 102, 102));
         campoConsultar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -128,13 +138,15 @@ public class DARKTelaAdministrador extends javax.swing.JFrame {
     private void campoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSairActionPerformed
         DARKLogin login = new DARKLogin();
         LOGGER.info("O administrador saiu da tela de administração.");
+        CredencialDAO.gerarLog("O administrador saiu da tela de administração.");
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoSairActionPerformed
 
     private void campoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCadastrarActionPerformed
         DARKCadastrarUsuarioADM cadusu = new DARKCadastrarUsuarioADM();
-        LOGGER.info("O administrador entrou em 'Cadastrar Usuário'");
+        LOGGER.info("O administrador entrou em 'Cadastrar Usuário'.");
+        CredencialDAO.gerarLog("O administrador entrou em 'Cadastrar Usuário'.");
         cadusu.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCadastrarActionPerformed
@@ -142,6 +154,7 @@ public class DARKTelaAdministrador extends javax.swing.JFrame {
     private void campoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoConsultarActionPerformed
         DARKListaUsuarios listar = new DARKListaUsuarios();
         LOGGER.info("O administrador está consultando os usuários cadastrados.");
+        CredencialDAO.gerarLog("O administrador está consultando os usuários cadastrados.");
         listar.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoConsultarActionPerformed
@@ -149,9 +162,35 @@ public class DARKTelaAdministrador extends javax.swing.JFrame {
     private void campoCaixaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCaixaEntradaActionPerformed
         DARKCaixaEntradaAdministrador cea = new DARKCaixaEntradaAdministrador();
         LOGGER.info("O administrador está consultando a sua caixa de entrada.");
+        CredencialDAO.gerarLog("O administrador está consultando a sua caixa de entrada.");
         cea.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCaixaEntradaActionPerformed
+
+    private void CampoLOGsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoLOGsActionPerformed
+        JFrame parentFrame = new JFrame();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Salvar arquivo como");   
+
+        int userSelection = fileChooser.showSaveDialog(parentFrame);
+        String caminho = "";
+                if (userSelection == JFileChooser.APPROVE_OPTION) {
+           File fileToSave = fileChooser.getSelectedFile();
+        caminho = fileToSave.getAbsolutePath() +".txt";
+        System.out.println("Save as file: " + caminho);
+        }
+        try {
+           PrintWriter writer = new PrintWriter(caminho, "UTF-8");
+           for(int i=0; i< CredencialDAO.logs.length(); i++)
+           {
+               if(CredencialDAO.logs.charAt(i)!='%') writer.print(CredencialDAO.logs.charAt(i));
+               else writer.println("");
+           }
+           writer.close();
+        }catch (Exception e){
+           System.out.println("ERRO: " + e);
+        }
+    }//GEN-LAST:event_CampoLOGsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

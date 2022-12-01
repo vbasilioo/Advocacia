@@ -20,6 +20,7 @@ public class ConexaoDAO{
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "ConexaoDAO" + erro.getMessage());
             LOGGER.error("O banco de dados não foi conectado.");
+            CredencialDAO.gerarLog("O banco de dados não foi conectado.");
         }
         return conn;
     }

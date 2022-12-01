@@ -1,5 +1,6 @@
 package VIEW;
 
+import DAO.CredencialDAO;
 import LOG.Log;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -153,6 +154,7 @@ public class DARKConstatarAdministrador extends javax.swing.JFrame {
             campoMensagem.setBackground(new Color(248,248,255));
             campoEmail.setBackground(new Color(248,248,255));
             LOGGER.info("A mensagem foi enviada para o administrador com sucesso.");
+            CredencialDAO.gerarLog("A mensagem foi enviada para o administrador com sucesso.");
         }
     }//GEN-LAST:event_campoEnviarActionPerformed
 

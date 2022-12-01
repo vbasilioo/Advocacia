@@ -1,4 +1,5 @@
 package VIEW;
+import DAO.CredencialDAO;
 import DTO.UsuariosDTO;
 import DAO.UsuariosDAO;
 import LOG.Log;
@@ -168,6 +169,7 @@ public class DARKCadastrarUsuarioADM extends javax.swing.JFrame {
         usudao.cadastrarUsuario(usudto);
         
         LOGGER.info("O administrador cadastrou um usuário.");
+        CredencialDAO.gerarLog("O administrador cadastrou um usuário.");
     }//GEN-LAST:event_campoCadastrarActionPerformed
 
     private void campoRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRetornarActionPerformed

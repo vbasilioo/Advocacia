@@ -1,5 +1,6 @@
 package VIEW;
 
+import DAO.CredencialDAO;
 import DAO.UsuariosDAO;
 import DTO.UsuariosDTO;
 import LOG.Log;
@@ -194,6 +195,7 @@ public class DARKJanelaDadosUsuario extends javax.swing.JFrame {
 
     private void campoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSalvarActionPerformed
         LOGGER.info("O administrador salvou os dados do usuário com sucesso.");
+        CredencialDAO.gerarLog("O administrador salvou os dados do usuário com sucesso.");
         editarUsuario();
         listarUsuarios();
         limparCampos();
@@ -202,18 +204,21 @@ public class DARKJanelaDadosUsuario extends javax.swing.JFrame {
     private void campoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCancelarActionPerformed
         DARKTelaAdministrador telaadm = new DARKTelaAdministrador();
         LOGGER.info("O administrador cancelou a edição de dados do usuário.");
+        CredencialDAO.gerarLog("O administrador cancelou a edição de dados do usuário.");
         telaadm.setVisible(true);
         dispose();
     }//GEN-LAST:event_campoCancelarActionPerformed
 
     private void campoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLimparActionPerformed
         LOGGER.info("O administrador limpou todos os campos da edição de usuários.");
+        CredencialDAO.gerarLog("O administrador limpou todos os campos da edição de usuários.");
         limparCampos();
     }//GEN-LAST:event_campoLimparActionPerformed
 
     private void tabelaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaUsuariosMouseClicked
         if(evt.getClickCount()==2){
             LOGGER.info("O administrador carregou os dados de um usuário.");
+            CredencialDAO.gerarLog("O administrador carregou os dados de um usuário.");
             carregarCampos();
         }
     }//GEN-LAST:event_tabelaUsuariosMouseClicked
@@ -236,7 +241,8 @@ public class DARKJanelaDadosUsuario extends javax.swing.JFrame {
             }
         }catch(Exception erro){
             JOptionPane.showMessageDialog(null, "Listar Usuarios" + erro);
-            LOGGER.error("Os usuáriso não foram listados.");
+            LOGGER.error("Os usuários não foram listados.");
+            CredencialDAO.gerarLog("Os usuários não foram listados.");
         }
     }
     

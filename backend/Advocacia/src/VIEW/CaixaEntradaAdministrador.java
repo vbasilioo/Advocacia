@@ -1,5 +1,6 @@
 package VIEW;
 
+import DAO.CredencialDAO;
 import DAO.MensagensDAO;
 import DTO.MensagensDTO;
 import LOG.Log;
@@ -241,9 +242,11 @@ public class CaixaEntradaAdministrador extends javax.swing.JFrame {
             }
             
             LOGGER.info("As mensagens foram listadas com sucesso.");
+            CredencialDAO.gerarLog("As mensagens foram listadas com sucesso.");
         }catch(Exception erro){
             JOptionPane.showMessageDialog(null, "Listar Usuarios" + erro);
             LOGGER.error("Falha ao listar as mensagens da caixa do administrador.");
+            CredencialDAO.gerarLog("Falha ao listar as mensagens da caixa do administrador.");
         }
     }
     

@@ -1,4 +1,5 @@
 package VIEW;
+import DAO.CredencialDAO;
 import DAO.UsuariosDAO;
 import DTO.UsuariosDTO;
 import LOG.Log;
@@ -109,6 +110,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
         if(evt.getClickCount()==2){    
             JanelaDadosUsuario jaldados = new JanelaDadosUsuario();
             LOGGER.info("O administrador irá editar os dados de um usuário.");
+            CredencialDAO.gerarLog("O administrador irá editar os dados de um usuário.");
             jaldados.setVisible(true);
             dispose();
         }
@@ -136,9 +138,11 @@ public class ListaUsuarios extends javax.swing.JFrame {
                 });
             }
             LOGGER.info("Os usuários cadastrados foram listados com sucesso.");
+            CredencialDAO.gerarLog("Os usuários cadastrados foram listados com sucesso.");
         }catch(Exception erro){
             JOptionPane.showMessageDialog(null, "Listar Usuarios" + erro);
-            LOGGER.error("Os usuáriso cadastrados não foram listados.");
+            LOGGER.error("Os usuários cadastrados não foram listados.");
+            CredencialDAO.gerarLog("Os usuários cadastrados não foram listados.");
         }
     }
     

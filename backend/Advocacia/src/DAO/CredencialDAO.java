@@ -108,8 +108,8 @@ public class CredencialDAO{
     
     public static void salvarLog()
     {
-          String sql = "UPDATE logs SET Logs = ?"
-                + "WHERE Nome = 'Log'";
+        String sql = "UPDATE logs SET Logs = ?"
+            + "WHERE Nome = 'Log'";
         Connection conn = new ConexaoDAO().conectaDB();
         
         try{
@@ -118,16 +118,16 @@ public class CredencialDAO{
             pstm.setString(1, logs);
             
             pstm.execute();
-            LOGGER.info("Os logs foram atualizados");
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Atualizar log" + erro);
             LOGGER.error("Não foi possível atualizar os logs");
+            CredencialDAO.gerarLog("Não foi possível atualizar os logs.");
         }
     }
     public static void baixarLog()
     {
-               String selectSQL = "SELECT Logs FROM logs WHERE Nome = 'Log'";
+        String selectSQL = "SELECT Logs FROM logs WHERE Nome = 'Log'";
         ResultSet rs = null;
         
         Connection conn = new ConexaoDAO().conectaDB();

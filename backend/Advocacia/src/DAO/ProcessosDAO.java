@@ -30,10 +30,12 @@ public class ProcessosDAO{
         try{
             pstm = conn.prepareStatement(sql);
             LOGGER.info("Os processos foram carregados com sucesso.");
+            CredencialDAO.gerarLog("Os processos foram carregados com sucesso.");
             return pstm.executeQuery();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro em Listar Processos!" + erro);
-            LOGGER.error("Os processos não foram carregados");
+            LOGGER.error("Os processos não foram carregados.");
+            CredencialDAO.gerarLog("Os processos não foram carregados.");
             return null;
         }
     }
@@ -83,10 +85,12 @@ public class ProcessosDAO{
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Processo cadastrado com sucesso!");
             LOGGER.info("Um processo foi cadastrado com sucesso.");
+            CredencialDAO.gerarLog("Um processo foi cadastrado com sucesso.");
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "CadastrarProcessosDAO: " + erro);
             LOGGER.error("O processo não foi cadastrado.");
+            CredencialDAO.gerarLog("O processo não foi cadastrado.");
         }
     }
     
@@ -123,11 +127,13 @@ public class ProcessosDAO{
             pstm.setInt(3, id);
             
             pstm.execute();
-            LOGGER.info("Os dados do processo foram atualizados");
+            LOGGER.info("Os dados do processo foram atualizados.");
+            CredencialDAO.gerarLog("Os dados do processo foram atualizados.");
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Editar Processo" + erro);
-            LOGGER.error("Não foi possível atualizar os dados do processo");
+            LOGGER.error("Não foi possível atualizar os dados do processo.");
+            CredencialDAO.gerarLog("Não foi possível atualizar os dados do processo.");
         }
     }
     
@@ -163,10 +169,12 @@ public class ProcessosDAO{
             ps.execute();
             JOptionPane.showMessageDialog(null, "Processo cadastrado com sucesso!");
             LOGGER.info("Um processo foi cadastrado com sucesso.");
+            CredencialDAO.gerarLog("Um rocesso foi cadastrado com sucesso.");
             ps.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "CadastrarProcessosDAO: " + erro);
             LOGGER.error("O processo não foi cadastrado.");
+            CredencialDAO.gerarLog("O processo não foi cadastrado.");
         }
     }
     

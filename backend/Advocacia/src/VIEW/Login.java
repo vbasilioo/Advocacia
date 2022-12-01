@@ -384,21 +384,24 @@ public class Login extends javax.swing.JFrame {
                             Border border = BorderFactory.createLineBorder(Color.RED, 2);
                             campoUsuario.setBorder(border);
                             campoSenha.setBorder(border);
-                            LOGGER.info("O usuário não inseriu o usuário e a senha para autenticação.");
+                            LOGGER.info("O usuário não inseriu o 'usuário' e a 'senha' para autenticação.");
+                            CredencialDAO.gerarLog("O usuário não inseriu 'usuário' e a 'senha' para autenticação.");
                         }
                         else if((campoUsuario.getText().isEmpty())&&(campoSenha.getText().length() > 0)){
                             Border border = BorderFactory.createLineBorder(Color.RED, 2);
                             Border border2 = BorderFactory.createLineBorder(Color.BLACK, 1);
                             campoUsuario.setBorder(border);
                             campoSenha.setBorder(border2);
-                            LOGGER.info("O usuário não inseriu o usuário para autenticação.");
+                            LOGGER.info("O usuário não inseriu o 'usuário' para autenticação.");
+                            CredencialDAO.gerarLog("O usuário não inseriu o 'usuário' para autenticação.");
                         }
                         else if((campoSenha.getText().isEmpty())&&(campoUsuario.getText().length() > 0)){
                             Border border = BorderFactory.createLineBorder(Color.RED, 2);
                             Border border2 = BorderFactory.createLineBorder(Color.BLACK, 1);
                             campoUsuario.setBorder(border2);
                             campoSenha.setBorder(border);
-                            LOGGER.info("O usuário não inseriu a senha para autenticação");
+                            LOGGER.info("O usuário não inseriu a 'senha' para autenticação.");
+                            CredencialDAO.gerarLog("O usuário não inseriu a 'senha' para aunteticação.");
                         }else if((campoSenha.getText().length() > 0)&&(campoUsuario.getText().length() > 0)){
                             Border border = BorderFactory.createLineBorder(Color.RED, 2);
                             campoUsuario.setBorder(border);
@@ -407,6 +410,7 @@ public class Login extends javax.swing.JFrame {
                 }catch(InterruptedException ex){ 
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                     LOGGER.error("O usuário não conseguiu realizar a autenticação por falha na tela de login.");
+                    CredencialDAO.gerarLog("O usuário não conseguiu realizar a autenticação por falha na tela de login.");
                 }
             }
         }.start();
@@ -570,18 +574,21 @@ private void Logar(){
                     TelaAdministrador tadm = new TelaAdministrador();
                     tadm.setVisible(true);
                     dispose();
-                    LOGGER.info("O usuário acessou o sistema com o cargo [0].");
+                    LOGGER.info("O usuário acessou o sistema com o cargo [0] (Administrador).");
+                    CredencialDAO.gerarLog("O usuário acessou o sistema com o cargo [0] (Administrador).");
                 }
                 else if(CredencialDAO.cargo==1){
                     TelaUsuario tusu = new TelaUsuario();
                     tusu.setVisible(true);
                     dispose();
-                    LOGGER.info("O usuário acessou o sistema com o cargo [1].");
+                    LOGGER.info("O usuário acessou o sistema com o cargo [1] (Usuário).");
+                    CredencialDAO.gerarLog("O usuário acessou o sistema com o cargo [1] (Usuário).");
                 }
             }  
     }catch(SQLException erro){
         JOptionPane.showMessageDialog(null, "LOGAR" + erro);
-        LOGGER.info("O usuário não conseguiu realizar o login");
+        LOGGER.info("O usuário não conseguiu realizar o login.");
+        CredencialDAO.gerarLog("O usuário não conseguiu realizar o login.");
     }
 }
 

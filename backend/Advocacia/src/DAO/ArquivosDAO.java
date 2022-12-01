@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO;
 
 import VIEW.DARKTelaUsuario;
@@ -16,10 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-/**
- *
- * @author SaMuK
- */
+
 public class ArquivosDAO {
     
     Connection conn;
@@ -36,10 +29,12 @@ public class ArquivosDAO {
         try{
             pstm = conn.prepareStatement(sql);
             LOGGER.info("Os arquivos foram carregados com sucesso.");
+            CredencialDAO.gerarLog("Os arquivos foram carregados com sucesso.");
             return pstm.executeQuery();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro em Listar Arquivos!" + erro);
-            LOGGER.error("Os Arquivos não foram carregados");
+            LOGGER.error("Os arquivos não foram carregados.");
+            CredencialDAO.gerarLog("Os arquivos não foram carregados.");
             return null;
         }
     }
@@ -51,10 +46,12 @@ public class ArquivosDAO {
         try{
             pstm = conn.prepareStatement(sql);
             LOGGER.info("Os arquivos foram carregados com sucesso.");
+            CredencialDAO.gerarLog("Os arquivos foram carregados com sucesso.");
             return pstm.executeQuery();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro em Listar Arquivos!" + erro);
-            LOGGER.error("Os Arquivos não foram carregados");
+            LOGGER.error("Os arquivos não foram carregados");
+            CredencialDAO.gerarLog("Os arquivos não foram carregados.");
             return null;
         }
     }

@@ -374,9 +374,11 @@ salv.BaixarArquivo(id_arquivo,caminho);
                 });
             }
             LOGGER.info("Os processos foram listados com sucesso.");
+            CredencialDAO.gerarLog("Os processos foram listados com sucesso.");
         }catch(Exception erro){
             JOptionPane.showMessageDialog(null, "Listar Processos" + erro);
             LOGGER.error("Falha ao listar os processos.");
+            CredencialDAO.gerarLog("Falha ao listar os processos.");
         }
     }
     

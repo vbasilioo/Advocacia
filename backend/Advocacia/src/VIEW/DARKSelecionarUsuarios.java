@@ -15,7 +15,8 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
     public static String text;
     public static int id;
     public static String nome;
-    public static boolean adicionar;
+    public static boolean adicionarDark;
+    public static boolean cancelarDark;
 
     public DARKSelecionarUsuarios() {
         nomes.clear();
@@ -23,7 +24,8 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
         text="";
         nome="";
         id=0;
-        adicionar = false;
+        adicionarDark = false;
+        cancelarDark = false;
         initComponents();
         carregarLista();
         
@@ -34,8 +36,8 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        buttonCancelar = new javax.swing.JButton();
-        buttonAdicionar = new javax.swing.JButton();
+        buttonCancelarDark = new javax.swing.JButton();
+        buttonAdicionarDark = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaUsuarios = new javax.swing.JList<>();
 
@@ -43,25 +45,25 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        buttonCancelar.setBackground(new java.awt.Color(102, 102, 102));
-        buttonCancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonCancelar.setForeground(new java.awt.Color(51, 51, 51));
-        buttonCancelar.setText("Cancelar");
-        buttonCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        buttonCancelarDark.setBackground(new java.awt.Color(102, 102, 102));
+        buttonCancelarDark.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        buttonCancelarDark.setForeground(new java.awt.Color(51, 51, 51));
+        buttonCancelarDark.setText("Cancelar");
+        buttonCancelarDark.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        buttonCancelarDark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCancelarActionPerformed(evt);
+                buttonCancelarDarkActionPerformed(evt);
             }
         });
 
-        buttonAdicionar.setBackground(new java.awt.Color(102, 102, 102));
-        buttonAdicionar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonAdicionar.setForeground(new java.awt.Color(51, 51, 51));
-        buttonAdicionar.setText("Adicionar");
-        buttonAdicionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        buttonAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        buttonAdicionarDark.setBackground(new java.awt.Color(102, 102, 102));
+        buttonAdicionarDark.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        buttonAdicionarDark.setForeground(new java.awt.Color(51, 51, 51));
+        buttonAdicionarDark.setText("Adicionar");
+        buttonAdicionarDark.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        buttonAdicionarDark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAdicionarActionPerformed(evt);
+                buttonAdicionarDarkActionPerformed(evt);
             }
         });
 
@@ -86,9 +88,9 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(buttonAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAdicionarDark, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonCancelarDark, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
@@ -99,8 +101,8 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(buttonAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonCancelarDark, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(buttonAdicionarDark, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -119,22 +121,22 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+    private void buttonCancelarDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarDarkActionPerformed
         id=0;
         nome="";
         dispose();
-    }//GEN-LAST:event_buttonCancelarActionPerformed
+    }//GEN-LAST:event_buttonCancelarDarkActionPerformed
 
-    private void buttonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarActionPerformed
+    private void buttonAdicionarDarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarDarkActionPerformed
         if(id!=0)
         {
-            adicionar=true;
+            adicionarDark=true;
             DARKEditarProcesso dep = new DARKEditarProcesso();
             dep.setVisible(true);
             dispose();
         }
         
-    }//GEN-LAST:event_buttonAdicionarActionPerformed
+    }//GEN-LAST:event_buttonAdicionarDarkActionPerformed
 
     private void listaUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaUsuariosMouseClicked
         id=ids.elementAt(listaUsuarios.getSelectedIndex());
@@ -185,12 +187,16 @@ public class DARKSelecionarUsuarios extends javax.swing.JFrame {
     
     public static void addUsuarios(boolean x)
     {
-        adicionar=x;
+        adicionarDark=x;
+    }
+    public static void setCancelarDark(boolean x)
+    {
+        cancelarDark=x;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAdicionar;
-    private javax.swing.JButton buttonCancelar;
+    private javax.swing.JButton buttonAdicionarDark;
+    private javax.swing.JButton buttonCancelarDark;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaUsuarios;

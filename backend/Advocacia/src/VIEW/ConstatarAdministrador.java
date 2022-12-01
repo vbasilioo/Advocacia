@@ -1,5 +1,6 @@
 package VIEW;
 
+import DAO.CredencialDAO;
 import LOG.Log;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -144,6 +145,7 @@ public class ConstatarAdministrador extends javax.swing.JFrame {
         }
         else{
             LOGGER.info("A mensagem foi enviada para o administrador com sucesso.");
+            CredencialDAO.gerarLog("A mensagem foi enviada para o administrador com sucesso.");
             Border border2 = BorderFactory.createLineBorder(Color.BLACK, 2);
             campoEmail.setBorder(border2);
             campoMensagem.setBorder(border2);

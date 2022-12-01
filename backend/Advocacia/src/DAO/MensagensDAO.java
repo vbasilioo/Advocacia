@@ -31,10 +31,12 @@ public class MensagensDAO{
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Mensagem enviada com sucesso!");
             LOGGER.info("A caixa de entrada do administrador foi carregada com sucesso.");
+            CredencialDAO.gerarLog("A caixa de entrada do administrador foi carregada com sucesso.");
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "ERRO: Cadastrar Mensagem!" + erro);
             LOGGER.error("A caixa de entrada do administrador não foi carregada.");
+            CredencialDAO.gerarLog("A caixa de entrada do administrador não foi carregada.");
         }
     }
     
@@ -45,10 +47,12 @@ public class MensagensDAO{
         try{
             pstm = conn.prepareStatement(sql);
             LOGGER.info("As mensagens da caixa de entrada foram carregadas com sucesso.");
+            CredencialDAO.gerarLog("As mensagens da caixa de entrada foram carregadas com sucesso.");
             return pstm.executeQuery();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Erro em Listar Mensagens!" + erro);
             LOGGER.error("As mensagens da caixa de entrada não foram carregadas.");
+            CredencialDAO.gerarLog("As mensagens da caixa de entrada não foram carregadas.");
             return null;
         }
     }
@@ -84,10 +88,12 @@ public class MensagensDAO{
             pstm.setInt(1, msgdto.getId_mensagem());
             pstm.execute();
             LOGGER.info("O problema foi resolvido pelo administrador.");
+            CredencialDAO.gerarLog("O problema foi resolvido pelo administrador.");
             pstm.close();
         }catch(SQLException erro){
             JOptionPane.showMessageDialog(null, "Problema resolvido." + erro);
             LOGGER.error("O problema resolvido não foi retirado do banco de dados.");
+            CredencialDAO.gerarLog("O problema resolvido não foi retirado do banco de dados.");
         }
     }
     
