@@ -25,20 +25,20 @@ public class DARKCadastrarProcesso extends javax.swing.JFrame {
     
     public DARKCadastrarProcesso() {
         
-        if(DARKSelecionarUsuarios.adicionarDark)
+        if(DARKSelecionarUsuario.adicionar)
         {
-            text+=DARKSelecionarUsuarios.id +",";
+            text+=DARKSelecionarUsuario.id +",";
             System.out.println("id: " +text);
-            users.addElement(DARKSelecionarUsuarios.id);
-            DARKSelecionarUsuarios.addUsuarios(false);
+            users.addElement(DARKSelecionarUsuario.id);
+            DARKSelecionarUsuario.addUsuarios(false);
         }
         else
         {
-            if(!DARKSelecionarUsuarios.cancelarDark)
+            if(!DARKSelecionarUsuario.cancelar)
             {
                 text=CredencialDAO.id +",";
                 cliente="";
-                DARKSelecionarUsuarios.setCancelarDark(false);
+                DARKSelecionarUsuario.setCancelar(false);
             }
         }
         initComponents();
@@ -46,10 +46,6 @@ public class DARKCadastrarProcesso extends javax.swing.JFrame {
         selec = -1;
         fieldNome.setText(cliente);
         lista(text);
-        
-        
-        
-        
     }
     private void lista(String ids)
     {        
@@ -284,16 +280,13 @@ public class DARKCadastrarProcesso extends javax.swing.JFrame {
         System.out.println(text);      
         id=0;
         selec=-1;
-        
-        }
-        
-            
+        }      
     }//GEN-LAST:event_buttonRemoverActionPerformed
 
     private void buttonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarActionPerformed
         // TODO add your handling code here:
         cliente=fieldNome.getText();
-        DARKSelecionarUsuarios dsu = new DARKSelecionarUsuarios();
+        DARKSelecionarUsuario dsu = new DARKSelecionarUsuario();
         dsu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonAdicionarActionPerformed
