@@ -153,6 +153,7 @@ public class CadSelecionarUsuarios extends javax.swing.JFrame {
     {
         listaUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         int tam = CadastProcesso.vecIds.size();
+        System.out.println("tamanho: " +tam);
         String selectSQL = "SELECT nome_usuario, id_usuario, cargo_usuario FROM usuarios";
         ResultSet result = null;
         PreparedStatement ps;
@@ -165,14 +166,25 @@ public class CadSelecionarUsuarios extends javax.swing.JFrame {
             System.out.println(result);
             while(result.next())
             {
-                for(int i=0; i<tam; i++)
+                 System.out.println("id: " +result.getInt("id_usuario") +", nome: " +result.getString("nome_usuario"));
+                 b=true;
+                for(int i=0; i<CadastProcesso.vecIds.size(); i++)
                 {
-                    if(result.getInt("cargo_usuario")==0)break;
-                    if(result.getInt("id_usuario")==CadastProcesso.vecIds.elementAt(i))break;
-                    if(i==tam-1)b=true;
+                    if(result.getInt("cargo_usuario")==0)
+                    {
+                        b=false;
+                        break;
+                    }
+                    if(result.getInt("id_usuario")==CadastProcesso.vecIds.elementAt(i))
+                    {
+                        b=false;
+                        break;
+                    }
+                    
                 }
                 if(b)
                 {
+                     System.out.println("OK");
                     nomes.add(result.getString("nome_usuario"));
                     ids.add(result.getInt("id_usuario"));
                 }

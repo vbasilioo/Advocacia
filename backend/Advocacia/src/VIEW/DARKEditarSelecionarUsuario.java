@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.ListSelectionModel;
 
-public class SelecionarUsuarios extends javax.swing.JFrame {
+public class DARKEditarSelecionarUsuario extends javax.swing.JFrame {
 
     public static Vector<String> nomes = new Vector<>();
     public static Vector<Integer> ids = new Vector<>();
@@ -18,17 +18,16 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
     public static boolean adicionar;
     public static boolean cancelar;
 
-    public SelecionarUsuarios() {
+    public DARKEditarSelecionarUsuario() {
         nomes.clear();
         ids.clear();
         text="";
         nome="";
         id=0;
         adicionar = false;
-        cancelar = false;
+        cancelar= false;
         initComponents();
         carregarLista();
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -36,29 +35,29 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        buttonCancelar = new javax.swing.JButton();
+        buttonRetornar = new javax.swing.JButton();
         buttonAdicionar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaUsuarios = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        buttonCancelar.setBackground(new java.awt.Color(70, 130, 180));
-        buttonCancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        buttonCancelar.setText("Cancelar");
-        buttonCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        buttonRetornar.setBackground(new java.awt.Color(102, 102, 102));
+        buttonRetornar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        buttonRetornar.setForeground(new java.awt.Color(51, 51, 51));
+        buttonRetornar.setText("Cancelar");
+        buttonRetornar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        buttonRetornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCancelarActionPerformed(evt);
+                buttonRetornarActionPerformed(evt);
             }
         });
 
-        buttonAdicionar.setBackground(new java.awt.Color(70, 130, 180));
+        buttonAdicionar.setBackground(new java.awt.Color(102, 102, 102));
         buttonAdicionar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        buttonAdicionar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonAdicionar.setForeground(new java.awt.Color(51, 51, 51));
         buttonAdicionar.setText("Adicionar");
         buttonAdicionar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         buttonAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +89,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(buttonAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(buttonRetornar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -104,7 +103,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonRetornar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -123,21 +122,21 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelarActionPerformed
+    private void buttonRetornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRetornarActionPerformed
         id=0;
         nome="";
         cancelar =true;
-        EditarProcesso ep = new EditarProcesso();
-        ep.setVisible(true);
+        DARKEditarProcesso dcp = new DARKEditarProcesso();
+        dcp.setVisible(true);
         dispose();
-    }//GEN-LAST:event_buttonCancelarActionPerformed
+    }//GEN-LAST:event_buttonRetornarActionPerformed
 
     private void buttonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarActionPerformed
         if(id!=0)
         {
             adicionar=true;
-            EditarProcesso ep = new EditarProcesso();
-            ep.setVisible(true);
+            DARKEditarProcesso dep = new DARKEditarProcesso();
+            dep.setVisible(true);
             dispose();
         }
         
@@ -152,7 +151,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
     private void carregarLista()
     {
         listaUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        int tam = EditarProcesso.vecIds.size();
+        int tam = DARKEditarProcesso.vecIds.size();
         String selectSQL = "SELECT nome_usuario, id_usuario, cargo_usuario FROM usuarios";
         ResultSet result = null;
         PreparedStatement ps;
@@ -173,7 +172,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
                         b=false;
                         break;
                     }
-                    if(result.getInt("id_usuario")==EditarProcesso.vecIds.elementAt(i))
+                    if(result.getInt("id_usuario")==DARKEditarProcesso.vecIds.elementAt(i))
                     {
                         b=false;
                         break;
@@ -209,7 +208,7 @@ public class SelecionarUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdicionar;
-    private javax.swing.JButton buttonCancelar;
+    private javax.swing.JButton buttonRetornar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaUsuarios;
