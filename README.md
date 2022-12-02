@@ -21,8 +21,8 @@
 
 ### Introdução
 
-1. [Boas Vindas](-)
-2. [Manual do Usuário](-)
+1. [Boas Vindas](https://github.com/vbasilioo/Advocacia)
+2. [Manual do Usuário](https://github.com/vbasilioo/Advocacia/tree/master/Documentos/Manual%20do%20Usu%C3%A1rio)
 
 ### Como usar?
 
