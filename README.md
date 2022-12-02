@@ -27,7 +27,7 @@
 ### Como usar?
 
 <p align="left">
-    Ao realizar o download (ou clone) do projeto, você deverá abrir a pasta e rodar o executável que se encontra na pasta principal do projeto. O nome do executável é: advocacia; e o seu ícone é uma xícara azul.
+    Ao realizar o download (ou clone) do projeto, você deverá abrir a pasta 'dist' e rodar o executável que se encontra na pasta principal do projeto. O nome do executável é: advocacia; e o seu ícone é uma xícara azul.
 </p>
 
 ## Como Contribuir
