@@ -242,6 +242,7 @@ public class DARKCadastrarProcesso extends javax.swing.JFrame {
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         // TODO add your handling code here:
+        cliente=fieldNome.getText();
         System.out.println("Salvar");  
         ProcessosDAO.cadastProcessos(cliente, text);
         int ultId = ProcessosDAO.ultId();
