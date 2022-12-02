@@ -126,6 +126,8 @@ public class DARKSelecionarUsuario extends javax.swing.JFrame {
         id=0;
         nome="";
         cancelar =true;
+        DARKCadastrarProcesso dcp = new DARKCadastrarProcesso();
+        dcp.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonRetornarActionPerformed
 
@@ -162,11 +164,19 @@ public class DARKSelecionarUsuario extends javax.swing.JFrame {
             System.out.println(result);
             while(result.next())
             {
+                b=true;
                 for(int i=0; i<tam; i++)
                 {
-                    if(result.getInt("cargo_usuario")==0)break;
-                    if(result.getInt("id_usuario")==DARKCadastrarProcesso.vecIds.elementAt(i))break;
-                    if(i==tam-1)b=true;
+                    if(result.getInt("cargo_usuario")==0)
+                    {
+                        b=false;
+                        break;
+                    }
+                    if(result.getInt("id_usuario")==DARKCadastrarProcesso.vecIds.elementAt(i))
+                    {
+                        b=false;
+                        break;
+                    }
                 }
                 if(b)
                 {

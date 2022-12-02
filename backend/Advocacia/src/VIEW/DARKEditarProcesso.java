@@ -28,15 +28,15 @@ public class DARKEditarProcesso extends javax.swing.JFrame {
             
         
         text=DARKConsultarProcesso.usuarios;
-        if(DARKSelecionarUsuario.adicionar)
+        if(DARKEditarSelecionarUsuario.adicionar)
         {
-            text+=DARKSelecionarUsuario.id +",";
+            text+=DARKEditarSelecionarUsuario.id +",";
             System.out.println("id: " +text);
-            users.addElement(DARKSelecionarUsuario.id);
+            users.addElement(DARKEditarSelecionarUsuario.id);
             proc.addElement("add");
             System.out.println(" proc: " +proc);
             System.out.println("users:" +users);
-            DARKSelecionarUsuario.addUsuarios(false);
+            DARKEditarSelecionarUsuario.addUsuarios(false);
         }
         initComponents();
         id=0;
@@ -334,7 +334,7 @@ public class DARKEditarProcesso extends javax.swing.JFrame {
 
     private void buttonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAdicionarActionPerformed
         // TODO add your handling code here:
-        DARKSelecionarUsuario dsu = new DARKSelecionarUsuario();
+        DARKEditarSelecionarUsuario dsu = new DARKEditarSelecionarUsuario();
         dsu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonAdicionarActionPerformed

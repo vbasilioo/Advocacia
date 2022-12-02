@@ -270,9 +270,11 @@ public class CadastProcesso extends javax.swing.JFrame {
         if((selec!=-1)&&(vecIds.elementAt(selec) != CredencialDAO.id))
         {
         System.out.println("selecionado: " +vecNomes.elementAt(selec)+", id usuario: " +CredencialDAO.id);
-        listAdvogados.removeAll();       
+        listAdvogados.removeAll();   
+        System.out.println("Ids antes: "+vecIds);
         vecIds.remove(selec);
         vecNomes.remove(selec);
+        
         System.out.println("*");
         text = "";
         for(int i=0; i<vecIds.size(); i++) text+=vecIds.elementAt(i) +",";
@@ -280,6 +282,7 @@ public class CadastProcesso extends javax.swing.JFrame {
         System.out.println(text);      
         id=0;
         selec=-1;
+        System.out.println("Ids dps: "+vecIds);
         }
             
     }//GEN-LAST:event_buttonRemoverActionPerformed

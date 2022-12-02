@@ -269,17 +269,24 @@ public class DARKCadastrarProcesso extends javax.swing.JFrame {
         // TODO add your handling code here:
         if((selec!=-1)&&(vecIds.elementAt(selec) != CredencialDAO.id))
         {
+            System.out.println("*---*");
         System.out.println("selecionado: " +vecNomes.elementAt(selec)+", id usuario: " +CredencialDAO.id);
-        listAdvogados.removeAll();       
+        System.out.println("Ids antes: ");
+        for(int i=0; i<vecIds.size(); i++)System.out.print(vecIds.elementAt(i) +", ");
+        System.out.println("");
+        listAdvogados.removeAll();        
         vecIds.remove(selec);
         vecNomes.remove(selec);
-        System.out.println("*");
+        System.out.println("*---*");
         text = "";
         for(int i=0; i<vecIds.size(); i++) text+=vecIds.elementAt(i) +",";
         lista(text);
         System.out.println(text);      
         id=0;
         selec=-1;
+        System.out.println("Ids dps: "+vecIds);
+        for(int i=0; i<vecIds.size(); i++)System.out.print(vecIds.elementAt(i) +", ");
+        System.out.println("");
         }      
     }//GEN-LAST:event_buttonRemoverActionPerformed
 
