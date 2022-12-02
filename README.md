@@ -45,4 +45,4 @@ As contribuições para o projeto fazem com que a comunidade open-source cresça
 - **Eric Mendes (ericaoo)** - _Developer Back-end_ - [Github](https://github.com/ericaoo)
 - **Maria Clara Rocha (mariaclararcs)** - _Developer Front-end & UI/UX_ - [Github](https://github.com/mariaclararcs)
 - **Samuel Ribeiro (srslopes)** - _Developer Back-end_ - [Github](https://github.com/srslopes)
-- **Vinícius Basílio (vbasilioo)** - _Developer Back-end & Front-end_  - [Github](https://github.com/vbasilioo)
+- **Vinícius Basílio (vbasilioo)** - _Developer Fullstack_  - [Github](https://github.com/vbasilioo)
