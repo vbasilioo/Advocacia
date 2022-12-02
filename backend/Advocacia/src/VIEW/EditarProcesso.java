@@ -307,7 +307,7 @@ public class EditarProcesso extends javax.swing.JFrame {
 
     private void buttonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoverActionPerformed
         // TODO add your handling code here:
-        if(selec!=-1)
+        if((selec!=-1)&&(vecIds.elementAt(selec) != CredencialDAO.id))
         {
         System.out.println("nome: " +vecNomes.elementAt(selec));
         listAdvogados.removeAll();
