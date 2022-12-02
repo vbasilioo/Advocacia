@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Nov-2022 às 23:56
+-- Tempo de geração: 02-Dez-2022 às 03:02
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -104,9 +104,11 @@ CREATE TABLE `processos` (
 --
 
 INSERT INTO `processos` (`id_processo`, `cliente`, `usuario_associado`) VALUES
-(1, 'fulano', '2,'),
-(3, 'beltrano', '2,3,'),
-(12, 'ciclano', '2,3,');
+(1, 'Matheus', '2,'),
+(3, 'Amanda', '2,3,'),
+(12, 'Joao', '2,3,'),
+(13, 'Fernanda', '1,2,'),
+(14, 'Carlos', '1,2,3,4,');
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nome_usuario`, `senha_usuario`, `email_us
 (1, 'admin', 'admin', 'admin@usuario.com', 0, ''),
 (2, 'vinicius', '1234', 'vinicius@usuario.com', 1, '1,12,'),
 (3, 'maria', '1234', 'maria@usuario.com', 1, '3,12,'),
-(4, 'samuel', '1234', 'samuel@usuario.com', 1, '');
+(4, 'samuel', '1234', 'samuel@usuario.com', 1, ''),
+(5, 'eric', '1234', 'eric@usuario.com', 0, '');
 
 --
 -- Índices para tabelas despejadas
@@ -181,13 +184,13 @@ ALTER TABLE `mensagens`
 -- AUTO_INCREMENT de tabela `processos`
 --
 ALTER TABLE `processos`
-  MODIFY `id_processo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_processo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

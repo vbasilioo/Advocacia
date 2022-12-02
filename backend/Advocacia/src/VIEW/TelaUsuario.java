@@ -89,7 +89,7 @@ public class TelaUsuario extends javax.swing.JFrame {
         consultarProcessos.setBackground(new java.awt.Color(70, 130, 180));
         consultarProcessos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         consultarProcessos.setForeground(new java.awt.Color(255, 255, 255));
-        consultarProcessos.setText("Consultar Processos");
+        consultarProcessos.setText("Consultar Processo");
         consultarProcessos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultarProcessosActionPerformed(evt);

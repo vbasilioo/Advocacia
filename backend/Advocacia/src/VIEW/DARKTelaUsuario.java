@@ -91,7 +91,7 @@ public class DARKTelaUsuario extends javax.swing.JFrame {
         consultarProcessos.setBackground(new java.awt.Color(102, 102, 102));
         consultarProcessos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         consultarProcessos.setForeground(new java.awt.Color(51, 51, 51));
-        consultarProcessos.setText("Consultar Processos");
+        consultarProcessos.setText("Consultar Processo");
         consultarProcessos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         consultarProcessos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

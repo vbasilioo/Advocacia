@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
         Login.setBackground(new java.awt.Color(255, 255, 255));
 
         campoUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        campoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        campoUsuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         campoUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 campoUsuarioFocusGained(evt);
@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame {
 
         campoSenha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         campoSenha.setToolTipText("");
-        campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(null));
+        campoSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         botaoEntrar.setBackground(new java.awt.Color(0, 0, 0));
         botaoEntrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
