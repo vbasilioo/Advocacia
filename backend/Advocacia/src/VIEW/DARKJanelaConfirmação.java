@@ -34,7 +34,8 @@ public class DARKJanelaConfirmação extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setToolTipText("");
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setText("Você tem certeza que quer ");
@@ -42,9 +43,9 @@ public class DARKJanelaConfirmação extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("excluir este processo?");
 
-        Salvar.setBackground(new java.awt.Color(70, 130, 180));
+        Salvar.setBackground(new java.awt.Color(102, 102, 102));
         Salvar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        Salvar.setForeground(new java.awt.Color(255, 255, 255));
+        Salvar.setForeground(new java.awt.Color(51, 51, 51));
         Salvar.setText("Sim");
         Salvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Salvar.addActionListener(new java.awt.event.ActionListener() {
@@ -53,9 +54,9 @@ public class DARKJanelaConfirmação extends javax.swing.JFrame {
             }
         });
 
-        cancelar.setBackground(new java.awt.Color(70, 130, 180));
+        cancelar.setBackground(new java.awt.Color(102, 102, 102));
         cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        cancelar.setForeground(new java.awt.Color(255, 255, 255));
+        cancelar.setForeground(new java.awt.Color(51, 51, 51));
         cancelar.setText("Cancelar");
         cancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cancelar.addActionListener(new java.awt.event.ActionListener() {
